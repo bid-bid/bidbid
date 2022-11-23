@@ -19,7 +19,7 @@ public class Member {
     private String password;
     private String name;
 
-    private int point = 0;
+    private Integer point = 0;
 
     @Builder
     public Member(String email, String password, String name) {
