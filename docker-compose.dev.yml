@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  spring:
+    build:
+      context: ./
+    command: gradle bootRun
+    ports:
+      - 8080
+    restart: always
+    depends_on:
+      - database
+    networks:
+      - default-network
+
+  database:
+    image: mysql
+    container_name: database
+    environment:
+      - MYSQL_DATABASE=test
+      - MYSQL_ROOT_PASSWORD=1234
+    command: [ '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci' ]
+    volumes:
+      - "./database/spring_social/:/var/lib/mysql"
+    expose:
+      - 3306
+    networks:
+      - default-network
+
+networks:
+  default-network:
