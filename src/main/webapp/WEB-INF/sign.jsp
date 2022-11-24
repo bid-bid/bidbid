@@ -19,12 +19,12 @@
         </center>
 
         <div class="form-area">
-            <form action="/api/member" method="post">
+            <form action="/api/members" method="post">
                 <table>
                     <tr style="background-color: #FFF;border: 0;">
                         <td>
                        <span>
-                          <input type="text" id="name" name="userName" class="input-text" placeholder="NAME"
+                          <input type="text" id="name" name="name" class="input-text" placeholder="NAME"
                                  maxlength="15" onfocusout="validateName()">
                        </span>
                             <div id="name_alert" class="alert">필수 정보입니다.</div>

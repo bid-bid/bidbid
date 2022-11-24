@@ -10,6 +10,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class SignupRequest {
@@ -17,7 +18,6 @@ public class SignupRequest {
     @Email
     private String email;
     @NotEmpty
-    @Setter
     private String password;
     @NotEmpty
     private String name;

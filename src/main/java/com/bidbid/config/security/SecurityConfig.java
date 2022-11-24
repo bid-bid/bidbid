@@ -17,13 +17,16 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http.authorizeRequests()
                 //not needs login
-                .antMatchers("/**").permitAll()
+                .anyRequest().permitAll()
+               // .antMatchers("/**").permitAll()
+                //.antMatchers("**").permitAll()
                 //has role "admin"
-                .antMatchers("/admin/**").hasRole("ADMIN")
+                //.antMatchers("/admin/**").hasRole("ADMIN")
                 //needs login
-                .anyRequest().authenticated()
+                //.anyRequest().authenticated()
                 .and()
                 .formLogin().disable()
+                .csrf().disable()
                 .build();
     }
 
