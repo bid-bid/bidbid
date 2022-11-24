@@ -1,4 +1,4 @@
-package com.bidbid.entity.saleproduct;
+package com.bidbid.entity.saleauction;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

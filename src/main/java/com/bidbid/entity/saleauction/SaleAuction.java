@@ -1,4 +1,4 @@
-package com.bidbid.entity.saleproduct;
+package com.bidbid.entity.saleauction;
 
 import com.bidbid.entity.Member;
 import com.bidbid.global.BaseTime;
