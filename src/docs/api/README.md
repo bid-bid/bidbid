@@ -17,11 +17,14 @@ GET /item-info
 ## 로그인 인증
 
 ##### REQUEST
+
 POST /api/auth/login
+```json
 {
     "email": "user@example.com",
     "password": "rawPassword"
 }
+```
 
 ##### RESPONSE
 302 redirect:/
@@ -41,12 +44,13 @@ POST /api/logout
 
 ##### REQUEST
 POST /api/members
-
+```json
 {
 "email": "user@example.com",
 "password": "rowPassword",
 "name": "홍길동"
 }
+```
 
 
 
