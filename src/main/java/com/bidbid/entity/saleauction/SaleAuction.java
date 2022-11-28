@@ -3,7 +3,9 @@ package com.bidbid.entity.saleauction;
 import com.bidbid.entity.Member;
 import com.bidbid.global.BaseTime;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -20,6 +22,7 @@ public class SaleAuction {
     @Column(nullable = false)
     private String productName;
 
+    @Lob
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -39,6 +42,16 @@ public class SaleAuction {
     @Column(nullable = false)
     private Integer price = 0;
 
+    @Setter
     @Embedded
     private BaseTime baseTime;
+
+    @Builder
+    public SaleAuction(String productName, String description, Member seller, LocalDateTime auctionDeadline, Integer price) {
+        this.productName = productName;
+        this.description = description;
+        this.seller = seller;
+        this.auctionDeadline = auctionDeadline;
+        this.price = price;
+    }
 }
