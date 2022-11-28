@@ -9,6 +9,14 @@
 
 </head>
 <body>
+<%--    테스트용--%>
+<form action="api/members" method="post">
+    <input type="text" name="email"/>
+    <input type="password" name="password"/>
+    <input type="text" name="name"/>
+    <input type="submit"/>
+</form>
+
 <div class="wrapper">
     <!--page_header영역-->
     <jsp:include page="header.jsp"/>
