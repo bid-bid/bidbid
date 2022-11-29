@@ -8,6 +8,6 @@ public class AuthViewController {
 
     @GetMapping("login")
     public String login() {
-        return "login";
+        return "auth/login-form";
     }
 }

@@ -13,7 +13,7 @@
     <script src="./resources/js/util.js"></script>
     <script src="./resources/js/main.js"></script>
 </head>
-</head>
+
 <body>
 <div>
     <!-- Wrapper -->

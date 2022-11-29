@@ -22,11 +22,12 @@ public class MemberController {
     public String createMember(@Valid SignupRequest dto) {
         Member member = memberService.signup(dto);
 
-        return "redirect:/signup-finish";
+        return "redirect:/member/signup-finish";
     }
 
     @PostMapping("charge-point")
     public String chargePoint(Principal principal) {
+
         return "redirect:/";
     }
 }

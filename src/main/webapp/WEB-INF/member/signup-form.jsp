@@ -20,12 +20,12 @@
         </center>
 
         <div class="form-area">
-            <form action="/sign-cp" method="post">
+            <form action="/api/members" method="post">
                 <table>
                     <tr style="background-color: #FFF;border: 0;">
                         <td>
                        <span>
-                          <input type="text" id="userName" name="userName" class="input-text" placeholder="NAME"
+                          <input type="text" id="userName" name="name" class="input-text" placeholder="NAME"
                                  maxlength="15" onfocusout="validateName()">
                        </span>
                             <div id="name_alert" class="alert">필수 정보입니다.</div>
@@ -34,7 +34,7 @@
                     <tr style="background-color: #FFF;border: 0;">
                         <td>
                       <span>
-                         <input type="text" name="userEmail" id="userEmail" class="input-text" placeholder="EMAIL"
+                         <input type="text" name="email" id="userEmail" class="input-text" placeholder="EMAIL"
                                 maxlength="20" onfocusout="validateId()">
                       </span>
                             <div id="email_alert" class="alert">필수 정보입니다.</div>
@@ -43,7 +43,7 @@
                     <tr style="background-color: #FFF;border: 0;">
                         <td>
                       <span>
-                         <input type="password" name="pwd" id="pwd" class="input-text" placeholder="PW" maxlength="20"
+                         <input type="password" name="password" id="pwd" class="input-text" placeholder="PW" maxlength="20"
                                 onfocusout="validatePassword()">
                       </span>
                             <div id="password_alert" class="alert">필수 정보입니다.</div>
@@ -89,7 +89,7 @@
 
         // 대소문자, 숫자 입력 검증
 
-        if (!/^([\w\.\_\-])*[a-zA-Z0-9]+([\w\.\_\-])*([a-zA-Z0-9])+([\w\.\_\-])+@([a-zA-Z0-9]+\.)+[a-zA-Z0-9]{2,8}$/.test(userEmail)) {
+        if (!/^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(userEmail)) {
             alertEl.innerHTML = '유효하지 않은 이메일 주소입니다.';
             alertEl.style.display = 'block';
 
@@ -114,8 +114,8 @@
         }
 
         // 비밀번호 길이 검증
-        if (password.length < 5) {
-            alertEl.innerHTML = '비밀번호는 5글자 이상 입력해주세요.';
+        if (password.length < 1) {
+            alertEl.innerHTML = '비밀번호는 1글자 이상 입력해주세요.';
             alertEl.style.display = 'block';
 
             return false;

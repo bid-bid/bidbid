@@ -21,15 +21,15 @@
             <h1 style="margin:1em">BIDBID</h1>
         </center>
         <!--  아래 부분은 로그인 폼  -->
-        <form action="" method="post" style="margin-bottom: 20px;">
+        <form action="/api/auth/login" method="post" style="margin-bottom: 20px;">
             <div class="login_area">
                 <div class="id_area">
                         <span>
-                            <input type="text" name="userId" id="userId" class="input-text" placeholder="EMAIL"
+                            <input type="text" name="email" id="userId" class="input-text" placeholder="EMAIL"
                                    maxlength="20"/>
                         </span>
                 </div>
-                <div class="pw_area"><input type="password" name="pwd" id="pwd" class="input-text" placeholder="PW"
+                <div class="pw_area"><input type="password" name="password" id="pwd" class="input-text" placeholder="PW"
                                             maxlength="20"/>
                 </div>
                 <div class="click_login">
@@ -39,7 +39,7 @@
         </form>
 
         <p align="center" style="margin-bottom: 2em">
-            <a id="join" href="/sign" style="color: #000;">회원가입</a>
+            <a id="join" href="/signup" style="color: #000;">회원가입</a>
         </p>
     </div>
     <!--page_footer영역-->

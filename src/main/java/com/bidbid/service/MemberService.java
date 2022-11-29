@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
+import java.security.Principal;
 
 @Service
 @RequiredArgsConstructor
@@ -35,8 +36,8 @@ public class MemberService {
     }
 
     @Transactional
-    public void chargePoint(Long memberId, Integer point) {
-        Member member = memberRepository.findById(memberId)
+    public void chargePoint(Principal principal, Integer point) {
+        Member member = memberRepository.findByEmail(principal.getName())
                 .orElseThrow(EntityNotFoundException::new);
         member.chargePoint(point);
     }
