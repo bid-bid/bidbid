@@ -138,11 +138,6 @@
     <jsp:include page="./../footer.jsp" />
 
 </body>
-<script>
-function point(){
-      window.open("/point","","height = 450, width = 500, resizable=no, location=no, resizable=no");
-   }
-</script>
 <style type="">
 
 .mypage {
