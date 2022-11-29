@@ -11,13 +11,6 @@
 
 </head>
 <body>
-<%--    테스트용--%>
-<form action="api/auth/login" method="post">
-    <input type="text" name="email"/>
-    <input type="password" name="password"/>
-    <input type="submit"/>
-</form>
-
     <div id="wrapper">
         <!--page_header영역-->
         <jsp:include page="header.jsp" />
@@ -44,7 +37,7 @@
                 </form>
 
                  <p align="center" style="margin-bottom: 2em">
-                    <a href="#" onClick="sid()" style="color: #000;">ID 찾기</a> / <a href="#" onClick="spass()" style="color: #000;">비밀번호 찾기</a> / <a id= "join" href="/sign" style="color: #000;">회원가입</a>
+                    <a id= "join" href="/sign" style="color: #000;">회원가입</a>
                  </p>
             </div>
         <!--page_footer영역-->
@@ -52,11 +45,11 @@
 </body>
 <script>
    function sid(){
-      window.open("id_select.jsp","","height = 450, width = 460, resizable=no, location=no, resizable=no");
+      window.open("/searchId","","height = 450, width = 460, resizable=no, location=no, resizable=no, left=520, top=150");
    }
 
    function spass(){
-      window.open("pass_select.jsp","","height = 450, width = 460, resizable=no, location=no, resizable=no");
+      window.open("/searchPw","","height = 450, width = 460, resizable=no, location=no, resizable=no, left=520, top=150");
    }
    //아이디, 비번 미 입력시 오류
    function vaildjoin(){
