@@ -16,7 +16,7 @@ public class AuthController {
 
     @PostMapping("login")
     public String login(LoginRequest dto) {
-        String login = authService.login(dto);
+        authService.login(dto);
         return "redirect:/";
     }
 

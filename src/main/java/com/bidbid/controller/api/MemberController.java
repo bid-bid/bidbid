@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 @RequestMapping("api/members")
@@ -22,5 +23,10 @@ public class MemberController {
         Member member = memberService.signup(dto);
 
         return "redirect:/signup-finish";
+    }
+
+    @PostMapping("charge-point")
+    public String chargePoint(Principal principal) {
+        return "redirect:/";
     }
 }
