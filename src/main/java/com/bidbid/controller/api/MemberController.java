@@ -5,6 +5,8 @@ import com.bidbid.entity.Member;
 import com.bidbid.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -17,6 +19,14 @@ import java.security.Principal;
 public class MemberController {
 
     private final MemberService memberService;
+
+    @GetMapping
+    public String getLoginMember(Principal principal, Model model) {
+        Member loginMember = memberService.getLoginMember(principal.getName());
+        model.addAttribute("name", loginMember.getName());
+        model.addAttribute("point", loginMember.getPoint());
+        return "member/my-info";
+    }
 
     @PostMapping
     public String createMember(@Valid SignupRequest dto) {

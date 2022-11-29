@@ -19,8 +19,11 @@ public class Member {
     private String email;
     @Getter
     private String password;
+
+    @Getter
     private String name;
 
+    @Getter
     private Integer point = 0;
 
     @Enumerated(EnumType.STRING)

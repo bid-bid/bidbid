@@ -4,15 +4,9 @@
 
 <html>
 <head>
-    <title>bidbid</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" type="image⁄x-icon" href="./resources/images/bidLogo.ico">
-    <link rel="stylesheet" href="./resources/css/main.css" rel="stylesheet" type="text/css" />
-    <script src="./resources/js/jquery.min.js"></script>
-    <script src="./resources/js/skel.min.js"></script>
-    <script src="./resources/js/util.js"></script>
-    <script src="./resources/js/main.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="../resources/css/main.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <!-- Wrapper -->
