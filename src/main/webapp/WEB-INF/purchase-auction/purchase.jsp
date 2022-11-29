@@ -18,31 +18,7 @@
 <div>
     <!-- Wrapper -->
     <div id="wrapper">
-
-        <header id="header" style="padding: 3em 0 0em 0;">
-            <div class="inner">
-                <!-- Logo -->
-                <a href="/" class="logo">
-                    <span class="symbol"><img src="./resources/images/logo.svg" alt=""/></span><span class="title">bidbid</span>
-                </a>
-                <!-- Nav -->
-                <nav>
-                    <ul>
-                        <li><a href="#menu">Menu</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-        <nav id="menu">
-            <h2>Menu</h2>
-            <ul>
-                <li><a href="/">메인화면갈래요</a></li>
-                <li><a href="/category">구경할래요</a></li>
-                <li><a href="/item-info">살래요</a></li>
-                <li><a href="/item-info">팔래요</a></li>
-            </ul>
-        </nav>
-
+        <jsp:include page="../fragment/header.jsp"/>
 
         <div id="form">
             <div class="inner">
