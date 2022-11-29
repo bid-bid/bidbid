@@ -16,6 +16,16 @@ public class DefaultViewController {
         return "category";
     }
 
+    @GetMapping("modify")
+    public String modify() {
+        return "modify";
+    }
+
+    @GetMapping("search")
+    public String search() {
+        return "search";
+    }
+
     @GetMapping("item-info")
     public String itemInfo() {
         return "itemInfo";
