@@ -68,7 +68,7 @@
                             </tr>
                             <tr style="background-color: #FFF; border-bottom: solid 1px #FFF; color: #000;">
                                 <td>
-                                   <a class= "charge" href="#" onClick="point()"> > 포인트 충전 </a>
+                                   <a class= "charge" href="/charge-point"> > 포인트 충전 </a>
                                 </td>
                              </tr>
                          </table>
