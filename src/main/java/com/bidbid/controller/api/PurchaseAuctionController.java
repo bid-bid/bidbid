@@ -1,14 +1,17 @@
 package com.bidbid.controller.api;
 
+import com.bidbid.dto.purchaseauction.PurchaseAuctionRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.security.Principal;
 
 //@Controller
 public class PurchaseAuctionController {
 
     @PostMapping
-    public String create() {
+    public String create(PurchaseAuctionRequest dto, Principal principal) {
         throw new UnsupportedOperationException("Not supported yet");
     }
 
