@@ -14,32 +14,32 @@
             <form action="/" method="post" style="margin:-1em 0 1em 0">
                 <div class="form_toggle row-vh d-flex flex-row justify-content-between" >
                     <div class="form_radio_btn radio_male">
-                        <input id="radio-1" type="radio" name="userSex" value="male">
+                        <input id="radio-1" type="radio" value=5000>
                         <label for="radio-1">5,000P</label>
                     </div>
 
                     <div class="form_radio_btn">
-                        <input id="radio-2" type="radio" name="userSex" value="female">
+                        <input id="radio-2" type="radio" value=10000>
                         <label for="radio-2">10,000P</label>
                     </div>
 
                     <div class="form_radio_btn">
-                        <input id="radio-3" type="radio" name="userSex" value="female">
+                        <input id="radio-3" type="radio" value=15000>
                         <label for="radio-3">10,000P</label>
                     </div>
 
                     <div class="form_radio_btn">
-                        <input id="radio-4" type="radio" name="userSex" value="female">
+                        <input id="radio-4" type="radio" value=20000>
                         <label for="radio-4">20,000P</label>
                     </div>
 
                     <div class="form_radio_btn">
-                        <input id="radio-5" type="radio" name="userSex" value="female">
+                        <input id="radio-5" type="radio" value=50000>
                         <label for="radio-5">50,000P</label>
                     </div>
 
                     <div class="form_radio_btn">
-                        <input id="radio-6" type="radio" name="userSex" value="female">
+                        <input id="radio-6" type="radio" value=100000>
                         <label for="radio-6">100,000P</label>
                     </div>
 
