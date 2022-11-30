@@ -7,11 +7,11 @@
     <title>bidbid</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="shortcut icon" type="image⁄x-icon" href="./resources/images/bidLogo.ico">
-    <script src="./resources/js/jquery.min.js"></script>
-    <script src="./resources/js/skel.min.js"></script>
-    <script src="./resources/js/util.js"></script>
-    <script src="./resources/js/main.js"></script>
+    <link rel="shortcut icon" type="image⁄x-icon" href="../resources/images/bidLogo.ico">
+    <script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/skel.min.js"></script>
+    <script src="../resources/js/util.js"></script>
+    <script src="../resources/js/main.js"></script>
 </head>
 <body>
 <!-- Wrapper -->
@@ -21,7 +21,7 @@
         <div class="inner">
             <!-- Logo -->
             <a href="/" class="logo">
-                <span class="symbol"><img src="./resources/images/logo.svg" alt=""/></span><span
+                <span class="symbol"><img src="../resources/images/logo.svg" alt=""/></span><span
                     class="title">bidbid</span>
             </a>
             <a href="/login" class="logo" style="float: right;">

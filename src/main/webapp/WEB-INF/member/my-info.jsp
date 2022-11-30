@@ -18,34 +18,7 @@
 <!-- Wrapper -->
 <div id="wrapper">
     <!-- Header -->
-    <header id="header" style="padding: 3em 0 0em 0;">
-        <div class="inner">
-            <!-- Logo -->
-            <a href="/home-login" class="logo">
-                <span class="symbol"><img src="./resources/images/logo.svg" alt=""/></span><span
-                    class="title">bidbid</span>
-            </a>
-            <a href="/user" class="logo" style="float: right;">
-                <span class="title" style="letter-spacing:0">비드비드님</span>
-            </a>
-            <!-- Nav -->
-            <nav>
-                <ul>
-                    <li><a href="#menu">Menu</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <!-- Menu -->
-    <nav id="menu">
-        <h2>Menu</h2>
-        <ul>
-            <li><a href="/">메인화면갈래요</a></li>
-            <li><a href="/category">구경할래요</a></li>
-            <li><a href="/item-info">살래요</a></li>
-            <li><a href="/item-info">팔래요</a></li>
-        </ul>
-    </nav>
+    <jsp:include page="../fragment/header.jsp"/>
 
     <div id="main" style="padding: 0em 0 3em 0;">
         <center>
@@ -54,22 +27,22 @@
         <div class="inner">
             <section class="tiles" style="margin-top: 0; margin-left:auto; margin-right:auto">
                 <div style="width: calc(15%);"></div>
-                <img class="user_area" src="./resources/images/user.png" alt=""/>
+                <img class="user_area" src="../resources/images/user.png" alt=""/>
                 <div style="width: calc(40%); padding:1em;">
                     <table style="margin-top:4em;">
                         <tr style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
                             <td style="border-bottom: solid 1px #c9c9c9; color: #000;">
-                                ${name}
+                                이름 : 비드비드
                             </td>
                         </tr>
                         <tr style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
                             <td style="border-bottom: solid 1px #c9c9c9; color: #000;">
-                                ${point}
+                                포인트 : 10000000P
                             </td>
                         </tr>
                         <tr style="background-color: #FFF; border-bottom: solid 1px #FFF; color: #000;">
                             <td>
-                                <a class="charge" href="#" onClick="point()"> > 포인트 충전 </a>
+                                <a class="charge" href="/charge-point">  포인트 충전 </a>
                             </td>
                         </tr>
                     </table>
@@ -87,10 +60,10 @@
                     <td style="width:50%; border-bottom: solid 1px #c9c9c9; color: #000;">
                         희망상품
                     </td>
-                    <td style="width:25% border-bottom: solid 1px #c9c9c9; color: #000;">
+                    <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
                         경매인
                     </td>
-                    <td style="width:25% border-bottom: solid 1px #c9c9c9; color: #000;">
+                    <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
                         낙찰가
                     </td>
                 </tr>
@@ -98,10 +71,10 @@
                     <td style="width:50%; border-bottom: solid 1px #c9c9c9; color: #000;">
                         ABC가방
                     </td>
-                    <td style="width:25% border-bottom: solid 1px #c9c9c9; color: #000;">
+                    <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
                         DEF님
                     </td>
-                    <td style="width:25% border-bottom: solid 1px #c9c9c9; color: #000;">
+                    <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
                         15000
                     </td>
                 </tr>
@@ -113,10 +86,10 @@
                     <td style="width:50%; border-bottom: solid 1px #c9c9c9; color: #000;">
                         희망상품
                     </td>
-                    <td style="width:25% border-bottom: solid 1px #c9c9c9; color: #000;">
+                    <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
                         낙찰자
                     </td>
-                    <td style="width:25% border-bottom: solid 1px #c9c9c9; color: #000;">
+                    <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
                         낙찰가
                     </td>
                 </tr>
@@ -124,10 +97,10 @@
                     <td style="width:50%; border-bottom: solid 1px #c9c9c9; color: #000;">
                         ABC가방
                     </td>
-                    <td style="width:25% border-bottom: solid 1px #c9c9c9; color: #000;">
+                    <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
                         DEF님
                     </td>
-                    <td style="width:25% border-bottom: solid 1px #c9c9c9; color: #000;">
+                    <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
                         15000
                     </td>
                 </tr>
@@ -139,11 +112,6 @@
     <jsp:include page="../fragment/footer.jsp"/>
 
 </body>
-<script>
-    function point() {
-        window.open("/charge-point", "", "height = 450, width = 500, resizable=no, location=no, resizable=no");
-    }
-</script>
 <style type="">
 
     .mypage {

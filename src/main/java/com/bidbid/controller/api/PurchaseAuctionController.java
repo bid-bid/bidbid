@@ -16,6 +16,7 @@ import java.security.Principal;
 public class PurchaseAuctionController {
 
     private final PurchaseAuctionService purchaseAuctionService;
+
     @PostMapping
     public String create(PurchaseAuctionRequest dto, Principal principal) {
         purchaseAuctionService.create(dto, principal);

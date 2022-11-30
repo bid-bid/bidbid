@@ -44,7 +44,7 @@
             <div id="wrapper">
                 <div class="inner" align="center" style="margin-top: 2em;">
                     <h1>포인트 충전</h1>
-                    <form action="/user" method="post" style="margin:-1em 0 1em 0">
+                    <form action="/api/members/charge-point" method="post" style="margin:-1em 0 1em 0">
                         <div>
                             <div class="form_radio_btn radio_male">
                                 <input id="radio-1" type="radio" name="check" value=5000>
@@ -86,7 +86,7 @@
         </div>
 
     <!--page_footer영역-->
-    <jsp:include page="./../footer.jsp" />
+    <jsp:include page="../fragment/footer.jsp" />
 
 </body>
 </html>
