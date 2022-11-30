@@ -8,12 +8,15 @@ import com.bidbid.repository.SaleAuctionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
+
 @Service
 @RequiredArgsConstructor
 public class SaleAuctionService {
     private final SaleAuctionRepository saleAuctionRepository;
 
-    public SaleAuction upload(SaleAuctionRequest dto) {
+    public SaleAuction create(SaleAuctionRequest dto, Principal principal) {
+
         throw new UnsupportedOperationException("Not supported yet");
     }
 

@@ -1,5 +1,6 @@
 package com.bidbid.controller.api;
 
+import com.bidbid.dto.member.ChargePointRequest;
 import com.bidbid.dto.member.SignupRequest;
 import com.bidbid.entity.Member;
 import com.bidbid.service.MemberService;
@@ -30,14 +31,14 @@ public class MemberController {
 
     @PostMapping
     public String createMember(@Valid SignupRequest dto) {
-        Member member = memberService.signup(dto);
+        memberService.signup(dto);
 
         return "redirect:/member/signup-finish";
     }
 
     @PostMapping("charge-point")
-    public String chargePoint(Principal principal) {
-
-        return "redirect:/";
+    public String chargePoint(ChargePointRequest dto, Principal principal) {
+        memberService.chargePoint(dto, principal);
+        return "redirect:/member/my-info";
     }
 }

@@ -1,13 +1,44 @@
 package com.bidbid.service;
 
+import com.bidbid.dto.purchaseauction.PurchaseAuctionRequest;
+import com.bidbid.entity.purchaseauction.PurchaseAuction;
+import com.bidbid.global.ProductCategory;
 import com.bidbid.repository.PurchaseAuctionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
+import java.security.Principal;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class PurchaseAuctionService {
     private final PurchaseAuctionRepository purchaseAuctionRepository;
+    private final MemberService memberService;
 
+    @Transactional
+    public void create(PurchaseAuctionRequest dto, Principal principal) {
+        PurchaseAuction purchaseAuction = dto.toEntity();
+        purchaseAuction.setBuyer(memberService.getLoginMember(principal));
+        purchaseAuctionRepository.save(dto.toEntity());
+    }
 
+    public PurchaseAuction findById(Long id) {
+        return purchaseAuctionRepository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
+    }
+
+    public List<PurchaseAuction> findByBuyer(Principal principal) {
+        throw new UnsupportedOperationException("Not implemented");
+    }
+
+    public List<PurchaseAuction> findAllByCategory(ProductCategory category) {
+        return purchaseAuctionRepository.findAllByProductCategory(category);
+    }
+
+    public List<PurchaseAuction> findAll() {
+        return purchaseAuctionRepository.findAll();
+    }
 }

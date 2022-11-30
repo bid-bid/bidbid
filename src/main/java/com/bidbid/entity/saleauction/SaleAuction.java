@@ -2,6 +2,7 @@ package com.bidbid.entity.saleauction;
 
 import com.bidbid.entity.Member;
 import com.bidbid.global.BaseTime;
+import com.bidbid.global.ProductCategory;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,9 @@ public class SaleAuction {
 
     @Column(nullable = false)
     private String productName;
+
+    @Enumerated(EnumType.STRING)
+    private ProductCategory productCategory;
 
     @Lob
     private String description;
@@ -47,11 +51,12 @@ public class SaleAuction {
     private BaseTime baseTime;
 
     @Builder
-    public SaleAuction(String productName, String description, Member seller, LocalDateTime auctionDeadline, Integer price) {
+    public SaleAuction(String productName, ProductCategory productCategory, String description, LocalDateTime auctionDeadline, Integer price) {
         this.productName = productName;
+        this.productCategory = productCategory;
         this.description = description;
-        this.seller = seller;
         this.auctionDeadline = auctionDeadline;
         this.price = price;
+        baseTime = new BaseTime();
     }
 }
