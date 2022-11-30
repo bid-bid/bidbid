@@ -47,32 +47,32 @@
                     <form action="/api/members/charge-point" method="post" style="margin:-1em 0 1em 0">
                         <div>
                             <div class="form_radio_btn radio_male">
-                                <input id="radio-1" type="radio" name="check" value=5000>
+                                <input id="radio-1" type="radio" name="point" value="5000">
                                 <label for="radio-1">5,000P</label>
                             </div>
 
                             <div class="form_radio_btn">
-                                <input id="radio-2" type="radio" name="check" value=10000>
+                                <input id="radio-2" type="radio" name="point" value="10000">
                                 <label for="radio-2">10,000P</label>
                             </div>
 
                             <div class="form_radio_btn">
-                                <input id="radio-3" type="radio" name="check" value=15000>
+                                <input id="radio-3" type="radio" name="point" value="15000">
                                 <label for="radio-3">15,000P</label>
                             </div>
 
                             <div class="form_radio_btn">
-                                <input id="radio-4" type="radio" name="check" value=20000>
+                                <input id="radio-4" type="radio" name="point" value="20000">
                                 <label for="radio-4">20,000P</label>
                             </div>
 
                             <div class="form_radio_btn">
-                                <input id="radio-5" type="radio" name="check" value=50000>
+                                <input id="radio-5" type="radio" name="point" value="50000">
                                 <label for="radio-5">50,000P</label>
                             </div>
 
                             <div class="form_radio_btn">
-                                <input id="radio-6" type="radio" name="check" value=100000>
+                                <input id="radio-6" type="radio" name="point" value="100000">
                                 <label for="radio-6">100,000P</label>
                             </div>
 

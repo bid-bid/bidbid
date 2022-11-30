@@ -39,6 +39,6 @@ public class MemberController {
     @PostMapping("charge-point")
     public String chargePoint(ChargePointRequest dto, Principal principal) {
         memberService.chargePoint(dto, principal);
-        return "redirect:/member/my-info";
+        return "redirect:/api/members";
     }
 }
