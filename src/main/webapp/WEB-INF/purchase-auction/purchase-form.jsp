@@ -22,17 +22,17 @@
 
         <div id="form">
             <div class="inner">
-                <form method="post" action="#">
+                <form method="post" action="/api/purchase-auction">
                     <section>
                         <h2>구매 경매 등록</h2>
                         <div>
                             <div class="row uniform">
                                 <div class="6u 12u$(xsmall)">
-                                    <input type="text" name="auction-title" id="auction-title" value=""
+                                    <input type="text" name="auctionTitle" id="auction-title" value=""
                                            placeholder="경매 제목"/>
                                 </div>
                                 <div class="6u 12u$(xsmall)">
-                                    <input type="text" name="product-name" id="product-name" value=""
+                                    <input type="text" name="productName" id="product-name" value=""
                                            placeholder="희망 상품"/>
                                 </div>
                                 <div class="12u$">
@@ -40,20 +40,20 @@
                                 </div>
                                 <div>
                                     <div class="select-wrapper">
-                                        <select name="demo-category" aria-invalid="demo-category">
-                                            <option value=""> 카테고리</option>
-                                            <option value="fashion">패션</option>
-                                            <option value="fashion accessories">패션잡화</option>
-                                            <option value="food - health">식품 - 건강</option>
-                                            <option value="living - kitchen">생활 - 주방</option>
-                                            <option value="furniture - home - decor">가구 - 홈 - 데코</option>
-                                            <option value="consumer electronics - computer">가전 - 컴퓨터</option>
-                                            <option value="sports">스포츠</option>
-                                            <option value="pet hobby">반려동물 - 취미</option>
-                                            <option value="ticket - transfer">티켓 - 양도권</option>
-                                            <option value="book">도서</option>
-                                            <option value="beauty">뷰티</option>
-                                            <option value="e coupon">E 쿠폰</option>
+                                        <select name="category" aria-invalid="demo-category">
+                                            <option value="NONE"> 카테고리</option>
+                                            <option value="CLOTHING">패션</option>
+                                            <option value="ACCESSORIES">패션잡화</option>
+                                            <option value="FOOD">식품 - 건강</option>
+                                            <option value="LIVING">생활 - 주방</option>
+                                            <option value="FURNITURE">가구 - 홈 - 데코</option>
+                                            <option value="DIGITAL">가전 - 컴퓨터</option>
+                                            <option value="SPORTS">스포츠</option>
+                                            <option value="HOBBY">반려동물 - 취미</option>
+                                            <option value="TICKET">티켓 - 양도권</option>
+                                            <option value="BOOK">도서</option>
+                                            <option value="BEAUTY">뷰티</option>
+                                            <option value="GITF_CARD">E 쿠폰</option>
                                         </select>
                                     </div>
                                 </div>

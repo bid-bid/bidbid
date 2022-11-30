@@ -19,6 +19,8 @@ public class PurchaseAuction {
     @GeneratedValue
     private Long id;
 
+    private String auctionTitle;
+
     private String productName;
 
     private String description;
@@ -37,16 +39,18 @@ public class PurchaseAuction {
     @Embedded
     private BaseTime baseTime;
 
-    public Member getBuyer() {
-        return buyer;
-    }
 
     @Builder
-    public PurchaseAuction(String productName, String description, ProductCategory productCategory, LocalDateTime deadline) {
+    public PurchaseAuction(String auctionTitle, String productName, String description, ProductCategory productCategory) {
+        this.auctionTitle = auctionTitle;
         this.productName = productName;
         this.description = description;
         this.productCategory = productCategory;
-        this.deadline = deadline;
+        setDeadLine();
         baseTime = new BaseTime();
+    }
+
+    private void setDeadLine() {
+        this.deadline = LocalDateTime.now().plusDays(1);
     }
 }

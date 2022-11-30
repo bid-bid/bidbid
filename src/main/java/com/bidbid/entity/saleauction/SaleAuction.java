@@ -10,8 +10,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -29,6 +27,7 @@ public class SaleAuction {
     @Lob
     private String description;
 
+    @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "seller_id", nullable = false)
     private Member seller;
@@ -37,8 +36,7 @@ public class SaleAuction {
     @JoinColumn(name = "best_buyer_id")
     private Member bestBuyer;
 
-    @OneToMany(mappedBy = "saleAuction")
-    private List<SaleAuctionImage> images = new ArrayList<>();
+    private String image;
 
     @Column(nullable = false)
     private LocalDateTime auctionDeadline;
@@ -46,17 +44,21 @@ public class SaleAuction {
     @Column(nullable = false)
     private Integer price = 0;
 
-    @Setter
     @Embedded
     private BaseTime baseTime;
 
     @Builder
-    public SaleAuction(String productName, ProductCategory productCategory, String description, LocalDateTime auctionDeadline, Integer price) {
+    public SaleAuction(String productName, ProductCategory productCategory, String immage ,String description, Integer price) {
         this.productName = productName;
         this.productCategory = productCategory;
+        this.image = immage;
         this.description = description;
-        this.auctionDeadline = auctionDeadline;
         this.price = price;
         baseTime = new BaseTime();
+        setDeadLine();
+    }
+
+    private void setDeadLine() {
+        this.auctionDeadline = LocalDateTime.now().plusDays(1);
     }
 }

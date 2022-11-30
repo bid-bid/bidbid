@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PurchaseAuctionRequest {
+    private String auctionTitle;
     private String productName;
     private String description;
     private Integer startPrice;

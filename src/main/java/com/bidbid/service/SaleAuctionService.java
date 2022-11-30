@@ -8,16 +8,21 @@ import com.bidbid.repository.SaleAuctionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.security.Principal;
 
 @Service
 @RequiredArgsConstructor
 public class SaleAuctionService {
     private final SaleAuctionRepository saleAuctionRepository;
+    private final MemberService memberService;
 
+    @Transactional
     public SaleAuction create(SaleAuctionRequest dto, Principal principal) {
+        SaleAuction saleAuction = dto.toEntity();
+        saleAuction.setSeller(memberService.getLoginMember(principal));
 
-        throw new UnsupportedOperationException("Not supported yet");
+        return saleAuctionRepository.save(dto.toEntity());
     }
 
     public void bidHigherPrice(BidHigherRequest dto, Member buyer) {

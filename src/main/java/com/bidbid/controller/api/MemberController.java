@@ -33,7 +33,7 @@ public class MemberController {
     public String createMember(@Valid SignupRequest dto) {
         memberService.signup(dto);
 
-        return "redirect:/member/signup-finish";
+        return "redirect:/";
     }
 
     @PostMapping("charge-point")
