@@ -32,6 +32,7 @@ public class SaleAuction {
     @JoinColumn(name = "seller_id", nullable = false)
     private Member seller;
 
+    @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "best_buyer_id")
     private Member bestBuyer;

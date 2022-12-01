@@ -7,8 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Setter
 @Getter
 @NoArgsConstructor
@@ -19,14 +17,13 @@ public class PurchaseAuctionRequest {
     private String description;
     private Integer startPrice;
     private String category;
-    private LocalDateTime deadline;
+
 
     public PurchaseAuction toEntity() {
         return PurchaseAuction.builder()
                 .productName(productName)
                 .description(description)
                 .productCategory(ProductCategory.valueOf(category))
-                .deadline(deadline)
                 .build();
     }
 }

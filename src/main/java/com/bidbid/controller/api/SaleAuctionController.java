@@ -1,14 +1,12 @@
 package com.bidbid.controller.api;
 
+import com.bidbid.dto.saleauction.RenewalBidRequest;
 import com.bidbid.dto.saleauction.SaleAuctionRequest;
 import com.bidbid.service.SaleAuctionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
@@ -21,14 +19,14 @@ public class SaleAuctionController {
 
     @PostMapping
     public String create(SaleAuctionRequest dto, Principal principal) {
-        auctionService.create(dto, principal);
+        saleAuctionService.create(dto, principal);
 
         return "redirect:/";
     }
 
     @GetMapping
     public String getAll(Model model) {
-        model.addAttribute("saleAuctions", auctionService);
+        model.addAttribute("saleAuctions", saleAuctionService);
         throw new UnsupportedOperationException();
     }
 
@@ -37,8 +35,9 @@ public class SaleAuctionController {
         throw new UnsupportedOperationException();
     }
 
-    @PostMapping("{id}/allow")
-    public String allow(@PathVariable Long id) {
+    @PostMapping("{id}/renewal-bid")
+    public String renewalBid(@RequestBody RenewalBidRequest dto, @PathVariable Long id) {
+
         throw new UnsupportedOperationException();
     }
 

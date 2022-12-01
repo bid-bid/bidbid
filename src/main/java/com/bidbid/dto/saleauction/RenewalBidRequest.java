@@ -9,6 +9,6 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class BidHigherRequest {
-    private String name;
+public class RenewalBidRequest {
+    private Integer point;
 }
