@@ -61,14 +61,17 @@
                                     <input type="text" name="amount" id="amount" value=""
                                            onkeydown="filterNumber(this, event)" placeholder=" 시작가 (원)"/>
                                 </div>
-                                <div id="product-pictures" class="12u$">
-                                    <input type="button" value="사진 추가" onClick="addPicture()">
-                                    <div id="file"></div>
+                                <div class="12u 12u$(xsmall)">
+                                    <label id="upload-picture" class="button icon fa-upload" for="product-picture">
+                                        사진 업로드
+                                    </label>
+                                    <input type="file" id="product-picture" style="display:none" onchange="onFileUpload(this)" accept="image/*">
+                                    <div id="file-name"></div>
                                 </div>
                                 <div class="12u$">
                                     <ul class="actions">
                                         <li><input type="submit" value="등록" class="special"/></li>
-                                        <li><input type="reset" value="초기화" onclick="resetForm"/></li>
+                                        <li><input type="reset" value="초기화" onclick="resetForm()"/></li>
                                     </ul>
                                 </div>
                             </div>
@@ -121,17 +124,28 @@
 </div>
 </body>
 <script>
-    let cnt = 1;
-    function addPicture(){
-        $("#file").append("<br>" + "<input type='file' name='file" + cnt + "' />");
-        cnt++;
+
+    function onFileUpload(file) {
+        console.log(file.files[0].name)
+        if(file){
+            if(document.getElementById("uploaded-file") != null){
+                document.getElementById("uploaded-file").remove();
+            }
+            let div = document.createElement('div');
+            div.id = "uploaded-file"
+            let text = document.createTextNode("파일명 : " + file.files[0].name);
+            div.appendChild(text);
+            document.getElementById("file-name").appendChild(div);
+        }
     }
 
     function resetForm() {
         $('form').each(function () {
             this.reset();
         })
-        return '';
+        if(document.getElementById("uploaded-file") != null){
+            document.getElementById("uploaded-file").remove();
+        }
     }
 
     function filterNumber(element, event) {
