@@ -61,7 +61,7 @@
                         <tr>
                             <td >
                                 <select name="category" class="category1" id="category" width="50px" style="float:left; text-align: center">
-                                    <option value="fashion">선택해주세요</option>
+                                    <option value="">선택해주세요</option>
                                     <option value="패션">패션</option>
                                     <option value="패션 잡화">패션 잡화</option>
                                     <option value="식품 건강">식품 건강</option>
@@ -104,7 +104,8 @@
 
                             <c:forEach var="purchase" items="${purchase}" varStatus="status">
                                     <tr class="trTag">
-                                        <th class="thTag"> <a href="/purchase-search/${purchase.id}" >${purchase.name}</a></th>
+                                        <th class="thTag"> ${purchase.category}</th>
+                                        <th class="thTag"> <a href="/purchase-search/${purchase.id}">${purchase.name}</a></th>
                                         <th class="thTag"> <img src="./resources/images/home/buy.jpg" alt="" width="100" height="100"/></th>
                                         <th class="thTag">${purchase.proceed}</th>
                                         <th class="thTag">${purchase.endDate}</th>
@@ -142,13 +143,13 @@
 
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByClassName("thTag");
-            if((td[0].innerHTML.toUpperCase().indexOf(category) > -1)&&(td[1].innerHTML.toUpperCase().indexOf(value) > -1)){
 
-            }
-            else{
+                if ((td[0].innerHTML.toUpperCase().indexOf(category) > -1) && (td[1].innerHTML.toUpperCase().indexOf(value) > -1)) {
+
+                }
+                else {
 
                     tr[i].style.display = "none";
-
                 }
         }
     }
