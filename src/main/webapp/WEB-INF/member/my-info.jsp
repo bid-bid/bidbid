@@ -30,7 +30,7 @@
                 <img class="user_area" src="../resources/images/user.png" alt=""/>
                 <div style="width: calc(40%); padding:1em;">
                     <table style="margin-top:4em;">
-                        <tr style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
+                        <tr style="background-color: #FFF; border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
                             <td style="border-bottom: solid 1px #c9c9c9; color: #000;">
                                 이름 : 비드비드
                             </td>
