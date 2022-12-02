@@ -3,15 +3,13 @@ package com.bidbid.entity.saleauction;
 import com.bidbid.entity.Member;
 import com.bidbid.global.BaseTime;
 import com.bidbid.global.ProductCategory;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class SaleAuction {
     @Id
@@ -32,7 +30,6 @@ public class SaleAuction {
     @JoinColumn(name = "seller_id", nullable = false)
     private Member seller;
 
-    @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "best_buyer_id")
     private Member bestBuyer;
@@ -57,6 +54,15 @@ public class SaleAuction {
         this.price = price;
         baseTime = new BaseTime();
         setDeadLine();
+    }
+
+    public void renewalBid(Member buyer, Integer price) {
+        if(this.price > price) {
+            throw new IllegalArgumentException("price must be greater than now");
+        }
+        this.price = price;
+        buyer.usePoint(price);
+        this.bestBuyer = buyer;
     }
 
     private void setDeadLine() {

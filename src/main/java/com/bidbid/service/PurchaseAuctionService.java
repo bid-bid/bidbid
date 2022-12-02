@@ -1,10 +1,12 @@
 package com.bidbid.service;
 
 import com.bidbid.dto.purchaseauction.PurchaseAuctionRequest;
+import com.bidbid.entity.Member;
 import com.bidbid.entity.purchaseauction.PurchaseAuction;
 import com.bidbid.global.ProductCategory;
 import com.bidbid.repository.PurchaseAuctionRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -31,7 +33,9 @@ public class PurchaseAuctionService {
     }
 
     public List<PurchaseAuction> findByBuyer(Principal principal) {
-        throw new UnsupportedOperationException("Not implemented");
+        Member loginMember = memberService.getLoginMember(principal);
+
+        return purchaseAuctionRepository.findAllByBuyer(loginMember);
     }
 
     public List<PurchaseAuction> findAllByCategory(ProductCategory category) {
@@ -39,6 +43,6 @@ public class PurchaseAuctionService {
     }
 
     public List<PurchaseAuction> findAll() {
-        return purchaseAuctionRepository.findAll();
+        return purchaseAuctionRepository.findAll(Sort.by(Sort.Direction.DESC, "auctionDeadline"));
     }
 }

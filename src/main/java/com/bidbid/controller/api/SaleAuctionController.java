@@ -36,8 +36,8 @@ public class SaleAuctionController {
     }
 
     @PostMapping("{id}/renewal-bid")
-    public String renewalBid(@RequestBody RenewalBidRequest dto, @PathVariable Long id) {
-
+    public String renewalBid(@RequestBody RenewalBidRequest dto, @PathVariable Long id, Principal principal) {
+        saleAuctionService.renewalBid(id, dto, principal);
         throw new UnsupportedOperationException();
     }
 
