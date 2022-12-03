@@ -21,9 +21,9 @@ public class DefaultViewController {
         return "modify";
     }
 
-    @GetMapping("search")
+    @GetMapping("purchase-search")
     public String search() {
-        return "search";
+        return "purchase-search";
     }
 
     @GetMapping("item-info")
