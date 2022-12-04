@@ -65,4 +65,9 @@ public class PurchaseAuctionController {
     public String delete(@PathVariable Long id) {
         throw new UnsupportedOperationException();
     }
+
+    @PostMapping("{auctionId}/best-pick/{participationId}")
+    public String bestPick(@PathVariable Long auctionId, @PathVariable Long participationId) {
+        purchaseAuctionService.setBestPick(auctionId, participationId);
+    }
 }

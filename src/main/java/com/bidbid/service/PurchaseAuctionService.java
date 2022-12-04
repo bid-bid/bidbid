@@ -4,6 +4,7 @@ import com.bidbid.dto.purchaseauction.PurchaseAuctionRequest;
 import com.bidbid.entity.Member;
 import com.bidbid.entity.purchaseauction.PurchaseAuction;
 import com.bidbid.global.ProductCategory;
+import com.bidbid.repository.PurchaseAuctionParticipationRepository;
 import com.bidbid.repository.PurchaseAuctionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
@@ -18,6 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PurchaseAuctionService {
     private final PurchaseAuctionRepository purchaseAuctionRepository;
+    private final PurchaseAuctionParticipationRepository purchaseAuctionParticipationRepository;
     private final MemberService memberService;
 
     @Transactional
@@ -44,5 +46,9 @@ public class PurchaseAuctionService {
 
     public List<PurchaseAuction> findAll() {
         return purchaseAuctionRepository.findAll(Sort.by(Sort.Direction.DESC, "auctionDeadline"));
+    }
+
+    public void setBestPick(Long auctionId, Long participationId) {
+        PurchaseAuction purchaseAuction = findById(auctionId);
     }
 }

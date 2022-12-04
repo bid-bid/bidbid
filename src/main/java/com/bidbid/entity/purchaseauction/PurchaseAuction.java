@@ -3,10 +3,7 @@ package com.bidbid.entity.purchaseauction;
 import com.bidbid.entity.Member;
 import com.bidbid.global.BaseTime;
 import com.bidbid.global.ProductCategory;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -32,6 +29,12 @@ public class PurchaseAuction {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "buyer_id")
     private Member buyer;
+
+    @Setter
+    @Getter
+    @OneToOne
+    @JoinColumn(name = "best_pick_id")
+    private PurchaseAuctionParticipation bestPick;
 
     @Column(nullable = false)
     private LocalDateTime deadline;

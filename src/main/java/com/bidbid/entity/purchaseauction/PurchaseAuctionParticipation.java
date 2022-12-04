@@ -2,11 +2,14 @@ package com.bidbid.entity.purchaseauction;
 
 import com.bidbid.entity.Member;
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
+@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class PurchaseAuctionParticipation {
     @Id
@@ -19,17 +22,12 @@ public class PurchaseAuctionParticipation {
 
     private Integer price;
 
+    @Setter
     @ManyToOne
     @JoinColumn(name = "seller_id")
     private Member seller;
 
-    private boolean isBestPick = false;
+    @Enumerated(EnumType.STRING)
+    DecisionState decisionState;
 
-    public Member getSeller() {
-        return seller;
-    }
-
-    public void setSeller(Member seller) {
-        this.seller = seller;
-    }
 }
