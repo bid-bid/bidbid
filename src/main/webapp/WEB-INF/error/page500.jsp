@@ -13,7 +13,7 @@
 <div>
     <!-- Wrapper -->
     <div id="wrapper">
-        <jsp:include page="header.jsp"/>
+        <jsp:include page="../fragment/header.jsp"/>
 
         <div id="main">
             <div class="inner">
@@ -33,6 +33,6 @@
     </div>
 </div>
        <!--page_footer영역-->
-       <jsp:include page="footer.jsp"/>
+       <jsp:include page="../fragment/footer.jsp"/>
 </body>
 </html>
