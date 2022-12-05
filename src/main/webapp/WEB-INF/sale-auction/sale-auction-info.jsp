@@ -8,17 +8,12 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="shortcut icon" type="image⁄x-icon" href="../resources/images/bidLogo.ico">
-    <link rel="stylesheet" href="../resources/css/main.css" rel="stylesheet" type="text/css"/>
-    <script src="../resources/js/jquery.min.js"></script>
-    <script src="../resources/js/skel.min.js"></script>
-    <script src="../resources/js/util.js"></script>
-    <script src="../resources/js/main.js"></script>
 </head>
 <body>
 <!-- Wrapper -->
 <div id="wrapper">
     <!-- Header -->
-    <jsp:include page="./../header.jsp"/>
+    <jsp:include page="../fragment/header.jsp"/>
 
     <center>
         <h1 class="mypage" style="margin-bottom:1em">판매권 입찰</h1>
@@ -141,7 +136,7 @@
     </div>
 
     <!--page_footer영역-->
-    <jsp:include page="./../footer.jsp"/>
+    <jsp:include page="../fragment/footer.jsp"/>
 
 </body>
 </html>
