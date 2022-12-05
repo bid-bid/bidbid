@@ -8,32 +8,14 @@
     <title>bidbid</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" type="image⁄x-icon" href="./resources/images/bid.ico">
-    <link rel="stylesheet" href="./resources/css/main.css" rel="stylesheet" type="text/css" />
-    <script src="./resources/js/jquery.min.js"></script>
-    <script src="./resources/js/skel.min.js"></script>
-    <script src="./resources/js/util.js"></script>
-    <script src="./resources/js/main.js"></script>
+    <link rel="shortcut icon" type="image⁄x-icon" href="./resources/images/bidLogo.ico">
 </head>
 <body>
 <!-- Wrapper -->
 <div id="wrapper">
 
     <!-- Header -->
-    <header id="header">
-        <div class="inner">
-            <!-- Logo -->
-            <a href="/" class="logo">
-                <span class="symbol"><img src="./resources/images/logo.svg" alt="" /></span><span class="title">bidbid</span>
-            </a>
-            <!-- Nav -->
-            <nav>
-                <ul>
-                    <li><a href="#menu">Menu</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <jsp:include page="./fragment/header.jsp"/>
     <!-- Menu -->
     <nav id="menu">
         <h2>Menu</h2>
