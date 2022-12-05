@@ -48,16 +48,9 @@
                                 100000p
                             </td>
                         </tr>
-                        <tr style="background-color: #FFF; color: #000;">
-                            <td>
-                                <!-- 카테고리 --!>
-                                가전ㆍ컴퓨터
-                            </td>
-                        </tr>
-                        <tr style="background-color: #FFF; border-bottom: solid 1px #FFF; color: #000;">
-                            <td style="font-size:16px;">
-                                <!-- 등록 시간 --!>
-                                2022-12-02 18:12:20
+                        <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
+                            <td style="font-size:16px">
+                                가전ㆍ컴퓨터 &nbsp&nbsp 2022-12-02 18:12:20
                             </td>
                         </tr>
                     </table>
