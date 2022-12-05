@@ -8,17 +8,12 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="shortcut icon" type="image⁄x-icon" href="../resources/images/bidLogo.ico">
-    <link rel="stylesheet" href="../resources/css/main.css" rel="stylesheet" type="text/css"/>
-    <script src="../resources/js/jquery.min.js"></script>
-    <script src="../resources/js/skel.min.js"></script>
-    <script src="../resources/js/util.js"></script>
-    <script src="../resources/js/main.js"></script>
 </head>
 <body>
 <!-- Wrapper -->
 <div id="wrapper">
     <!-- Header -->
-    <jsp:include page="./../header.jsp"/>
+    <jsp:include page="../fragment/header.jsp"/>
 
     <center>
         <h1 class="mypage" style="margin-bottom:1em">판매권 입찰</h1>
@@ -27,43 +22,42 @@
         <div class="inner">
             <hr>
              <center>
-                <h2 class="mypage">[제목]</h2>
+                <h2 class="mypage" style="font-size: 32px; letter-spacing:0">@@@@@@@@@세탁기 삽니다</h2>
             </center>
             <section class="tiles" style="margin-top: 0; margin-left:auto; margin-right:auto">
-                <div style="width: calc(15%);"></div>
-                <div style="width: calc(70%); padding:1em;">
-                    <table style="margin-top:1em;">
+                <div style="width: calc(20%);"></div>
+                <div style="width: calc(60%); padding:1em;">
+                    <table style="margin:1em 0 0 0; ">
+                        <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            <td style="border-bottom: solid 1px #c9c9c9; color: #000; font-weight: 600;">
+                                희망 상품
+                            </td>
+                        </tr>
                         <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
                             <td style="border-bottom: solid 1px #c9c9c9; color: #000;">
-                                [희망상품명] <!--[]안에 바로 값 넣어주시면 됩니다--!>
+                                세탁기
                             </td>
                         </tr>
                         <tr style="background-color: #FFF; color: #000;">
                             <td>
-                                [희망가]
+                                50000p
                             </td>
                         </tr>
-                        <tr style="background-color: #FFF; color: #000;">
-                            <td>
-                                [내용]
-                            </td>
-                        </tr>
-                        <tr style="background-color: #FFF; color: #000;">
-                            <td>
-                                [카테고리]
-                            </td>
-                        </tr>
-                        <tr style="background-color: #FFF; border-bottom: solid 1px #FFF; color: #000;">
+                        <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
                             <td style="font-size:16px">
-                                2022-12-02 18:12:20
+                                가전ㆍ컴퓨터 &nbsp&nbsp 2022-12-02 18:12:20
                             </td>
                         </tr>
                     </table>
                 </div>
             </section>
+            <center>
+                <div style="width:80%; margin-bottom: 4em;">
+                당장 빨래를 돌려야하는데 세탁기가 고장났네요 ㅠㅠㅜ 급합니다 돌아가기만 하면 됩니다
+            </center>
 
             <center>
-                <h2 class="mypage" style="margin-bottom:1em;">등록된 물건</h2>
+                <h2 class="mypage" style="margin-bottom:1em;">입찰 예정 물품</h2>
             </center>
             <table>
                 <tr align="center" style="background-color: #f6f6f6; border-bottom: solid 1px #c9c9c9; color: #000;">
@@ -94,7 +88,7 @@
                       <img style="width:100%" src="../resources/images/purchase-auction/1.jpg" alt=""/>
                    </td>
                    <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                       15000
+                       60000p
                     </td>
                    <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
                       2022-12-02 14:20:12
@@ -108,8 +102,7 @@
                         </c:if>
                    </td>
                    <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                       <input type="button" onClick="location.href='/comment-update'" style="padding: 6px; letter-spacing:0; height:2em; line-height:0;" value="수정">
-                       <input type="submit" style="padding: 6px; letter-spacing:0; height:2em; line-height:0;" value="삭제">
+                       <input type="button" onClick="location.href='/comment-update'" style="padding:1em; letter-spacing: 0em; line-height: 0em;" value="수정">
                     </td>
                 </tr>
             </table>
@@ -122,14 +115,21 @@
                 <form method="post" action="">
                     <table style="text-align: center; border: solid 1px #c9c9c9;">
                         <tr style="background-color: #FFF;">
-                            <td class="comment-inner" style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            <td class="comment-inner" style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000;">
                                 [유저이름]
                             </td>
-                            <td style="width:50%; color: #000;">
+                            <td style="width:30%; color: #000; text-align:left">
+                                <label id="upload-picture" class="button icon fa-upload" for="product-picture" style="letter-spacing:0; overflow: visible; margin:0">
+                                    사진
+                                </label>
+                                <input type="file" id="product-picture" style="display:none" onchange="onFileUpload(this)" accept="image/*">
+                                <div id="file-name" style="display: inline-block; margin-left: 0.5em;"></div>
+                            </td>
+                            <td style="width:40%; color: #000;">
                                 <input type="text" name="desired-bid" id="desired-bid" value="" placeholder="희망 입찰가" onfocusout="validateBid()"/>
                                 <div id="bid_alert" class="bid-alert">필수 정보입니다.</div>
                             </td>
-                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            <td style="width:10%; border-bottom: solid 1px #c9c9c9; color: #000;">
                                 <input type="submit" class="btn-primary pull" value="등록">
                             </td>
                         </tr>
@@ -141,14 +141,14 @@
     </div>
 
     <!--page_footer영역-->
-    <jsp:include page="./../footer.jsp"/>
+    <jsp:include page="../fragment/footer.jsp"/>
 
 </body>
 </html>
 
 <style type="">
 .comment-area{
-    width: calc(60%);
+    width: calc(70%);
     margin-left:auto;
     margin-right:auto;
 }
@@ -198,5 +198,19 @@
             }
 
           alertEl.style.display = 'none';
-       }
+     }
+
+     function onFileUpload(file) {
+         console.log(file.files[0].name)
+         if(file){
+             if(document.getElementById("uploaded-file") != null){
+                 document.getElementById("uploaded-file").remove();
+             }
+             let div = document.createElement('div');
+             div.id = "uploaded-file"
+             let text = document.createTextNode(file.files[0].name);
+             div.appendChild(text);
+             document.getElementById("file-name").appendChild(div);
+         }
+     }
 </script>
