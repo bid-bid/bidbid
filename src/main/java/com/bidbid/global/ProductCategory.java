@@ -8,7 +8,7 @@ public enum ProductCategory {
     BEAUTY("뷰티, 화장품"),
     FOOD("식품, 건강"),
     GIFT_CARD("E 쿠폰"),
-    TICKET("티"),
+    TICKET("티켓"),
     HOBBY("취미"),
     CLOTHING("의류"),
     ACCESSORIES("잡화"),

@@ -69,5 +69,7 @@ public class PurchaseAuctionController {
     @PostMapping("{auctionId}/best-pick/{participationId}")
     public String bestPick(@PathVariable Long auctionId, @PathVariable Long participationId) {
         purchaseAuctionService.setBestPick(auctionId, participationId);
+
+        return "redirect:/api/purchase-auction/" + auctionId;
     }
 }
