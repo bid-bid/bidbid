@@ -22,7 +22,7 @@
         <div class="inner">
         <hr>
         <center>
-            <h2 class="mypage" style="font-size: 32px">싸다싸 세탁기 팔아용</h2>
+            <h2 class="mypage" style="font-size: 32px; letter-spacing:0;">싸다싸 세탁기 팔아용</h2>
         </center>
             <section class="tiles" style="margin-top: 0; margin-left:auto; margin-right:auto">
                 <div style="width: calc(10%);"></div>
