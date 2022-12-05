@@ -102,7 +102,9 @@
                         </c:if>
                    </td>
                    <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                       <input type="button" onClick="location.href='/comment-update'" style="padding:1em; letter-spacing: 0em; line-height: 0em;" value="수정">
+                        <c:if test="${state eq 1}">
+                            <input type="button" onClick="location.href='/comment-update'" style="padding:1em; letter-spacing: 0em; line-height: 0em;" value="수정">
+                        </c:if>
                     </td>
                 </tr>
             </table>
