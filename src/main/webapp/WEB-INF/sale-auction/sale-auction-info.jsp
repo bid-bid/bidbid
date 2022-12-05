@@ -128,7 +128,7 @@
                                 <div id="file-name" style="display: inline-block; margin-left: 0.5em;"></div>
                             </td>
                             <td style="width:40%; color: #000;">
-                                <input type="text" name="desired-bid" id="desired-bid" value="" placeholder="희망 입찰가" onfocusout="validateBid()"/>
+                                <input type="text" name="desired-bid" id="desired-bid" value="" placeholder="판매 희망가" onfocusout="validateBid()"/>
                                 <div id="bid_alert" class="bid-alert">필수 정보입니다.</div>
                             </td>
                             <td style="width:10%; border-bottom: solid 1px #c9c9c9; color: #000;">
