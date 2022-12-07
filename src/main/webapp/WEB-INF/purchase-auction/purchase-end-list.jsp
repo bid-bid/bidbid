@@ -17,26 +17,15 @@
 
         <div id="form">
             <div class="inner">
-                <form method="post" action="/api/purchase-auction">
+                <form method="post" action="#">
                     <section>
-                        <h2>판매권 입찰 등록</h2>
+                        <h2>마감된 구매권 입찰</h2>
                         <div>
                             <div class="row uniform">
-                                <div class="6u 12u$(xsmall)">
-                                    <input type="text" name="auctionTitle" id="auction-title" value=""
-                                           placeholder="경매 제목"/>
-                                </div>
-                                <div class="6u 12u$(xsmall)">
-                                    <input type="text" name="productName" id="product-name" value=""
-                                           placeholder="희망 상품"/>
-                                </div>
-                                <div class="12u$">
-                                    <textarea name="description" id="description" placeholder="상세 설명"></textarea>
-                                </div>
                                 <div>
                                     <div class="select-wrapper">
                                         <select name="category" aria-invalid="demo-category">
-                                            <option value="NONE"> 카테고리</option>
+                                            <option value=""> 카테고리</option>
                                             <option value="CLOTHING">패션</option>
                                             <option value="ACCESSORIES">패션잡화</option>
                                             <option value="FOOD">식품 - 건강</option>
@@ -48,24 +37,52 @@
                                             <option value="TICKET">티켓 - 양도권</option>
                                             <option value="BOOK">도서</option>
                                             <option value="BEAUTY">뷰티</option>
-                                            <option value="GITF_CARD">E 쿠폰</option>
+                                            <option value="GIFT_CARD">E 쿠폰</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div id="desired-amount">
-                                    <input type="text" name="amount" id="amount" value=""
-                                           onkeydown="filterNumber(this, event)" placeholder=" 희망가 (원)"/>
+                                <div class="6u 12u$(xsmall)">
+                                    <input type="text" name="auctionTitle" id="auction-title" value=""
+                                           placeholder="검색어 입력"/>
                                 </div>
-                                <div class="12u$">
-                                    <ul class="actions">
-                                        <li><input type="submit" value="등록" class="special"/></li>
-                                        <li><input type="reset" value="초기화" onclick="resetForm"/></li>
-                                    </ul>
+                                <div>
+                                    <input type="submit" value="검색" class="special"/>
                                 </div>
                             </div>
                         </div>
                     </section>
                 </form>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Title</th>
+                            <th>Auction Description</th>
+                            <th>Auctioneer</th>
+                            <th>Buyer</th>
+                            <th>End Date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="purchaseAuction" items="${purchaseAuction}" >
+                            <tr>
+                                <td>${purchaseAuction.productCategory.toKorean}</td>
+                                <td>${purchaseAuction.auctionTitle}</td>
+                                <td>${purchaseAuction.description}</td>
+                                <td>${purchaseAuction.buyer}</td>
+                                <td>${purchaseAuction.bestPick.seller.name}</td>
+                                <td>${purchaseAuction.deadline}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="2"></td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -74,22 +91,4 @@
     </div>
 </div>
 </body>
-<script>
-    function filterNumber(element, event) {
-        element.value = element.value.replace(/[^0-9]/g, "");
-        let code = event.keyCode;
-        if ((code > 47 && code < 58) || event.ctrlKey || event.altKey || code == 8 || code == 9 || code == 46) {
-            return;
-        }
-        event.preventDefault();
-        return false;
-    }
-
-    function resetForm() {
-        $('form').each(function () {
-            this.reset();
-        })
-        return '';
-    }
-</script>
 </html>

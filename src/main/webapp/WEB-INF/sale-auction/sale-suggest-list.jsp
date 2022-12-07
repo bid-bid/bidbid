@@ -14,8 +14,8 @@
     <!-- Wrapper -->
     <div id="wrapper">
         <jsp:include page="../fragment/header.jsp"/>
-            <div id="form">
-                <div class="inner">
+        <div id="form">
+            <div class="inner">
                 <section>
                     <h2>Table</h2>
                     <h3>Default</h3>
@@ -25,16 +25,16 @@
                             <tr>
                                 <th>Title</th>
                                 <th>Member</th>
-                                <th>Description</th>
+                                <th>Suggest Description</th>
                                 <th>Price</th>
                             </tr>
                             </thead>
                             <tbody>
-<%--                            <jsp:useBean id="saleAuction" scope="request" class="com.bidbid.dto.saleauction.SaleAuctionRequest" />--%>
-                            <c:forEach var="saleAuction" items="${saleAuction}" >
+                            <%--제안들을 저장하는 클래스(엔티티) 필요?--%>
+                            <c:forEach var="saleAuctionSuggest" items="${saleAuction}" >
                                 <tr>
                                     <td>${saleAuction.title}</td>
-                                    <td>${saleAuction.member}</td>
+                                    <td>${saleAuction.bestPick.seller.name}</td>
                                     <td>${saleAuction.description}</td>
                                     <td>${saleAuction.price}</td>
                                 </tr>
@@ -48,8 +48,8 @@
                         </table>
                     </div>
                 </section>
-                </div>
             </div>
+        </div>
 
         <jsp:include page="../fragment/footer.jsp"/>
     </div>

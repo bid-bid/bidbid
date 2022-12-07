@@ -25,7 +25,7 @@
                                 <span class="image">
                                     <img src="./resources/images/home/buy.jpg" alt=""/>
                                 </span>
-                    <a href="/info">
+                    <a href="/sale-form">
                         <h2>살래요</h2>
                         <div class="content">
                             <p>원하시는 물건을 원하는 가격에 구매해보세요!</p>
@@ -36,7 +36,7 @@
                                 <span class="image">
                                     <img src="./resources/images/home/sell.jpg" alt=""/>
                                 </span>
-                    <a href="/info">
+                    <a href="/purchase-form">
                         <h2>팔래요</h2>
                         <div class="content">
                             <p>안 쓰는 물건을 원하는 가격에 판매해보세요!</p>

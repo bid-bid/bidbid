@@ -30,4 +30,15 @@ public class DefaultViewController {
     public String itemInfo() {
         return "itemInfo";
     }
+
+    @GetMapping("sale-form")
+    public String saleForm() {
+        return "sale-auction/sale-form";
+    }
+
+    @GetMapping("purchase-form")
+    public String purchaseForm() {
+        return "purchase-auction/purchase-form";
+    }
+
 }

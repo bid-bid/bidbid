@@ -14,8 +14,8 @@
     <!-- Wrapper -->
     <div id="wrapper">
         <jsp:include page="../fragment/header.jsp"/>
-            <div id="form">
-                <div class="inner">
+        <div id="form">
+            <div class="inner">
                 <section>
                     <h2>Table</h2>
                     <h3>Default</h3>
@@ -25,32 +25,20 @@
                             <tr>
                                 <th>Title</th>
                                 <th>Member</th>
-                                <th>Description</th>
+                                <th>Suggest Description</th>
                                 <th>Price</th>
                             </tr>
                             </thead>
                             <tbody>
-<%--                            <jsp:useBean id="saleAuction" scope="request" class="com.bidbid.dto.saleauction.SaleAuctionRequest" />--%>
-                            <c:forEach var="saleAuction" items="${saleAuction}" >
+                            <%--제안들을 저장하는 클래스(엔티티) 필요?--%>
+                            <c:forEach var="purchaseAuctionParticipation" items="${purchaseAuctionParticipation}" >
                                 <tr>
-                                    <td><a href="http://localhost:8080/api/">${saleAuction.title}</a></td>
-                                    <td>${saleAuction.member}</td>
-                                    <td>${saleAuction.description}</td>
-                                    <td>${saleAuction.price}</td>
+                                    <td>${purchaseAuctionParticipation.title}</td>
+                                    <td>${purchaseAuctionParticipation.seller.name}</td>
+                                    <td>${purchaseAuctionParticipation.description}</td>
+                                    <td>${purchaseAuctionParticipation.price}</td>
                                 </tr>
                             </c:forEach>
-                            <tr>
-                                <td><a href="sale-auction-info.jsp">Item One </a></td>
-                                <td>ksj</td>
-                                <td>Ante turpis integer aliquet porttitor.</td>
-                                <td>250000</td>
-                            </tr>
-                            <tr>
-                                <td><a href="sale-auction-info.jsp">Item Two</a></td>
-                                <td>ohksj77</td>
-                                <td>Ante turpis integer aliquet porttitor.</td>
-                                <td>500000</td>
-                            </tr>
                             </tbody>
                             <tfoot>
                             <tr>
@@ -60,8 +48,8 @@
                         </table>
                     </div>
                 </section>
-                </div>
             </div>
+        </div>
 
         <jsp:include page="../fragment/footer.jsp"/>
     </div>
