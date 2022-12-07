@@ -17,7 +17,7 @@
 
         <div id="form">
             <div class="inner">
-                <form method="post" action="#">
+                <form method="post" action="#" enctype="multipart/form-data">
                     <section>
                         <h2>구매권 입찰 등록</h2>
                         <div>
@@ -60,7 +60,7 @@
                                     <label id="upload-picture" class="button icon fa-upload" for="product-picture">
                                         사진 업로드
                                     </label>
-                                    <input type="file" id="product-picture" style="display:none" onchange="onFileUpload(this)" accept="image/*">
+                                    <input type="file" id="product-picture" name="image" style="display:none" onchange="onFileUpload(this)" accept="image/*">
                                     <div id="file-name"></div>
                                 </div>
                                 <div class="12u$">

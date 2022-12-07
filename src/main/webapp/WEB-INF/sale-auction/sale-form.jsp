@@ -17,7 +17,7 @@
 
         <div id="form">
             <div class="inner">
-                <form method="post" action="/api/purchase-auction">
+                <form method="post" action="/api/purchase-auction"  >
                     <section>
                         <h2>판매권 입찰 등록</h2>
                         <div>
@@ -53,7 +53,7 @@
                                     </div>
                                 </div>
                                 <div id="desired-amount">
-                                    <input type="text" name="amount" id="amount" value=""
+                                    <input type="text" name="startPrice" id="amount" value=""
                                            onkeydown="filterNumber(this, event)" placeholder=" 희망가 (원)"/>
                                 </div>
                                 <div class="12u$">

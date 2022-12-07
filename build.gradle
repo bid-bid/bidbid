@@ -7,11 +7,11 @@ plugins {
 
 group = 'com'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '17'
 
 jib {
     from {
-        image = "openjdk:11-jre-slim"
+        image = "openjdk:17-jre-slim"
     }
     to {
         image = "phjppo0918/bidbid"
