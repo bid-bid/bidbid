@@ -19,7 +19,7 @@
             <div class="inner">
                 <form method="post" action="#">
                     <section>
-                        <h2>마감된 구매권 입찰</h2>
+                        <h2>진행중 구매권 입찰</h2>
                         <div>
                             <div class="row uniform">
                                 <div>
