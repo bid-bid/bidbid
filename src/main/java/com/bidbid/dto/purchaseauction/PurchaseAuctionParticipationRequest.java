@@ -1,5 +1,6 @@
 package com.bidbid.dto.purchaseauction;
 
+import com.bidbid.entity.purchaseauction.PurchaseAuctionParticipation;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PurchaseAuctionParticipationRequest {
-    private String image;
     private String description;
     private Integer price;
+
+    public PurchaseAuctionParticipation toEntity() {
+        return new PurchaseAuctionParticipation(description, price);
+    }
 }

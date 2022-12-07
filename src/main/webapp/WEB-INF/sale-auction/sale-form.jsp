@@ -17,7 +17,7 @@
 
         <div id="form">
             <div class="inner">
-                <form method="post" action="/api/purchase-auction"  >
+                <form method="post" action="/api/purchase-auction">
                     <section>
                         <h2>판매권 입찰 등록</h2>
                         <div>

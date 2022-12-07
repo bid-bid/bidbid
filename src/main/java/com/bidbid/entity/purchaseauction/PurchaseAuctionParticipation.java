@@ -1,10 +1,7 @@
 package com.bidbid.entity.purchaseauction;
 
 import com.bidbid.entity.Member;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -16,6 +13,8 @@ public class PurchaseAuctionParticipation {
     @GeneratedValue
     private Long id;
 
+
+    @Setter
     private String image;
 
     private String description;
@@ -27,7 +26,17 @@ public class PurchaseAuctionParticipation {
     @JoinColumn(name = "seller_id")
     private Member seller;
 
-    @Enumerated(EnumType.STRING)
-    DecisionState decisionState;
+    @Setter
+    @OneToOne
+    @JoinColumn(name = "purchase_auction_id")
+    private PurchaseAuction purchaseAuction;
 
+    @Enumerated(EnumType.STRING)
+    DecisionState decisionState = DecisionState.UNIDENTIFIED;
+
+    @Builder
+    public PurchaseAuctionParticipation(String description, Integer price) {
+        this.description = description;
+        this.price = price;
+    }
 }

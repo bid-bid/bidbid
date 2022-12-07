@@ -22,11 +22,11 @@ public class ImageService {
     private final AmazonS3Client amazonS3Client;
     private final MultipartUtil multipartUtil;
 
-    public void save(MultipartFile multipartFile) {
-        storeToS3(multipartFile);
+    public String save(MultipartFile multipartFile) {
+        return storeToS3(multipartFile);
     }
 
-    private void storeToS3(MultipartFile multipartFile) {
+    private String storeToS3(MultipartFile multipartFile) {
         File file = multipartUtil.parseFile(multipartFile);
         try {
             multipartFile.transferTo(file);
@@ -35,6 +35,8 @@ public class ImageService {
         }
         amazonS3Client.putObject(new PutObjectRequest(bucket,file.getPath(), file)
                 .withCannedAcl(CannedAccessControlList.PublicRead));
+
+        return file.getPath();
     }
 
 }
