@@ -10,4 +10,7 @@ public class BidbidApplication {
         SpringApplication.run(BidbidApplication.class, args);
     }
 
+    static {
+        System.setProperty("com.amazonaws.sdk.disableEc2Metadata", "true");
+    }
 }
