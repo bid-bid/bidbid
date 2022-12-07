@@ -25,15 +25,16 @@
                             <tr>
                                 <th>Title</th>
                                 <th>Member</th>
-                                <th>Auction Description</th>
-                                <th>Best Price</th>
+                                <th>Suggest Description</th>
+                                <th>Price</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach var="saleAuctionPersonal" items="${saleAuction}" >
+                            <%--제안들을 저장하는 클래스(엔티티) 필요?--%>
+                            <c:forEach var="saleAuctionSuggest" items="${saleAuction}" >
                                 <tr>
-                                    <td><a href="http://localhost:8080/api/~~~">${saleAuction.title}</a></td>
-                                    <td>${saleAuction.bestBuyer}</td>
+                                    <td>${saleAuction.title}</td>
+                                    <td>${saleAuction.bestPick.seller.name}</td>
                                     <td>${saleAuction.description}</td>
                                     <td>${saleAuction.price}</td>
                                 </tr>
