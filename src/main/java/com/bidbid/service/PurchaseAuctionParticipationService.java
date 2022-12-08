@@ -13,6 +13,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.security.Principal;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -49,6 +50,10 @@ public class PurchaseAuctionParticipationService {
     @Transactional
     public void setDismiss(Long id) {
         getOne(id).dismiss();
+    }
+
+    public boolean isSeller(Long id, Principal principal) {
+        return Objects.equals(getOne(id).getSeller().getName(), principal.getName());
     }
 
     public List<PurchaseAuctionParticipation> findAllByPurchaseAuctionId(Long purchaseAuctionId) {
