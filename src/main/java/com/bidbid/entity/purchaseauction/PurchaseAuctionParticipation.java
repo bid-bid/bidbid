@@ -1,5 +1,6 @@
 package com.bidbid.entity.purchaseauction;
 
+import com.bidbid.dto.purchaseauction.PurchaseAuctionParticipationRequest;
 import com.bidbid.entity.Member;
 import lombok.*;
 
@@ -38,5 +39,19 @@ public class PurchaseAuctionParticipation {
     public PurchaseAuctionParticipation(String description, Integer price) {
         this.description = description;
         this.price = price;
+    }
+
+    public void modify(PurchaseAuctionParticipationRequest dto) {
+        description = dto.getDescription();
+        price = dto.getPrice();
+        decisionState = DecisionState.UNIDENTIFIED;
+    }
+
+    public void bestPick() {
+        decisionState = DecisionState.SELECTION;
+    }
+
+    public void dismiss() {
+        decisionState = DecisionState.DISMISSAL;
     }
 }
