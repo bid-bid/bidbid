@@ -19,7 +19,7 @@
             <div class="inner">
                 <form method="post" action="#">
                     <section>
-                        <h2>마감된 판매권 입찰</h2>
+                        <h2>마감된 구매권 입찰</h2>
                         <div>
                             <div class="row uniform">
                                 <div>
@@ -60,19 +60,19 @@
                             <th>Title</th>
                             <th>Auction Description</th>
                             <th>Auctioneer</th>
-                            <th>Seller</th>
+                            <th>Buyer</th>
                             <th>End Date</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="saleAuction" items="${saleAuction}" >
+                        <c:forEach var="purchaseAuction" items="${purchaseAuction}" >
                             <tr>
-                                <td>${saleAuction.productCategory.toKorean}</td>
-                                <td>${saleAuction.productName}</td>
-                                <td>${saleAuction.description}</td>
-                                <td>${saleAuction.seller.name}</td>
-                                <td>${saleAuction.bestBuyer.name}</td>
-                                <td>${saleAuction.auctionDeadline}</td>
+                                <td>${purchaseAuction.productCategory.toKorean}</td>
+                                <td>${purchaseAuction.auctionTitle}</td>
+                                <td>${purchaseAuction.description}</td>
+                                <td>${purchaseAuction.buyer}</td>
+                                <td>${purchaseAuction.bestPick.seller.name}</td>
+                                <td>${purchaseAuction.deadline}</td>
                             </tr>
                         </c:forEach>
                         </tbody>

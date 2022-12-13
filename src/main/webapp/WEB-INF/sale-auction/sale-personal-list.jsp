@@ -30,12 +30,12 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach var="saleAuctionPersonal" items="${saleAuction}" >
+                            <c:forEach var="purchaseAuctionPersonal" items="${purchaseAuction}" >
                                 <tr>
-                                    <td><a href="http://localhost:8080/api/~~~">${saleAuction.title}</a></td>
-                                    <td>${saleAuction.bestBuyer.name}</td>
-                                    <td>${saleAuction.description}</td>
-                                    <td>${saleAuction.price}</td>
+                                    <td><a href="http://localhost:8080/api/~~~">${purchaseAuction.auctionTitle}</a></td>
+                                    <td>${purchaseAuction.buyer.name}</td>
+                                    <td>${purchaseAuction.description}</td>
+                                    <td>${purchaseAuction.bestPick.price}</td>
                                 </tr>
                             </c:forEach>
                             </tbody>

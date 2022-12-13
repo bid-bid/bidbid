@@ -31,12 +31,12 @@
                             </thead>
                             <tbody>
                             <%--제안들을 저장하는 클래스(엔티티) 필요?--%>
-                            <c:forEach var="purchaseAuctionParticipation" items="${purchaseAuctionParticipation}" >
+                            <c:forEach var="saleAuctionSuggest" items="${saleAuction}" >
                                 <tr>
-                                    <td>${purchaseAuctionParticipation.title}</td>
-                                    <td>${purchaseAuctionParticipation.seller.name}</td>
-                                    <td>${purchaseAuctionParticipation.description}</td>
-                                    <td>${purchaseAuctionParticipation.price}</td>
+                                    <td>${saleAuction.title}</td>
+                                    <td>${saleAuction.bestPick.seller.name}</td>
+                                    <td>${saleAuction.description}</td>
+                                    <td>${saleAuction.price}</td>
                                 </tr>
                             </c:forEach>
                             </tbody>
