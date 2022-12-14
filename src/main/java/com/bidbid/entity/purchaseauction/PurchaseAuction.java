@@ -8,6 +8,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class PurchaseAuction {
@@ -31,13 +32,12 @@ public class PurchaseAuction {
     private Member buyer;
 
     @Setter
-    @Getter
     @OneToOne
     @JoinColumn(name = "best_pick_id")
     private PurchaseAuctionParticipation bestPick;
 
     @Column(nullable = false)
-    private LocalDateTime deadline = LocalDateTime.now().plusDays(1);
+    private LocalDateTime deadline;
 
     @Embedded
     private BaseTime baseTime;
@@ -49,6 +49,11 @@ public class PurchaseAuction {
         this.productName = productName;
         this.description = description;
         this.productCategory = productCategory;
+        setDeadLine();
         baseTime = new BaseTime();
+    }
+
+    private void setDeadLine() {
+        this.deadline = LocalDateTime.now().plusDays(1);
     }
 }
