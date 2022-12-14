@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -25,7 +26,7 @@
                                 <span class="image">
                                     <img src="./resources/images/home/buy.jpg" alt=""/>
                                 </span>
-                    <a href="/sale-form">
+                    <a href="/api/sale-auction">
                         <h2>살래요</h2>
                         <div class="content">
                             <p>원하시는 물건을 원하는 가격에 구매해보세요!</p>
@@ -36,7 +37,7 @@
                                 <span class="image">
                                     <img src="./resources/images/home/sell.jpg" alt=""/>
                                 </span>
-                    <a href="/purchase-form">
+                    <a href="/api/purchase-auction">
                         <h2>팔래요</h2>
                         <div class="content">
                             <p>안 쓰는 물건을 원하는 가격에 판매해보세요!</p>
