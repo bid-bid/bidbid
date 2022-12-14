@@ -35,7 +35,7 @@ public class SaleAuctionService {
     }
 
     public List<SaleAuction> findAll() {
-        return saleAuctionRepository.findAll(Sort.by(Sort.Direction.DESC, "auctionDeadline"));
+        return saleAuctionRepository.findAll(Sort.by(Sort.Direction.DESC, "deadline"));
     }
 
     public List<SaleAuction> findAllByCategory(ProductCategory category) {
