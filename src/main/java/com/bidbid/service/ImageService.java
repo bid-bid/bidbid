@@ -31,6 +31,7 @@ public class ImageService {
         try {
             multipartFile.transferTo(file);
         }catch (IOException e) {
+            e.printStackTrace();
             throw new FileIOException();
         }
         amazonS3Client.putObject(new PutObjectRequest(bucket,file.getPath(), file)
