@@ -66,7 +66,7 @@ public class TestController {
         signupRequests.forEach(memberService::signup);
         Principal principal = () -> "a@a.com";
 
-        saleAuctionRequests.forEach(s -> saleAuctionService.create(s, principal));
+       // saleAuctionRequests.forEach(s -> saleAuctionService.create(s, principal));
         purchaseAuctionRequests.forEach(p -> purchaseAuctionService.create(p, principal));
         //purchaseAuctionParticipationRequests.forEach(pp -> purchaseAuctionService.setBestPick(2L, ) );
 
