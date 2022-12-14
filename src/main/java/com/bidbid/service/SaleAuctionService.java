@@ -29,7 +29,7 @@ public class SaleAuctionService {
         saleAuction.setSeller(memberService.getLoginMember(principal));
         saleAuction.setImage(imageService.save(image));
 
-        return saleAuctisonRepository.save(saleAuction);
+        return saleAuctionRepository.save(saleAuction);
     }
 
     public SaleAuction findById(Long id) {
