@@ -26,7 +26,7 @@ public class SaleAuctionService {
         SaleAuction saleAuction = dto.toEntity();
         saleAuction.setSeller(memberService.getLoginMember(principal));
 
-        return saleAuctionRepository.save(dto.toEntity());
+        return saleAuctionRepository.save(saleAuction);
     }
 
     public SaleAuction findById(Long id) {

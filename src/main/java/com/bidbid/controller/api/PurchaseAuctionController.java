@@ -57,20 +57,12 @@ public class PurchaseAuctionController {
         return "purchase-auction/purchase-list";
     }
 
-    @PostMapping("{id}/allow")
-    public String allow(@PathVariable Long id) {
-        throw new UnsupportedOperationException();
-    }
+
 
     @PostMapping("{id}/delete")
     public String delete(@PathVariable Long id) {
         throw new UnsupportedOperationException();
     }
 
-    @PostMapping("{auctionId}/best-pick/{participationId}")
-    public String bestPick(@PathVariable Long auctionId, @PathVariable Long participationId) {
-        purchaseAuctionService.setBestPick(auctionId, participationId);
 
-        return "redirect:/api/purchase-auction/" + auctionId;
-    }
 }

@@ -38,7 +38,7 @@ public class PurchaseAuctionParticipationService {
     }
 
     @Transactional
-    public void setBestPick(Long id) {
+    public void bestPick(Long id) {
         PurchaseAuctionParticipation purchaseAuctionParticipation = getOne(id);
         purchaseAuctionParticipation.bestPick();
 
@@ -74,5 +74,8 @@ public class PurchaseAuctionParticipationService {
         return purchaseAuctionParticipationRepository
                 .findById(id)
                 .orElseThrow(EntityNotFoundException::new);
+    }
+
+    public void dissmiss(Long id) {
     }
 }
