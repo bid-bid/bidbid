@@ -19,11 +19,11 @@ public class PurchaseAuctionParticipateController {
         throw new UnsupportedOperationException("Not supported yet");
     }
 
-    @GetMapping("{purchaseId}")
-    public String getByPurchaseId(@PathVariable Long purchaseId) {
-
-    }
-
-    @GetMapping("{purchaseId}")
-    public String
+//    @GetMapping("{purchaseId}")
+//    public String getByPurchaseId(@PathVariable Long purchaseId) {
+//
+//    }
+//
+//    @GetMapping("{purchaseId}")
+//    public String
 }
