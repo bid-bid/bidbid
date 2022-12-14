@@ -15,11 +15,11 @@ public class PurchaseAuctionRequest {
     private String auctionTitle;
     private String productName;
     private String description;
-    private Integer startPrice;
     private String category;
 
     public PurchaseAuction toEntity() {
         return PurchaseAuction.builder()
+                .auctionTitle(auctionTitle)
                 .productName(productName)
                 .description(description)
                 .productCategory(ProductCategory.valueOf(category))

@@ -34,6 +34,7 @@ public class SaleAuction {
     @JoinColumn(name = "best_buyer_id")
     private Member bestBuyer;
 
+    @Setter
     private String image;
 
     @Column(nullable = false)

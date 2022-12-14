@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.security.Principal;
 
@@ -19,7 +18,7 @@ public class PurchaseAuctionController {
     private final PurchaseAuctionService purchaseAuctionService;
 
     @PostMapping
-    public String create(PurchaseAuctionRequest dto, Principal principal, MultipartFile image) {
+    public String create(PurchaseAuctionRequest dto, Principal principal) {
         purchaseAuctionService.create(dto, principal);
 
         return "redirect:/api/purchase-auction";

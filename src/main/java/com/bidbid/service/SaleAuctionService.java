@@ -9,6 +9,7 @@ import com.bidbid.repository.SaleAuctionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
@@ -20,11 +21,13 @@ import java.util.List;
 public class SaleAuctionService {
     private final SaleAuctionRepository saleAuctionRepository;
     private final MemberService memberService;
+    private final ImageService imageService;
 
     @Transactional
-    public SaleAuction create(SaleAuctionRequest dto, Principal principal) {
+    public SaleAuction create(SaleAuctionRequest dto, MultipartFile image, Principal principal) {
         SaleAuction saleAuction = dto.toEntity();
         saleAuction.setSeller(memberService.getLoginMember(principal));
+        saleAuction.setImage(imageService.save(image));
 
         return saleAuctionRepository.save(saleAuction);
     }
