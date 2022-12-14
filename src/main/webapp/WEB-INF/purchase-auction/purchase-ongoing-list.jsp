@@ -21,6 +21,7 @@
                 <form method="post" action="/api/purchase-auction">
                     <section>
                         <h2>진행중 판매권 입찰</h2>
+                        <button type="button" onclick="location.href='/purchase-form' ">판매권 등록</button>
                         <div>
                             <div class="row uniform">
                                 <div>

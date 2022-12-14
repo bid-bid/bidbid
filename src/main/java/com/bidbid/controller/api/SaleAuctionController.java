@@ -31,7 +31,7 @@ public class SaleAuctionController {
     public String getAll(Model model) {
         model.addAttribute("saleAuctions", saleAuctionService.findAll());
 
-        return "sale-auction/sale-auction-info";
+        return "sale-auction/sale-ongoing-list";
     }
 
     @GetMapping(params = "filter=member")

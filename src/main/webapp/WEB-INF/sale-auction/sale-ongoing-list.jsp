@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -20,6 +21,7 @@
                 <form method="post" action="#">
                     <section>
                         <h2>진행중 구매권 입찰</h2>
+                        <button type="button" onclick="location.href='/sale-form' ">구매권 등록</button>
                         <div>
                             <div class="row uniform">
                                 <div>
@@ -65,14 +67,15 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="purchaseAuction" items="${purchaseAuction}" >
+                        <c:forEach var="saleAuctions" items="${saleAuctions}" >
                             <tr>
-                                <td>${purchaseAuction.productCategory.toKorean}</td>
-                                <td>${purchaseAuction.auctionTitle}</td>
-                                <td>${purchaseAuction.description}</td>
-                                <td>${purchaseAuction.buyer}</td>
-                                <td>${purchaseAuction.bestPick.seller.name}</td>
-                                <td>${purchaseAuction.deadline}</td>
+                                <td>${saleAuctions.auctionTitle}</td>
+                                <td>${saleAuctions.productName}</td>
+                                <td>${saleAuctions.productCategory.toKorean}</td>
+                                <td>${saleAuctions.description}</td>
+                                <td>${saleAuctions.seller.name}</td>
+                                <td>${saleAuctions.bestBuyer.name}</td>
+                                <td>${saleAuctions.deadline}</td>
                             </tr>
                         </c:forEach>
                         </tbody>
