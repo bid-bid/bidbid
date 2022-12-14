@@ -52,10 +52,6 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div id="desired-amount">
-                                    <input type="text" name="startPrice" id="amount" value=""
-                                           onkeydown="filterNumber(this, event)" placeholder=" 희망가 (원)"/>
-                                </div>
                                 <div class="12u$">
                                     <ul class="actions">
                                         <li><input type="submit" value="등록" class="special"/></li>
@@ -75,15 +71,6 @@
 </div>
 </body>
 <script>
-    function filterNumber(element, event) {
-        element.value = element.value.replace(/[^0-9]/g, "");
-        let code = event.keyCode;
-        if ((code > 47 && code < 58) || event.ctrlKey || event.altKey || code == 8 || code == 9 || code == 46) {
-            return;
-        }
-        event.preventDefault();
-        return false;
-    }
 
     function resetForm() {
         $('form').each(function () {

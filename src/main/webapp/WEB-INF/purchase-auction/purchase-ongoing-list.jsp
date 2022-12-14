@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.bidbid.entity.purchaseauction.PurchaseAuction" %>
 <html>
 <head>
     <title>bidbid</title>
@@ -17,7 +18,7 @@
 
         <div id="form">
             <div class="inner">
-                <form method="post" action="#">
+                <form method="post" action="/api/purchase-auction">
                     <section>
                         <h2>진행중 판매권 입찰</h2>
                         <div>
@@ -56,8 +57,9 @@
                     <table>
                         <thead>
                         <tr>
-                            <th>Category</th>
                             <th>Title</th>
+                            <th>Product</th>
+                            <th>Category</th>
                             <th>Auction Description</th>
                             <th>Auctioneer</th>
                             <th>Seller</th>
@@ -65,14 +67,15 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="saleAuction" items="${saleAuction}" >
+                        <c:forEach var="purchaseAuctions" items="${purchaseAuctions}" >
                             <tr>
-                                <td>${saleAuction.productCategory.toKorean}</td>
-                                <td>${saleAuction.productName}</td>
-                                <td>${saleAuction.description}</td>
-                                <td>${saleAuction.seller.name}</td>
-                                <td>${saleAuction.bestBuyer.name}</td>
-                                <td>${saleAuction.auctionDeadline}</td>
+                                <td>${purchaseAuctions.auctionTitle}</td>
+                                <td>${purchaseAuctions.productName}</td>
+                                <td>${purchaseAuctions.productCategory.toKorean}</td>
+                                <td>${purchaseAuctions.description}</td>
+                                <td>${purchaseAuctions.buyer.name}</td>
+                                <td>${purchaseAuctions.bestPick.seller.name}</td>
+                                <td>${purchaseAuctions.deadline}</td>
                             </tr>
                         </c:forEach>
                         </tbody>

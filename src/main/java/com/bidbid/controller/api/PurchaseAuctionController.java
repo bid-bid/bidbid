@@ -30,7 +30,7 @@ public class PurchaseAuctionController {
         model.addAttribute("purchaseAuctions",
                 purchaseAuctionService.findAll());
 
-        return "purchase-auction/purchase-list";
+        return "purchase-auction/purchase-ongoing-list";
     }
 
     @GetMapping(params = "filter=member")
