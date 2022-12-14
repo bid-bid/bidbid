@@ -17,7 +17,7 @@
 
         <div id="form">
             <div class="inner">
-                <form method="post" action="#" enctype="multipart/form-data">
+                <form method="post" action="/api/sale-auction" enctype="multipart/form-data">
                     <section>
                         <h2>구매권 입찰 등록</h2>
                         <div>
