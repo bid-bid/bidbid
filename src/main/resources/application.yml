@@ -17,7 +17,10 @@ spring:
 cloud:
   aws:
     s3:
-      bucket: ${S3_BUCKET_NAME}
+      bucket: bidbid
+      dir: /image
+      region:
+        static: ap-northeast-2
       default-path: images
 
     credentials:

@@ -2,7 +2,9 @@ package com.bidbid.service;
 
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
+import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.PutObjectResult;
 import com.bidbid.global.exception.FileIOException;
 import com.bidbid.util.MultipartUtil;
 import lombok.RequiredArgsConstructor;
@@ -27,17 +29,17 @@ public class ImageService {
     }
 
     private String storeToS3(MultipartFile multipartFile) {
-        File file = multipartUtil.parseFile(multipartFile);
+        ObjectMetadata data = new ObjectMetadata();
+        data.setContentType(multipartFile.getContentType());
+        data.setContentLength(multipartFile.getSize());
         try {
-            multipartFile.transferTo(file);
+            PutObjectResult result = amazonS3Client.putObject(new PutObjectRequest(bucket, multipartFile.getOriginalFilename(), multipartFile.getInputStream(), data)
+                    .withCannedAcl(CannedAccessControlList.PublicRead));
+            return result.getContentMd5();
         }catch (IOException e) {
             e.printStackTrace();
             throw new FileIOException();
         }
-        amazonS3Client.putObject(new PutObjectRequest(bucket,file.getPath(), file)
-                .withCannedAcl(CannedAccessControlList.PublicRead));
-
-        return file.getPath();
     }
 
 }
