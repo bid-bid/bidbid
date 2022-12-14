@@ -37,7 +37,7 @@ public class PurchaseAuction {
     private PurchaseAuctionParticipation bestPick;
 
     @Column(nullable = false)
-    private LocalDateTime deadline;
+    private LocalDateTime deadline = LocalDateTime.now().plusDays(1);
 
     @Embedded
     private BaseTime baseTime;
@@ -49,11 +49,6 @@ public class PurchaseAuction {
         this.productName = productName;
         this.description = description;
         this.productCategory = productCategory;
-        setDeadLine();
         baseTime = new BaseTime();
-    }
-
-    private void setDeadLine() {
-        this.deadline = LocalDateTime.now().plusDays(1);
     }
 }
