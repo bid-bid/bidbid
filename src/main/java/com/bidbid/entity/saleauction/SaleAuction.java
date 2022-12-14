@@ -37,7 +37,7 @@ public class SaleAuction {
     private String image;
 
     @Column(nullable = false)
-    private LocalDateTime auctionDeadline;
+    private LocalDateTime deadline;
 
     @Column(nullable = false)
     private Integer price = 0;
@@ -66,6 +66,6 @@ public class SaleAuction {
     }
 
     private void setDeadLine() {
-        this.auctionDeadline = LocalDateTime.now().plusDays(1);
+        this.deadline = LocalDateTime.now().plusDays(1);
     }
 }

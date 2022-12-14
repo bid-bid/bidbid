@@ -45,7 +45,7 @@ public class PurchaseAuctionService {
     }
 
     public List<PurchaseAuction> findAll() {
-        return purchaseAuctionRepository.findAll(Sort.by(Sort.Direction.DESC, "auctionDeadline"));
+        return purchaseAuctionRepository.findAll(Sort.by(Sort.Direction.DESC, "deadline"));
     }
 
     public void setBestPick(Long auctionId, Long participationId) {
