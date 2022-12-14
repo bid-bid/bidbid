@@ -18,7 +18,6 @@ public class PurchaseAuctionRequest {
     private Integer startPrice;
     private String category;
 
-
     public PurchaseAuction toEntity() {
         return PurchaseAuction.builder()
                 .productName(productName)

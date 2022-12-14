@@ -26,7 +26,7 @@ public class PurchaseAuctionService {
     public void create(PurchaseAuctionRequest dto, Principal principal) {
         PurchaseAuction purchaseAuction = dto.toEntity();
         purchaseAuction.setBuyer(memberService.getLoginMember(principal));
-        purchaseAuctionRepository.save(dto.toEntity());
+        purchaseAuctionRepository.save(purchaseAuction);
     }
 
     public PurchaseAuction findById(Long id) {
