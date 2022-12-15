@@ -70,7 +70,7 @@
                         <tbody>
                         <c:forEach var="purchaseAuctions" items="${purchaseAuctions}" >
                             <tr>
-                                <td>${purchaseAuctions.auctionTitle}</td>
+                                <td><a href="http://localhost:8080/api/purchase-auction/${purchaseAuctions.id}">${purchaseAuctions.auctionTitle}</a></td>
                                 <td>${purchaseAuctions.productName}</td>
                                 <td>${purchaseAuctions.productCategory.toKorean}</td>
                                 <td>${purchaseAuctions.description}</td>
@@ -95,4 +95,12 @@
     </div>
 </div>
 </body>
+<script>
+    function toInfoPage(id) {
+        $.ajax({
+            url: "http://localhost:8080/api/purchase-auction/" + id,
+            type: "GET",
+        });
+    }
+</script>
 </html>

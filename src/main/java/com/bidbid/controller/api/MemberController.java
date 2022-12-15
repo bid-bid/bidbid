@@ -4,6 +4,8 @@ import com.bidbid.dto.member.ChargePointRequest;
 import com.bidbid.dto.member.SignupRequest;
 import com.bidbid.entity.Member;
 import com.bidbid.service.MemberService;
+import com.bidbid.service.PurchaseAuctionService;
+import com.bidbid.service.SaleAuctionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,12 +22,16 @@ import java.security.Principal;
 public class MemberController {
 
     private final MemberService memberService;
+    private final PurchaseAuctionService purchaseAuctionService;
+    private final SaleAuctionService saleAuctionService;
 
     @GetMapping
     public String getLoginMember(Principal principal, Model model) {
         Member loginMember = memberService.getLoginMember(principal.getName());
         model.addAttribute("name", loginMember.getName());
         model.addAttribute("point", loginMember.getPoint());
+        model.addAttribute("purchaseAuctions", purchaseAuctionService.findByBuyer(principal));
+        model.addAttribute("saleAuctions", saleAuctionService.findAllBySeller(principal));
         return "member/my-info";
     }
 

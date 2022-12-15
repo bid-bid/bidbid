@@ -27,12 +27,12 @@
                     <table style="margin-top:4em;">
                         <tr style="background-color: #FFF; border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
                             <td style="border-bottom: solid 1px #c9c9c9; color: #000;">
-                                이름 : 비드비드
+                                이름 : ${name}
                             </td>
                         </tr>
                         <tr style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
                             <td style="border-bottom: solid 1px #c9c9c9; color: #000;">
-                                포인트 : 10000000P
+                                포인트 : ${point}
                             </td>
                         </tr>
                         <tr style="background-color: #FFF; border-bottom: solid 1px #FFF; color: #000;">
@@ -51,54 +51,78 @@
         <div class="inner" style="border: 1px solid #c9c9c9; margin-bottom:50px;">
             <h3 align="center" style="margin-top:40px">[구매]</h3>
             <table>
-                <tr align="center" style="background-color: #f6f6f6; border-bottom: solid 1px #c9c9c9; color: #000;">
-                    <td style="width:50%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        희망상품
-                    </td>
-                    <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        경매인
-                    </td>
-                    <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        낙찰가
-                    </td>
-                </tr>
-                <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
-                    <td style="width:50%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        ABC가방
-                    </td>
-                    <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        DEF님
-                    </td>
-                    <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        15000
-                    </td>
-                </tr>
+                <thead>
+                    <tr align="center" style="background-color: #f6f6f6; border-bottom: solid 1px #c9c9c9; color: #000;">
+                        <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            제목
+                        </td>
+                        <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            희망상품
+                        </td>
+                        <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            낙찰자
+                        </td>
+                        <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            낙찰가
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="purchaseAuctions" items="${purchaseAuctions}">
+                        <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                                    ${purchaseAuctions.auctionTitle}
+                            </td>
+                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                                    ${purchaseAuctions.productName}
+                            </td>
+                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                                    ${purchaseAuctions.bestPick.seller.name}
+                            </td>
+                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                                    ${purchaseAuctions.price}
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
             </table>
 
             <h3 align="center" style="margin-top:40px">[판매]</h3>
             <table>
-                <tr align="center" style="background-color: #f6f6f6; border-bottom: solid 1px #c9c9c9; color: #000;">
-                    <td style="width:50%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        희망상품
-                    </td>
-                    <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        낙찰자
-                    </td>
-                    <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        낙찰가
-                    </td>
-                </tr>
-                <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
-                    <td style="width:50%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        ABC가방
-                    </td>
-                    <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        DEF님
-                    </td>
-                    <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        15000
-                    </td>
-                </tr>
+                <thead>
+                    <tr align="center" style="background-color: #f6f6f6; border-bottom: solid 1px #c9c9c9; color: #000;">
+                        <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            제목
+                        </td>
+                        <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            희망상품
+                        </td>
+                        <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            낙찰자
+                        </td>
+                        <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            낙찰가
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="saleAuctions" items="${saleAuctions}">
+                        <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                                    ${saleAuctions.auctionTitle}
+                            </td>
+                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                                    ${saleAuctions.productName}
+                            </td>
+                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                                    ${saleAuctions.bestBuyer.name}
+                            </td>
+                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                                    ${saleAuctions.price}
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
             </table>
         </div>
     </div>

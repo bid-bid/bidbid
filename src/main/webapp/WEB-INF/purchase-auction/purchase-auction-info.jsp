@@ -54,6 +54,7 @@
             <center>
                 <div style="width:80%; margin-bottom: 4em;">
                 당장 빨래를 돌려야하는데 세탁기가 고장났네요 ㅠㅠㅜ 급합니다 돌아가기만 하면 됩니다
+                </div>
             </center>
 
             <center>
