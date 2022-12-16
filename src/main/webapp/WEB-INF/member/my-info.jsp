@@ -80,7 +80,7 @@
                                     ${purchaseAuctions.bestPick.seller.name}
                             </td>
                             <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                                    ${purchaseAuctions.price}
+                                    ${purchaseAuctions.bestPick.price}
                             </td>
                         </tr>
                     </c:forEach>
