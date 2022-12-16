@@ -53,7 +53,7 @@ public class PurchaseAuctionController {
     public String getById(@PathVariable Long id, Model model) {
         model.addAttribute("purchaseAuction", purchaseAuctionService.findById(id));
 
-        return "purchase-auction/purchase-list";
+        return "purchase-auction/purchase-auction-info";
     }
 
 

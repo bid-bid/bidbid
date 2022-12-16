@@ -21,8 +21,8 @@
     <div id="main" style="padding: 0em 0 2em 0;">
         <div class="inner">
             <hr>
-             <center>
-                <h2 class="mypage" style="font-size: 32px; letter-spacing:0">@@@@@@@@@세탁기 삽니다</h2>
+            <center>
+                <h2 class="mypage" style="font-size: 32px; letter-spacing:0">${purchaseAuction.auctionTitle}</h2>
             </center>
             <section class="tiles" style="margin-top: 0; margin-left:auto; margin-right:auto">
                 <div style="width: calc(20%);"></div>
@@ -35,17 +35,17 @@
                         </tr>
                         <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
                             <td style="border-bottom: solid 1px #c9c9c9; color: #000;">
-                                세탁기
+                                ${purchaseAuction.productName}
                             </td>
                         </tr>
                         <tr style="background-color: #FFF; color: #000;">
                             <td>
-                                50000p
+                                ${purchaseAuction.bestPick.price}
                             </td>
                         </tr>
                         <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
                             <td style="font-size:16px">
-                                가전ㆍ컴퓨터 &nbsp&nbsp 2022-12-02 18:12:20
+                                ${purchaseAuction.productCategory.toKorean} &nbsp&nbsp ${purchaseAuction.deadline}
                             </td>
                         </tr>
                     </table>
@@ -53,7 +53,7 @@
             </section>
             <center>
                 <div style="width:80%; margin-bottom: 4em;">
-                당장 빨래를 돌려야하는데 세탁기가 고장났네요 ㅠㅠㅜ 급합니다 돌아가기만 하면 됩니다
+                ${purchaseAuction.description}
                 </div>
             </center>
 
@@ -62,48 +62,42 @@
             </center>
             <table>
                 <tr align="center" style="background-color: #f6f6f6; border-bottom: solid 1px #c9c9c9; color: #000;">
-                   <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                      입찰자
-                   </td>
-                   <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                      물건
-                   </td>
-                   <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                      가격
-                   </td>
-                   <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                     등록시간
-                   </td>
-                   <td style="width:10%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                      상태
-                   </td>
-                   <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000;">
-
-                  </td>
+                <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                    입찰자
+                </td>
+                <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                    물건
+                </td>
+                <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                    가격
+                </td>
+                <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                    등록시간
+                </td>
+                <td style="width:10%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                    상태
+                </td>
+                <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                </td>
                 </tr>
                 <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
-                   <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                     DEF님
-                   </td>
-                   <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                      <img style="width:100%" src="../resources/images/purchase-auction/1.jpg" alt=""/>
-                   </td>
-                   <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                       60000p
+                    <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
+                        ${purchaseAuction.bestPick.seller.name}
                     </td>
-                   <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                      2022-12-02 14:20:12
-                   </td>
-                   <td style="width:15%; border-bottom: solid 1px #c9c9c9; font-weight: 900; vertical-align: middle;">
-                        <c:if test="${state eq 0}">
-                           <span style="color: blue;">선정</span>
-                        </c:if>
-                        <c:if test="${state eq 1}">
-                           <span style="color: red;">반려</span>
-                        </c:if>
-                   </td>
-                   <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                        <c:if test="${state eq 1}">
+                    <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
+                        <img style="width:100%" src="../resources/images/purchase-auction/1.jpg" alt=""/>
+                    </td>
+                    <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
+                        ${purchaseAuction.bestPick.price}p
+                    </td>
+                    <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
+                        2022-12-02 14:20:12
+                    </td>
+                    <td style="width:15%; border-bottom: solid 1px #c9c9c9; font-weight: 900; vertical-align: middle;">
+                        ${purchaseAuction.bestPick.decisionState.toKorean}
+                    </td>
+                    <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
+                        <c:if test="${purchaseAuction.bestPick.decisionState.toKorean eq '반려'}">
                             <input type="button" onClick="location.href='/comment-update'" style="padding:1em; letter-spacing: 0em; line-height: 0em;" value="수정">
                         </c:if>
                     </td>
@@ -147,7 +141,6 @@
     <jsp:include page="../fragment/footer.jsp"/>
 
 </body>
-</html>
 
 <style type="">
 .comment-area{
@@ -167,8 +160,8 @@
 }
 
 .user_area {
-	width: calc(40%);
-	padding: 3em 1em 0 1em;
+    width: calc(40%);
+    padding: 3em 1em 0 1em;
 }
 
 .bid-alert {
@@ -181,39 +174,38 @@
 </style>
 
 <script>
-     function validateBid() {
-          var bid = document.getElementById('desired-bid').value.trim();
-          var alertEl = document.getElementById('bid_alert');
+    function validateBid() {
+        var bid = document.getElementById('desired-bid').value.trim();
+        var alertEl = document.getElementById('bid_alert');
 
           // 입력 여부 검증
-          if (bid.length == 0) {
-             alertEl.innerHTML = '필수 정보입니다.';
-             alertEl.style.display = 'block';
+        if (bid.length == 0) {
+            alertEl.innerHTML = '필수 정보입니다.';
+            alertEl.style.display = 'block';
 
-             return false;
-          }
+            return false;
+        }
           // 숫자만 가능
-          if (!/^[0-9]*$/.test(bid)) {
-               alertEl.innerHTML = '숫자만 입력해주세요';
-               alertEl.style.display = 'block';
-
-               return false;
+        if (!/^[0-9]*$/.test(bid)) {
+            alertEl.innerHTML = '숫자만 입력해주세요';
+            alertEl.style.display = 'block';
+            return false;
             }
 
-          alertEl.style.display = 'none';
-     }
+        alertEl.style.display = 'none';
+    }
 
-     function onFileUpload(file) {
-         console.log(file.files[0].name)
-         if(file){
-             if(document.getElementById("uploaded-file") != null){
-                 document.getElementById("uploaded-file").remove();
-             }
-             let div = document.createElement('div');
-             div.id = "uploaded-file"
-             let text = document.createTextNode(file.files[0].name);
-             div.appendChild(text);
-             document.getElementById("file-name").appendChild(div);
-         }
-     }
+    function onFileUpload(file) {
+        console.log(file.files[0].name)
+        if(file){if(document.getElementById("uploaded-file") != null){
+            document.getElementById("uploaded-file").remove();
+        }
+            let div = document.createElement('div');
+            div.id = "uploaded-file"
+            let text = document.createTextNode(file.files[0].name);
+            div.appendChild(text);
+            document.getElementById("file-name").appendChild(div);
+        }
+    }
 </script>
+</html>
