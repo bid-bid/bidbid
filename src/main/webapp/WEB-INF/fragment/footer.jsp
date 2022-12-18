@@ -7,8 +7,8 @@
     <title>bidbid</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="shortcut icon" type="image⁄x-icon" href="../resources/images/bidLogo.ico">
-    <link rel="stylesheet" href="../resources/css/main.css" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" type="image⁄x-icon" href="${pageContext.request.contextPath}/resources/images/bidLogo.ico">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" rel="stylesheet" type="text/css"/>
 
 </head>
 <body>

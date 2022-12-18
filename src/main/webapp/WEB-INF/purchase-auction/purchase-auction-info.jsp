@@ -81,26 +81,30 @@
                 </td>
                 </tr>
                 <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
-                    <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                        ${purchaseAuction.bestPick.seller.name}
-                    </td>
-                    <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                        <img style="width:100%" src="../resources/images/purchase-auction/1.jpg" alt=""/>
-                    </td>
-                    <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                        ${purchaseAuction.bestPick.price}p
-                    </td>
-                    <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                        2022-12-02 14:20:12
-                    </td>
-                    <td style="width:15%; border-bottom: solid 1px #c9c9c9; font-weight: 900; vertical-align: middle;">
-                        ${purchaseAuction.bestPick.decisionState.toKorean}
-                    </td>
-                    <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                        <c:if test="${purchaseAuction.bestPick.decisionState.toKorean eq '반려'}">
-                            <input type="button" onClick="location.href='/comment-update'" style="padding:1em; letter-spacing: 0em; line-height: 0em;" value="수정">
-                        </c:if>
-                    </td>
+                    <c:if test="${purchaseAuction.bestPick}">
+                        <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
+                                ${purchaseAuction.bestPick.seller.name}
+                        </td>
+                        <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
+                            <c:if test="${purchaseAuction.bestPick.image}">
+                                <img style="width:100%" src=${purchaseAuction.bestPick.image} alt=""/>
+                            </c:if>
+                        </td>
+                        <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
+                                ${purchaseAuction.bestPick.price}
+                        </td>
+                        <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
+                                ${purchaseAuction.deadline}
+                        </td>
+                        <td style="width:15%; border-bottom: solid 1px #c9c9c9; font-weight: 900; vertical-align: middle;">
+                                ${purchaseAuction.bestPick.decisionState.toKorean}
+                        </td>
+                        <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
+                            <c:if test="${purchaseAuction.bestPick.decisionState.toKorean eq '반려'}">
+                                <input type="button" onClick="location.href='/comment-update'" style="padding:1em; letter-spacing: 0em; line-height: 0em;" value="수정">
+                            </c:if>
+                        </td>
+                    </c:if>
                 </tr>
             </table>
             <hr>
@@ -109,11 +113,11 @@
                 <h2 class="mypage" style="margin-bottom: 2em;">물건 제시</h2>
             </center>
             <div class="comment-area">
-                <form method="post" action="">
+                <form method="post" action="/api/purchase-auction-participation">
                     <table style="text-align: center; border: solid 1px #c9c9c9;">
                         <tr style="background-color: #FFF;">
                             <td class="comment-inner" style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                                [유저이름]
+                                [${purchaseAuction.buyer.name}]
                             </td>
                             <td style="width:30%; color: #000; text-align:left">
                                 <label id="upload-picture" class="button icon fa-upload" for="product-picture" style="letter-spacing:0; overflow: visible; margin:0">
