@@ -18,7 +18,7 @@
 
         <div id="form">
             <div class="inner">
-                <form method="post" action="/api/purchase-auction">
+                <form method="get" action="/api/purchase-auction">
                     <section>
                         <h2>진행중 판매권 입찰</h2>
                         <button type="button" onclick="location.href='/purchase-form' ">판매권 등록</button>
