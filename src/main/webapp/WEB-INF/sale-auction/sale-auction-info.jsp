@@ -20,10 +20,10 @@
     </center>
     <div id="main" style="padding: 0em 0 3em 0;">
         <div class="inner">
-        <hr>
-        <center>
-            <h2 class="mypage" style="font-size: 32px; letter-spacing:0;">싸다싸 세탁기 팔아용</h2>
-        </center>
+            <hr>
+            <center>
+                <h2 class="mypage" style="font-size: 32px; letter-spacing:0;">${saleAuction.auctionTitle}</h2>
+            </center>
             <section class="tiles" style="margin-top: 0; margin-left:auto; margin-right:auto">
                 <div style="width: calc(10%);"></div>
                 <div class="user_area">
@@ -33,24 +33,25 @@
                     <table style="margin-top:3em;">
                         <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
                             <td style="border-bottom: solid 1px #c9c9c9; color: #000; font-weight: 600;">
-                                경매품 설명
+                                ${saleAuction.auctionTitle}
                             </td>
                         </tr>
                         <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
                             <td style="border-bottom: solid 1px #c9c9c9; color: #000;">
-                                <!-- 상품명 --!>
-                                LG세탁기
+                                ${saleAuction.productName}
+
+
+
                             </td>
                         </tr>
                         <tr style="background-color: #FFF; color: #000;">
                             <td>
-                                <!-- 시작가 --!>
-                                100000p
+                                ${saleAuction.price}
                             </td>
                         </tr>
                         <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
                             <td style="font-size:16px">
-                                가전ㆍ컴퓨터 &nbsp&nbsp 2022-12-02 18:12:20
+                                ${saleAuction.productCategory.toKorean}&nbsp&nbsp ${saleAuction.deadline}
                             </td>
                         </tr>
                     </table>
@@ -59,8 +60,7 @@
             <section class="tiles" style="margin-top: 0; margin-bottom: 2em; margin-left:auto; margin-right:auto">
                 <div style="width: calc(15%);"></div>
                 <div style="width: calc(70%); color:#000; font-size: 24px">
-                     <!-- 상품 설명 --!>
-                     용량: 21kg 에너지효율: 1등급 건조가능 여부: 세탁전용 세탁기 품목: 드럼세탁기 사이즈: (70 x 77 x 99cm) 쿠팡상품번호: 2046782578 - 3479576083
+                    ${saleAuction.description}
                 </div>
             </section>
 
@@ -68,15 +68,15 @@
                 <h2 class="mypage" style="margin-bottom:1em; color:red;">최고가 입찰자</h2>
                 <table style="width:60%; border: solid 1px #FFF; font-weight: 600;">
                     <tr align="center" style="color: #000; background-color: #FFF; border-bottom: solid 1px #FFF;">
-                       <td style="width:20%; color: #000; text-align:center;">
-                         DEF님
-                       </td>
-                       <td style="width:20%; color: #000; text-align:center;">
-                          15000p
-                       </td>
-                       <td style="width:30%; color: #000; text-align:center;">
-                          2022-12-02 14:20:12
-                       </td>
+                        <td style="width:20%; color: #000; text-align:center;">
+                            ${saleAuction.bestBuyer.name}
+                        </td>
+                        <td style="width:20%; color: #000; text-align:center;">
+                            ${saleAuction.bestBuyer.price}
+                        </td>
+                        <td style="width:30%; color: #000; text-align:center;">
+                            경매 한 시간
+                        </td>
                     </tr>
                 </table>
             </center>
@@ -91,7 +91,7 @@
                         <tr style="background-color: #FFF;">
                             <td class="comment-inner" style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
                                 <!-- 유저ID --!>
-                                비드비드
+                                memeber.id
                             </td>
                             <td style="width:50%; color: #000;">
                                 <!-- 가격 부분 --!>
@@ -116,56 +116,56 @@
 </html>
 
 <style type="">
-.comment-area{
-    width: calc(60%);
-    margin-left:auto;
-    margin-right:auto;
-}
+    .comment-area{
+        width: calc(60%);
+        margin-left:auto;
+        margin-right:auto;
+    }
 
-.comment-inner {
-    margin-top:auto;
-    margin-bottom:auto;
-}
+    .comment-inner {
+        margin-top:auto;
+        margin-bottom:auto;
+    }
 
-.mypage {
-    margin:1em 0 0 0;
-    letter-spacing: 0.35em;
-}
+    .mypage {
+        margin:1em 0 0 0;
+        letter-spacing: 0.35em;
+    }
 
-.user_area {
-	width: calc(40%);
-	padding: 3em 1em 0 1em;
-}
+    .user_area {
+        width: calc(40%);
+        padding: 3em 1em 0 1em;
+    }
 
-.bid-alert {
-    text-align:left;
-    color: #ef0003;
-    font-size: 16px;
-    margin: 5px 0;
-    display: none;
-}
+    .bid-alert {
+        text-align:left;
+        color: #ef0003;
+        font-size: 16px;
+        margin: 5px 0;
+        display: none;
+    }
 </style>
 
 <script>
-     function validateBid() {
-          var bid = document.getElementById('desired-bid').value.trim();
-          var alertEl = document.getElementById('bid_alert');
+    function validateBid() {
+        var bid = document.getElementById('desired-bid').value.trim();
+        var alertEl = document.getElementById('bid_alert');
 
-          // 입력 여부 검증
-          if (bid.length == 0) {
-             alertEl.innerHTML = '필수 정보입니다.';
-             alertEl.style.display = 'block';
+        // 입력 여부 검증
+        if (bid.length == 0) {
+            alertEl.innerHTML = '필수 정보입니다.';
+            alertEl.style.display = 'block';
 
-             return false;
-          }
-          // 숫자만 가능
-          if (!/^[0-9]*$/.test(bid)) {
-               alertEl.innerHTML = '숫자만 입력해주세요';
-               alertEl.style.display = 'block';
+            return false;
+        }
+        // 숫자만 가능
+        if (!/^[0-9]*$/.test(bid)) {
+            alertEl.innerHTML = '숫자만 입력해주세요';
+            alertEl.style.display = 'block';
 
-               return false;
-            }
+            return false;
+        }
 
-          alertEl.style.display = 'none';
-       }
+        alertEl.style.display = 'none';
+    }
 </script>

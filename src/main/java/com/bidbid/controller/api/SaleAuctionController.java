@@ -24,7 +24,7 @@ public class SaleAuctionController {
     public String create(SaleAuctionRequest dto, Principal principal,  MultipartFile image) {
         saleAuctionService.create(dto, image, principal);
 
-        return "redirect:/";
+        return "redirect:/api/sale-auction";
     }
 
     @GetMapping

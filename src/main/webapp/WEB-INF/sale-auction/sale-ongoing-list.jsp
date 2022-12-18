@@ -18,7 +18,7 @@
 
         <div id="form">
             <div class="inner">
-                <form method="post" action="#">
+                <form method="post" action="/api/sale-auction">
                     <section>
                         <h2>진행중 구매권 입찰</h2>
                         <button type="button" onclick="location.href='/sale-form' ">구매권 등록</button>
@@ -58,24 +58,28 @@
                     <table>
                         <thead>
                         <tr>
-                            <th>Category</th>
                             <th>Title</th>
+                            <th>Category</th>
+                            <th>Product Name</th>
                             <th>Auction Description</th>
                             <th>Auctioneer</th>
                             <th>Buyer</th>
+                            <th>current price </th>
                             <th>End Date</th>
                         </tr>
                         </thead>
                         <tbody>
+
                         <c:forEach var="saleAuction" items="${saleAuctions}" >
-                            <tr>
+                            <tr  style="cursor: pointer" onclick="location.href='sale-auction/${saleAuction.id}'">
                                 <td>${saleAuction.auctionTitle}</td>
-                                <td>${saleAuction.productName}</td>
                                 <td>${saleAuction.productCategory.toKorean}</td>
+                                <td>${saleAuction.productName}</td>
                                 <td>${saleAuction.description}</td>
                                 <td>${saleAuction.seller.name}</td>
                                 <td>${saleAuction.bestBuyer.name}</td>
-                                <td>${saleAuction.deadline}</td>
+                                <td>${saleAuction.price}</td>
+                                <td>${saleAuction.deadline.toString().substring(0,16)}</td>
                             </tr>
                         </c:forEach>
                         </tbody>
