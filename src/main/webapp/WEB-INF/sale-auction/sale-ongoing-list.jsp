@@ -67,15 +67,15 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="saleAuctions" items="${saleAuctions}" >
+                        <c:forEach var="saleAuction" items="${saleAuctions}" >
                             <tr>
-                                <td>${saleAuctions.auctionTitle}</td>
-                                <td>${saleAuctions.productName}</td>
-                                <td>${saleAuctions.productCategory.toKorean}</td>
-                                <td>${saleAuctions.description}</td>
-                                <td>${saleAuctions.seller.name}</td>
-                                <td>${saleAuctions.bestBuyer.name}</td>
-                                <td>${saleAuctions.deadline}</td>
+                                <td>${saleAuction.auctionTitle}</td>
+                                <td>${saleAuction.productName}</td>
+                                <td>${saleAuction.productCategory.toKorean}</td>
+                                <td>${saleAuction.description}</td>
+                                <td>${saleAuction.seller.name}</td>
+                                <td>${saleAuction.bestBuyer.name}</td>
+                                <td>${saleAuction.deadline}</td>
                             </tr>
                         </c:forEach>
                         </tbody>
