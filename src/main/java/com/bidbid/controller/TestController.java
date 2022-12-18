@@ -3,7 +3,6 @@ package com.bidbid.controller;
 import com.bidbid.dto.member.SignupRequest;
 import com.bidbid.dto.purchaseauction.PurchaseAuctionParticipationRequest;
 import com.bidbid.dto.purchaseauction.PurchaseAuctionRequest;
-import com.bidbid.dto.saleauction.SaleAuctionRequest;
 import com.bidbid.service.MemberService;
 import com.bidbid.service.PurchaseAuctionService;
 import com.bidbid.service.SaleAuctionService;
@@ -35,7 +34,7 @@ public class TestController {
                 new SignupRequest("f@f.com", "f", "f"),
                 new SignupRequest("g@g.com", "g", "g"),
                 new SignupRequest("h@h.com", "h", "h"));
-        List<SaleAuctionRequest> saleAuctionRequests = List.of(
+       /* List<SaleAuctionRequest> saleAuctionRequests = List.of(
                new SaleAuctionRequest("product1", "description", "DIGITAL", 1000),
                new SaleAuctionRequest("product2", "description", "DIGITAL", 1000),
                new SaleAuctionRequest("product3", "description", "DIGITAL", 1000),
@@ -43,7 +42,7 @@ public class TestController {
                new SaleAuctionRequest("product5", "description", "DIGITAL", 1000),
                new SaleAuctionRequest("product6", "description", "DIGITAL", 1000),
                new SaleAuctionRequest("product7", "description", "DIGITAL", 1000)
-        );
+        );*/
         List<PurchaseAuctionRequest> purchaseAuctionRequests = List.of(
                 new PurchaseAuctionRequest("title","product1", "description","DIGITAL"),
                 new PurchaseAuctionRequest("title","product2", "description","DIGITAL"),

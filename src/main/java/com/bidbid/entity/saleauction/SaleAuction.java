@@ -17,6 +17,9 @@ public class SaleAuction {
     private Long id;
 
     @Column(nullable = false)
+    private String auctionTitle;
+
+    @Column(nullable = false)
     private String productName;
 
     @Enumerated(EnumType.STRING)
@@ -47,7 +50,8 @@ public class SaleAuction {
     private BaseTime baseTime;
 
     @Builder
-    public SaleAuction(String productName, ProductCategory productCategory, String immage ,String description, Integer price) {
+    public SaleAuction(String auctionTitle, String productName, ProductCategory productCategory, String immage ,String description, Integer price) {
+        this.auctionTitle = auctionTitle;
         this.productName = productName;
         this.productCategory = productCategory;
         this.image = immage;

@@ -12,6 +12,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SaleAuctionRequest {
+
+    private String auctionTitle;
     private String productName;
     private String description;
 
@@ -20,6 +22,7 @@ public class SaleAuctionRequest {
 
     public SaleAuction toEntity() {
         return SaleAuction.builder()
+                .auctionTitle(auctionTitle)
                 .productName(productName)
                 .description(description)
                 .productCategory(ProductCategory.valueOf(category))
