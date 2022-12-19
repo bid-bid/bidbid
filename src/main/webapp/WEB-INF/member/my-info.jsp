@@ -46,84 +46,21 @@
             </section>
         </div>
 
-        <h2 align="center" style="margin-top:30px">- 경매 내역 -</h2>
+        <h2 align="center" style = "margin-top:30px">- 참여한 경매 내역 -</h2>
 
-        <div class="inner" style="border: 1px solid #c9c9c9; margin-bottom:50px;">
-            <h3 align="center" style="margin-top:40px">[구매]</h3>
-            <table>
-                <thead>
-                    <tr align="center" style="background-color: #f6f6f6; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                            제목
-                        </td>
-                        <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                            희망상품
-                        </td>
-                        <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                            낙찰자
-                        </td>
-                        <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                            낙찰가
-                        </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach var="purchaseAuctions" items="${purchaseAuctions}">
-                        <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
-                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                                    ${purchaseAuctions.auctionTitle}
-                            </td>
-                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                                    ${purchaseAuctions.productName}
-                            </td>
-                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                                    ${purchaseAuctions.bestPick.seller.name}
-                            </td>
-                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                                    ${purchaseAuctions.bestPick.price}
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
+           <div class="inner" style="border: 1px solid #c9c9c9; margin-bottom:30px; width: calc(60%);">
+            <h3 align="center" style = "margin-top:40px">
+                <a class= "charge" href="/sale-history">
+                    >살래요
+                </a>
+            </h3>
 
-            <h3 align="center" style="margin-top:40px">[판매]</h3>
-            <table>
-                <thead>
-                    <tr align="center" style="background-color: #f6f6f6; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                            제목
-                        </td>
-                        <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                            희망상품
-                        </td>
-                        <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                            낙찰자
-                        </td>
-                        <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                            낙찰가
-                        </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach var="saleAuctions" items="${saleAuctions}">
-                        <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
-                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                                    ${saleAuctions.auctionTitle}
-                            </td>
-                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                                    ${saleAuctions.productName}
-                            </td>
-                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                                    ${saleAuctions.bestBuyer.name}
-                            </td>
-                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                                    ${saleAuctions.price}
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
+            <h3 align="center" style = "margin-top:40px">
+                <a class= "charge" href="/purchase-history">
+                    >팔래요
+                </a>
+            </h3>
+            
         </div>
     </div>
 
