@@ -43,13 +43,13 @@ public class TestController {
                new SaleAuctionRequest("product6", "description", "DIGITAL", 1000),
                new SaleAuctionRequest("product7", "description", "DIGITAL", 1000)
         );*/
-        List<PurchaseAuctionRequest> purchaseAuctionRequests = List.of(
+        /*List<PurchaseAuctionRequest> purchaseAuctionRequests = List.of(
                 new PurchaseAuctionRequest("title","product1", "description","DIGITAL"),
                 new PurchaseAuctionRequest("title","product2", "description","DIGITAL"),
                 new PurchaseAuctionRequest("title","product3", "description","DIGITAL"),
                 new PurchaseAuctionRequest("title","product4", "description","DIGITAL"),
                 new PurchaseAuctionRequest("title","product5", "description","DIGITAL")
-        );
+        );*/
 
         List<PurchaseAuctionParticipationRequest> purchaseAuctionParticipationRequests = List.of(
                 new PurchaseAuctionParticipationRequest("description1", 5000),
@@ -66,7 +66,7 @@ public class TestController {
         Principal principal = () -> "a@a.com";
 
        // saleAuctionRequests.forEach(s -> saleAuctionService.create(s, principal));
-        purchaseAuctionRequests.forEach(p -> purchaseAuctionService.create(p, principal));
+       // purchaseAuctionRequests.forEach(p -> purchaseAuctionService.create(p, principal));
         //purchaseAuctionParticipationRequests.forEach(pp -> purchaseAuctionService.setBestPick(2L, ) );
 
 

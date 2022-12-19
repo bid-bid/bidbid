@@ -16,7 +16,6 @@ import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.security.Principal;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -31,9 +30,9 @@ public class SaleAuctionService {
         SaleAuction saleAuction = dto.toEntity();
         saleAuction.setSeller(memberService.getLoginMember(principal));
         if(!image.isEmpty()) {
-            saleAuction.setImage(imageService.save(i))
+            saleAuction.setImage(imageService.save(image));
         }
-        
+
         return saleAuctionRepository.save(saleAuction);
     }
 
