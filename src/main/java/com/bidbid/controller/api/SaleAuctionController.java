@@ -42,8 +42,15 @@ public class SaleAuctionController {
     }
 
     @GetMapping(params = "filter=category")
-    public String getAllByCategory(@RequestParam("category") ProductCategory category, Model model) {
-        model.addAttribute("saleAuctions", saleAuctionService.findAllByCategory(category));
+    public String getAllByCategory(@RequestParam("category") ProductCategory category,
+                                   @RequestParam("product-name")String productName, Model model) {
+        if(category.equals(ProductCategory.NONE)) {
+            model.addAttribute("saleAuctions", saleAuctionService.findAllByProductName(productName));
+        }else if(productName.isBlank()) {
+            model.addAttribute("saleAuctions", saleAuctionService.findAllByCategory(category));
+        }else {
+            model.addAttribute("saleAuctions", saleAuctionService.findAllByCategoryAndProductName(category, productName));
+        }
 
         return "sale-auction/sale-auction-info";
     }

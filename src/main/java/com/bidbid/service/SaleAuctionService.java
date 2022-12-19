@@ -7,6 +7,7 @@ import com.bidbid.entity.saleauction.SaleAuction;
 import com.bidbid.global.ProductCategory;
 import com.bidbid.repository.SaleAuctionRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,6 +20,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class SaleAuctionService {
     private final SaleAuctionRepository saleAuctionRepository;
     private final MemberService memberService;
@@ -57,5 +59,14 @@ public class SaleAuctionService {
         Member buyer = memberService.getLoginMember(principal);
         saleAuction.renewalBid(buyer, dto.getPoint());
     }
+
+    public List<SaleAuction> findAllByProductName(String productName) {
+        return saleAuctionRepository.findAllByProductNameContaining(productName);
+    }
+
+    public List<SaleAuction> findAllByCategoryAndProductName(ProductCategory category, String productName) {
+        return saleAuctionRepository.findAllByProductCategoryAndProductNameContaining(category, productName);
+    }
+
 
 }

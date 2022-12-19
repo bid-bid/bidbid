@@ -13,4 +13,6 @@ public interface SaleAuctionRepository extends JpaRepository<SaleAuction, Long> 
     List<SaleAuction> findAllByProductCategory(ProductCategory category);
 
     List<SaleAuction> findAllBySeller(Member seller);
+    List<SaleAuction> findAllByProductCategoryAndProductNameContaining(ProductCategory category, String productName);
+    List<SaleAuction> findAllByProductNameContaining(String productName);
 }
