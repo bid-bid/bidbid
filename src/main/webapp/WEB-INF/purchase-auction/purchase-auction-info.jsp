@@ -81,26 +81,26 @@
                 </td>
                 </tr>
                 <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
-                    <c:if test="${purchaseAuction.bestPick}">
+                    <c:if test="${not empty purchaseAuctionParticipation}">
                         <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                                ${purchaseAuction.bestPick.seller.name}
+                                ${purchaseAuctionParticipation.seller.name}
                         </td>
                         <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                            <c:if test="${purchaseAuction.bestPick.image}">
-                                <img style="width:100%" src=${purchaseAuction.bestPick.image} alt=""/>
+                            <c:if test="${purchaseAuctionParticipation.image}">
+                                <img style="width:100%" src=${purchaseAuctionParticipation.image} alt=""/>
                             </c:if>
                         </td>
                         <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                                ${purchaseAuction.bestPick.price}
+                                ${purchaseAuctionParticipation.price}
                         </td>
                         <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                                ${purchaseAuction.deadline}
+                                ${purchaseAuctionParticipation.purchaseAuction.deadline}
                         </td>
                         <td style="width:15%; border-bottom: solid 1px #c9c9c9; font-weight: 900; vertical-align: middle;">
-                                ${purchaseAuction.bestPick.decisionState.toKorean}
+                                ${purchaseAuctionParticipation.decisionState.toKorean}
                         </td>
                         <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                            <c:if test="${purchaseAuction.bestPick.decisionState.toKorean eq '반려'}">
+                            <c:if test="${purchaseAuctionParticipation.decisionState.toKorean eq '반려'}">
                                 <input type="button" onClick="location.href='/comment-update'" style="padding:1em; letter-spacing: 0em; line-height: 0em;" value="수정">
                             </c:if>
                         </td>
@@ -114,6 +114,7 @@
             </center>
             <div class="comment-area">
                 <form method="post" action="/api/purchase-auction-participation">
+                    <input type="hidden" name="purchaseAuctionId" value="${purchaseAuction.id}">
                     <table style="text-align: center; border: solid 1px #c9c9c9;">
                         <tr style="background-color: #FFF;">
                             <td class="comment-inner" style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000;">

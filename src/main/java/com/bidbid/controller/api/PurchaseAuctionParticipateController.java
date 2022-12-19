@@ -29,7 +29,7 @@ public class PurchaseAuctionParticipateController {
     @GetMapping("{purchaseId}")
     public String getByPurchaseId(@PathVariable Long purchaseId, Model model, Principal principal) {
         if (purchaseAuctionParticipationService.isSeller(purchaseId, principal)) {
-            model.addAttribute("purchaseAuctionParticipations",
+            model.addAttribute("purchaseAuctionParticipation",
                     purchaseAuctionParticipationService.findAllByPurchaseAuctionId(purchaseId));
         } else {
             model.addAttribute("purchaseAuctionParticipation",
