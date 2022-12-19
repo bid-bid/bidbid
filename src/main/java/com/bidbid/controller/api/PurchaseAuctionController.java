@@ -37,7 +37,7 @@ public class PurchaseAuctionController {
         model.addAttribute("purchaseAuctions",
                 purchaseAuctionService.findByBuyer(principal));
 
-        return "purchase-auction/purchase-list";
+        return "purchase-auction/purchase-ongoing-list";
     }
 
     @GetMapping(params = "filter=category")
@@ -52,7 +52,7 @@ public class PurchaseAuctionController {
         }
 
 
-        return "purchase-auction/purchase-list";
+        return "purchase-auction/purchase-ongoing-list";
     }
 
 
