@@ -35,6 +35,11 @@
                     <span class="title">logout</span>
                 </sec:authorize>
             </a>
+            <a href="/api/members" class="logo" style="float: right;">
+                <sec:authorize access="isAuthenticated()">
+                    <span class="title">my page&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                </sec:authorize>
+            </a>
             <!-- Nav -->
             <nav>
                 <ul>

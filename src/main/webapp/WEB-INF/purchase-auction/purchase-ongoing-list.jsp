@@ -27,7 +27,7 @@
                                 <div>
                                     <div class="select-wrapper">
                                         <select name="category" aria-invalid="demo-category" onclick="hasSearchValue()">
-                                            <option value="">카테고리</option>
+                                            <option value="NONE">카테고리</option>
                                             <option value="CLOTHING">패션</option>
                                             <option value="ACCESSORIES">패션잡화</option>
                                             <option value="FOOD">식품 - 건강</option>
@@ -44,7 +44,7 @@
                                     </div>
                                 </div>
                                 <div class="6u 12u$(xsmall)">
-                                    <input type="text" name="auctionTitle" id="auction-title" onkeyup="hasSearchValue()" value="" placeholder="검색어 입력"/>
+                                    <input type="text" name="product-name" id="product-name" onkeyup="hasSearchValue()" value="" placeholder="검색어 입력"/>
                                 </div>
                                 <div>
                                     <input id="search-submit" type="submit" value="검색" disabled="true" class="special"/>
@@ -75,7 +75,7 @@
                                 <td>${purchaseAuctions.description}</td>
                                 <td>${purchaseAuctions.buyer.name}</td>
                                 <td>${purchaseAuctions.bestPick.seller.name}</td>
-                                <td>${purchaseAuctions.deadline}</td>
+                                <td>${purchaseAuctions.deadline.toString().substring(0, 16).replace("T", " ")}</td>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -102,7 +102,7 @@
         });
     }
     function hasSearchValue() {
-        if ($('select[name=category]').val() === "" && $('#auction-title').val().trim() === "") {
+        if ($('select[name=category]').val() === "NONE" && $('#product-name').val().trim() === "") {
             $('#search-submit').attr("disabled", true);
         } else {
             $('#search-submit').attr("disabled", false);
