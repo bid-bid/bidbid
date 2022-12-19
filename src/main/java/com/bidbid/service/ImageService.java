@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Objects;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -28,14 +30,17 @@ public class ImageService {
     }
 
     private String storeToS3(MultipartFile multipartFile) {
+
+        String fileType = Objects.requireNonNull(multipartFile.getOriginalFilename()).split("\\.")[1];
         ObjectMetadata data = new ObjectMetadata();
-        data.setContentType(multipartFile.getContentType());
+        String fileName = UUID.randomUUID().toString() + "." + fileType;
+        data.setContentType(fileName);
         data.setContentLength(multipartFile.getSize());
         try {
-            PutObjectResult result = amazonS3Client.putObject(new PutObjectRequest(bucket, multipartFile.getOriginalFilename(), multipartFile.getInputStream(), data)
+            PutObjectResult result = amazonS3Client.putObject(new PutObjectRequest(bucket,fileName, multipartFile.getInputStream(), data)
                     .withCannedAcl(CannedAccessControlList.PublicRead));
-            return result.getContentMd5();
-        }catch (IOException e) {
+            return fileName;
+        } catch (IOException e) {
             e.printStackTrace();
             throw new FileIOException();
         }
