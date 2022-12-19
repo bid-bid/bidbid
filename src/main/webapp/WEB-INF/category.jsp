@@ -51,7 +51,7 @@
                     <a href="generic.html">
                         <h2>패션잡화</h2>
                         <div class="content">
-                            <p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+                            <p>신발, 가방, 여행소품, 시계 등</p>
                         </div>
                     </a>
                 </article>
@@ -62,7 +62,7 @@
                     <a href="generic.html">
                         <h2>식품ㆍ건강</h2>
                         <div class="content">
-                            <p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+                            <p>간식, 육류, 냉동, 비타민 등</p>
                         </div>
                     </a>
                 </article>
@@ -73,7 +73,7 @@
                     <a href="generic.html">
                         <h2>생활ㆍ주방</h2>
                         <div class="content">
-                            <p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+                            <p>세제, 청소용품, 생활잡화, 욕실용품 등</p>
                         </div>
                     </a>
                 </article>
@@ -84,7 +84,7 @@
                     <a href="generic.html">
                         <h2>가구ㆍ홈ㆍ데코</h2>
                         <div class="content">
-                            <p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+                            <p>침실가구, 블라인드, 침구류 등</p>
                         </div>
                     </a>
                 </article>
@@ -95,7 +95,7 @@
                     <a href="generic.html">
                         <h2>가전ㆍ컴퓨터</h2>
                         <div class="content">
-                            <p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+                            <p>TV, 냉장고, 노트북, PC주변기기 등</p>
                         </div>
                     </a>
                 </article>
@@ -106,7 +106,7 @@
                     <a href="generic.html">
                         <h2>스포츠</h2>
                         <div class="content">
-                            <p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+                            <p>스포츠 의류, 골프, 자전거, 헬스용품 등</p>
                         </div>
                     </a>
                 </article>
@@ -117,7 +117,7 @@
                     <a href="generic.html">
                         <h2>반려동물ㆍ취미</h2>
                         <div class="content">
-                            <p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+                            <p>반려견 간식, 게임, 악기, 레고 등</p>
                         </div>
                     </a>
                 </article>
@@ -128,7 +128,7 @@
                     <a href="generic.html">
                         <h2>티켓ㆍ양도권</h2>
                         <div class="content">
-                            <p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+                            <p>콘서트 티켓, 숙박권, 뮤지컬 티켓 등</p>
                         </div>
                     </a>
                 </article>
@@ -139,7 +139,7 @@
                     <a href="generic.html">
                         <h2>도서</h2>
                         <div class="content">
-                            <p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+                            <p>소설, 그림책, 전기, 시, 자기계발 등</p>
                         </div>
                     </a>
                 </article>
@@ -150,7 +150,7 @@
                     <a href="generic.html">
                         <h2>뷰티</h2>
                         <div class="content">
-                            <p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+                            <p>네일 용품, 화장솜, 화장용품 등</p>
                         </div>
                     </a>
                 </article>
@@ -161,7 +161,7 @@
                     <a href="generic.html">
                         <h2>e-쿠폰</h2>
                         <div class="content">
-                            <p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+                            <p>기프티콘, 상품권, 쿠폰, 할인권 등</p>
                         </div>
                     </a>
                 </article>
