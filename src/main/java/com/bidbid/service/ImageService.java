@@ -39,7 +39,7 @@ public class ImageService {
         try {
             PutObjectResult result = amazonS3Client.putObject(new PutObjectRequest(bucket,fileName, multipartFile.getInputStream(), data)
                     .withCannedAcl(CannedAccessControlList.PublicRead));
-            return fileName;
+            return "https://bidbid.s3.ap-northeast-2.amazonaws.com/" + fileName;
         } catch (IOException e) {
             e.printStackTrace();
             throw new FileIOException();

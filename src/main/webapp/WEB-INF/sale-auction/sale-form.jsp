@@ -36,7 +36,7 @@
                                 <div>
                                     <div class="select-wrapper">
                                         <select name="category" aria-invalid="demo-category">
-                                            <option value=""> 카테고리</option>
+                                            <option value="NONE"> 카테고리</option>
                                             <option value="CLOTHING">패션</option>
                                             <option value="ACCESSORIES">패션잡화</option>
                                             <option value="FOOD">식품 - 건강</option>

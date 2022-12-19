@@ -27,7 +27,7 @@
             <section class="tiles" style="margin-top: 0; margin-left:auto; margin-right:auto">
                 <div style="width: calc(10%);"></div>
                 <div class="user_area">
-                    <img style="border: 1px solid #c9c9c9; width:100%" src="../resources/images/purchase-auction/1.jpg" alt=""/>
+                    <img style="border: 1px solid #c9c9c9; width:100%" src="${saleAuction.image}" alt=""/>
                 </div>
                 <div style="width: calc(40%); padding:1em;">
                     <table style="margin-top:3em;">
