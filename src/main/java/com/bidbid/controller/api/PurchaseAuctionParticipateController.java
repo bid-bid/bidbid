@@ -1,5 +1,6 @@
 package com.bidbid.controller.api;
 
+import com.bidbid.dto.purchaseauction.PurchaseAuctionParticipationRequest;
 import com.bidbid.service.PurchaseAuctionParticipationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.security.Principal;
 
@@ -18,8 +20,10 @@ public class PurchaseAuctionParticipateController {
     private final PurchaseAuctionParticipationService purchaseAuctionParticipationService;
 
     @PostMapping
-    public String create() {
-        throw new UnsupportedOperationException("Not supported yet");
+    public String create(PurchaseAuctionParticipationRequest dto, MultipartFile multipartFile, Principal principal) {
+        purchaseAuctionParticipationService.save(dto, multipartFile, principal);
+
+        return "redirect:/apu/purchase-auction/" + dto.getPurchaseAuctionId();
     }
 
     @GetMapping("{purchaseId}")

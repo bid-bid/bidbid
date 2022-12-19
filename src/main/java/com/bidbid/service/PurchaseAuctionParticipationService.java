@@ -25,10 +25,13 @@ public class PurchaseAuctionParticipationService {
     private final PurchaseAuctionParticipationRepository purchaseAuctionParticipationRepository;
 
     @Transactional
-    public void save(PurchaseAuctionParticipationRequest dto, Long purchaseId, MultipartFile multipartFile, Principal principal) {
+    public void save(PurchaseAuctionParticipationRequest dto, MultipartFile multipartFile, Principal principal) {
         PurchaseAuctionParticipation purchaseAuctionParticipation = dto.toEntity();
+        purchaseAuctionParticipation.setPurchaseAuction(purchaseAuctionService.findById(dto.getPurchaseAuctionId()));
         purchaseAuctionParticipation.setSeller(memberService.getLoginMember(principal));
-        purchaseAuctionParticipation.setImage(imageService.save(multipartFile));
+        if(!multipartFile.isEmpty()) {
+            purchaseAuctionParticipation.setImage(imageService.save(multipartFile));
+        }
         purchaseAuctionParticipationRepository.save(purchaseAuctionParticipation);
     }
 

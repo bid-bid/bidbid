@@ -13,6 +13,7 @@ import lombok.Setter;
 public class PurchaseAuctionParticipationRequest {
     private String description;
     private Integer price;
+    private Long purchaseAuctionId;
 
     public PurchaseAuctionParticipation toEntity() {
         return new PurchaseAuctionParticipation(description, price);

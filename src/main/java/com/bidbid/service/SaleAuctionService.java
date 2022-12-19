@@ -30,8 +30,10 @@ public class SaleAuctionService {
     public SaleAuction create(SaleAuctionRequest dto, MultipartFile image, Principal principal) {
         SaleAuction saleAuction = dto.toEntity();
         saleAuction.setSeller(memberService.getLoginMember(principal));
-        Optional.ofNullable(image).ifPresent(i -> saleAuction.setImage(imageService.save(i)));
-
+        if(!image.isEmpty()) {
+            saleAuction.setImage(imageService.save(i))
+        }
+        
         return saleAuctionRepository.save(saleAuction);
     }
 
