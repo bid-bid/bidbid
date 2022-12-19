@@ -17,7 +17,7 @@
         <div id="main" style="padding: 0em 0 2em 0;">
             <div class="inner">
                 <center>
-                    <h2 class="mypage" style="margin-bottom: 2em;">희망가 수정</h2>
+                    <h2 class="mypage" style="margin-bottom: 2em;">물품 정보 수정</h2>
                 </center>
                 <div class="comment-area">
                     <form method="post" action="">
