@@ -1,8 +1,6 @@
 package com.bidbid.controller;
 
 import com.bidbid.dto.member.SignupRequest;
-import com.bidbid.dto.purchaseauction.PurchaseAuctionParticipationRequest;
-import com.bidbid.dto.purchaseauction.PurchaseAuctionRequest;
 import com.bidbid.service.MemberService;
 import com.bidbid.service.PurchaseAuctionService;
 import com.bidbid.service.SaleAuctionService;
@@ -11,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -51,19 +48,19 @@ public class TestController {
                 new PurchaseAuctionRequest("title","product5", "description","DIGITAL")
         );*/
 
-        List<PurchaseAuctionParticipationRequest> purchaseAuctionParticipationRequests = List.of(
-                new PurchaseAuctionParticipationRequest("description1", 5000),
-                new PurchaseAuctionParticipationRequest("description2", 5000),
-                new PurchaseAuctionParticipationRequest("description3", 5000),
-                new PurchaseAuctionParticipationRequest("description4", 5000),
-                new PurchaseAuctionParticipationRequest("description5", 5000),
-                new PurchaseAuctionParticipationRequest("description6", 5000),
-                new PurchaseAuctionParticipationRequest("description7", 5000),
-                new PurchaseAuctionParticipationRequest("description8", 5000),
-                new PurchaseAuctionParticipationRequest("description9", 5000)
-        );
-        signupRequests.forEach(memberService::signup);
-        Principal principal = () -> "a@a.com";
+//        List<PurchaseAuctionParticipationRequest> purchaseAuctionParticipationRequests = List.of(
+//                new PurchaseAuctionParticipationRequest("description1", 5000),
+//                new PurchaseAuctionParticipationRequest("description2", 5000),
+//                new PurchaseAuctionParticipationRequest("description3", 5000),
+//                new PurchaseAuctionParticipationRequest("description4", 5000),
+//                new PurchaseAuctionParticipationRequest("description5", 5000),
+//                new PurchaseAuctionParticipationRequest("description6", 5000),
+//                new PurchaseAuctionParticipationRequest("description7", 5000),
+//                new PurchaseAuctionParticipationRequest("description8", 5000),
+//                new PurchaseAuctionParticipationRequest("description9", 5000)
+//        );
+//        signupRequests.forEach(memberService::signup);
+//        Principal principal = () -> "a@a.com";
 
        // saleAuctionRequests.forEach(s -> saleAuctionService.create(s, principal));
        // purchaseAuctionRequests.forEach(p -> purchaseAuctionService.create(p, principal));
