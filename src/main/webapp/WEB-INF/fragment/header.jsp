@@ -30,7 +30,7 @@
                     <span class="title">login</span>
                 </sec:authorize>
             </a>
-            <a href="logout" class="logo" style="float: right;">
+            <a href="/logout" class="logo" style="float: right;">
                 <sec:authorize access="isAuthenticated()">
                     <span class="title">logout</span>
                 </sec:authorize>
