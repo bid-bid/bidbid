@@ -41,12 +41,20 @@ public class PurchaseAuctionController {
     }
 
     @GetMapping(params = "filter=category")
-    public String getAllByCategory(Principal principal, Model model,
+    public String getAllByCategory(Principal principal, Model model, @RequestParam("product-name") String productName,
                                    @RequestParam("category") ProductCategory category) {
-        model.addAttribute("purchaseAuctions", purchaseAuctionService.findAllByCategory(category));
+        if(category.equals(ProductCategory.NONE)) {
+            model.addAttribute("purchaseAuctions", purchaseAuctionService.findAllByProductName(productName));
+        } else if(productName.isBlank()) {
+            model.addAttribute("purchaseAuctions", purchaseAuctionService.findAllByCategory(category));
+        } else {
+            model.addAttribute("purchaseAuctions", purchaseAuctionService.findAllByCategoryAndProductName(category, productName));
+        }
+
 
         return "purchase-auction/purchase-list";
     }
+
 
 
     @GetMapping("{id}")

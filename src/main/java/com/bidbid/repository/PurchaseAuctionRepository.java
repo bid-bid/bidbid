@@ -13,4 +13,7 @@ public interface PurchaseAuctionRepository extends JpaRepository<PurchaseAuction
     List<PurchaseAuction> findAllByProductCategory(ProductCategory category);
 
     List<PurchaseAuction> findAllByBuyer(Member loginMember);
+
+    List<PurchaseAuction> findAllByProductCategoryAndProductNameContaining(ProductCategory category, String productName);
+    List<PurchaseAuction> findAllByProductNameContaining(String productName);
 }

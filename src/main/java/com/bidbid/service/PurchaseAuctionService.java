@@ -44,6 +44,14 @@ public class PurchaseAuctionService {
         return purchaseAuctionRepository.findAllByProductCategory(category);
     }
 
+    public List<PurchaseAuction> findAllByCategoryAndProductName(ProductCategory category, String productName) {
+        return purchaseAuctionRepository.findAllByProductCategoryAndProductNameContaining(category, productName);
+    }
+
+    public List<PurchaseAuction> findAllByProductName(String productName) {
+        return purchaseAuctionRepository.findAllByProductNameContaining(productName);
+    }
+
     public List<PurchaseAuction> findAll() {
         return purchaseAuctionRepository.findAll(Sort.by(Sort.Direction.DESC, "deadline"));
     }
