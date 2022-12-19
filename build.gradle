@@ -41,6 +41,7 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
     implementation 'javax.servlet:jstl'
+    implementation 'org.springframework.security:spring-security-taglibs:5.7.4'
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
     implementation 'mysql:mysql-connector-java:8.0.29'
 

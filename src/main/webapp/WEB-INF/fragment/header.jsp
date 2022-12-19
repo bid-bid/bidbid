@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <html>
 <head>
@@ -25,7 +26,14 @@
                     class="title">bidbid</span>
             </a>
             <a href="/login" class="logo" style="float: right;">
-                <span class="title">login</span>
+                <sec:authorize access="!isAuthenticated()">
+                    <span class="title">login</span>
+                </sec:authorize>
+            </a>
+            <a href="logout" class="logo" style="float: right;">
+                <sec:authorize access="isAuthenticated()">
+                    <span class="title">logout</span>
+                </sec:authorize>
             </a>
             <!-- Nav -->
             <nav>
