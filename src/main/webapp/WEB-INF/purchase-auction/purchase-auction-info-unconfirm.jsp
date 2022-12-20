@@ -19,6 +19,7 @@
     <center>
         <h1 class="mypage" style="margin-bottom:1em">판매권 입찰</h1>
     </center>
+
     <div id="main" style="padding: 0em 0 2em 0;">
         <div class="inner">
             <section class="tiles" style="margin-top: 0; margin-left:auto; margin-right:auto">
@@ -51,37 +52,32 @@
                     <h2 class="mypage" style="font-size: 32px; letter-spacing:0; margin-bottom:1.2em;">ㆍ물건 제시</h2>
                     <form method="post" action="/api/purchase-auction-participation">
                         <table style="margin:1em 0 0 0; ">
-                            <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
-                               <td style="width:30%; color: #000; text-align:left">
-                                    <label id="upload-picture" class="button icon fa-upload" for="product-picture" style="letter-spacing:0; overflow: visible; margin:0">
-                                        사진
-                                    </label>
-                                    <input type="file" id="product-picture" style="display:none" onchange="setThumbnail(event, this)" accept="image/*">
-                                    <div id="file-name" style="display: inline-block; margin-left: 0.5em;"></div>
-                                    <div id="image_container"></div>
-                                </td>
-                            </tr>
-                            <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
-                                <td style="border-bottom: solid 1px #c9c9c9; color: #000;">
-                                    ${purchaseAuction.buyer.name}
+                            <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #FFF; background-color: #FFF; color: #000;">
+                               <td colspan="3" style="width:30%; color: #000; text-align:left; border: solid 1px #c9c9c9;">
+                                    <span class="image main" style="margin: 0 0 0em 0">
+                                        <img style="height:400px" src="/resources/images/banner.png" alt=""/>
+                                    </span>
                                 </td>
                             </tr>
                             <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
-                                <td style="width:40%; color: #000;">
-                                    <input type="text" name="desired-bid" id="desired-bid" value="" placeholder="판매 희망가" onfocusout="validateBid()"/>
-                                    <div id="bid_alert" class="bid-alert">필수 정보입니다.</div>
+                                <td colspan="3" style="width:40%; color: #000;">
+                                    ${purchaseAuctionParticipation.purchaseAuctionId} id보다 이름이 낫지 않은지..!
+                                </td>
+                            </tr>
+                            <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000; background-color: #FFF;">
+                                <td style="color: #000; width:70%;">
+                                    가격 : ${purchaseAuctionParticipation.price}
+                                </td>
+                                <td style="border-bottom: solid 1px #FFF; font-weight: 900; color: #000; width:10%;">
+
+                                </td>
+                                <td style="border: solid 1px #000; width:20%; font-weight: 900; color: #000; text-align:center; background-color: #FFFF99;">
+                                    미확인
                                 </td>
                             </tr>
                             <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
-                                <td style="width:40%; color: #000;">
-                                    <textarea name="description-bid" id="description-bid" placeholder="상세 설명"></textarea>
-                                </td>
-                            </tr>
-                            <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
-                                <td style="width:10%; border-bottom: solid 1px #FFF; color: #000;">
-                                    <center>
-                                        <input type="submit" class="btn-primary pull" value="등록">
-                                    </center>
+                                <td colspan="3" style="width:40%; color: #000;">
+                                    ${purchaseAuctionParticipation.description} 설명
                                 </td>
                             </tr>
                         </table>
