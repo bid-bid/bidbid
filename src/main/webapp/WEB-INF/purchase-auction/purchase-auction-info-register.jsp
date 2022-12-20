@@ -31,35 +31,40 @@
             </div>
             <hr>
 
-            <h2 class="mypage" style="font-size: 30px; letter-spacing:0; margin-bottom:1.2em;">${purchaseAuctionParticipation.purchaseAuctionId}님의 입찰 현황</h2>
+            <h2 class="mypage" style="font-size: 30px; letter-spacing:0; margin-bottom:1.2em;">판매권 등록</h2>
             <form method="post" action="/api/purchase-auction-participation">
                 <table style="margin:1em 0 0 0; ">
-                    <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #FFF; background-color: #FFF; color: #000;">
-                       <td colspan="3" style="width:30%; color: #000; text-align:left; border: solid 1px #c9c9c9;">
-                            <span class="image main" style="margin: 0 0 0em 0">
-                                <img style="height:400px" src="/resources/images/banner.png" alt=""/>
-                            </span>
+                    <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
+                       <td style="color: #000; text-align:left">
+                            <label id="upload-picture" class="button icon fa-upload" for="product-picture" style="letter-spacing:0; overflow: visible; margin:0">
+                                사진
+                            </label>
+                            <input type="file" id="product-picture" style="display:none" onchange="setThumbnail(event, this)" accept="image/*">
+                            <div id="file-name" style="display: inline-block; margin-left: 0.5em;"></div>
+                            <div id="image_container" style="text-align: center;"></div>
+                        </td>
+                    </tr>
+                    <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
+                        <td style="border-bottom: solid 1px #c9c9c9; color: #000;">
+                            ${purchaseAuction.buyer.name}
                         </td>
                     </tr>
                     <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
-                        <td colspan="3" style="width:40%; color: #000;">
-
-                        </td>
-                    </tr>
-                    <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000; background-color: #FFF;">
-                        <td style="color: #000; width:60%;">
-                            제시 가격 : ${purchaseAuctionParticipation.price}
-                        </td>
-                        <td style="border-bottom: solid 1px #FFF; font-weight: 900; color: #000; width:15%; text-align:right;">
-                           결과 :
-                        </td>
-                        <td style="width:15%; font-weight: 900; color: #000; text-align:center; background-color: #C9C9C9;">
-                            미확인
+                        <td style="color: #000; padding: 0.75em 0em;">
+                            <input type="text" name="desired-bid" id="desired-bid" style="padding-left:0.5em" value="" placeholder="판매 희망가" onfocusout="validateBid()"/>
+                            <div id="bid_alert" class="bid-alert">필수 정보입니다.</div>
                         </td>
                     </tr>
                     <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
-                        <td colspan="3" style="width:40%; color: #000;">
-                            ${purchaseAuctionParticipation.description}
+                        <td style="color: #000; padding: 0.75em 0em;">
+                            <textarea name="description-bid" id="description-bid" style="padding-left:0.5em" placeholder="상세 설명"></textarea>
+                        </td>
+                    </tr>
+                    <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
+                        <td style="border-bottom: solid 1px #FFF; color: #000;">
+                            <center>
+                                <input type="submit" class="btn-primary pull" style="padding: 0 10em 0 10em;" value="등록">
+                            </center>
                         </td>
                     </tr>
                 </table>
@@ -154,6 +159,7 @@
     color: #ef0003;
     font-size: 16px;
     margin: 5px 0;
+    padding-left:0.8em;
     display: none;
 }
 </style>
@@ -176,17 +182,27 @@
             }
         alertEl.style.display = 'none';
     }
-    function onFileUpload(file) {
-        console.log(file.files[0].name)
+     //썸네일
+    function setThumbnail(event, file) {
         if(file){if(document.getElementById("uploaded-file") != null){
-            document.getElementById("uploaded-file").remove();
-        }
-            let div = document.createElement('div');
-            div.id = "uploaded-file"
-            let text = document.createTextNode(file.files[0].name);
-            div.appendChild(text);
-            document.getElementById("file-name").appendChild(div);
-        }
-    }
+                document.getElementById("uploaded-file").remove();
+            }
+                let div = document.createElement('div');
+                div.id = "uploaded-file"
+                let text = document.createTextNode(file.files[0].name);
+                div.appendChild(text);
+                document.getElementById("file-name").appendChild(div);
+            }
+
+        var reader = new FileReader();
+
+        reader.onload = function(event) {
+          var img = document.createElement("img");
+          img.setAttribute("src", event.target.result);
+          img.setAttribute("style", "width:570px");
+          document.querySelector("div#image_container").appendChild(img);
+        };
+        reader.readAsDataURL(event.target.files[0]);
+      }
 </script>
 </html>

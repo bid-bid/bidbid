@@ -80,6 +80,8 @@ public class PurchaseAuctionService {
         Member member = memberService.getLoginMember(principal);
         return purchaseAuctionParticipationRepository.findAllBySeller(member).stream()
                 .filter(purchaseAuctionParticipation ->
+                        purchaseAuctionParticipation.getSeller() != null &&
+                                purchaseAuctionParticipation.getPurchaseAuction().getBestPick() != null &&
                         !purchaseAuctionParticipation.getSeller().getEmail()
                                 .equals(purchaseAuctionParticipation.getPurchaseAuction().getBestPick().getSeller().getEmail()))
                 .collect(Collectors.toList());

@@ -41,7 +41,7 @@
                 </thead>
                 <tbody>
                     <c:forEach var="saleAuctions" items="${saleAuctions}">
-                        <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
+                        <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;" onclick="location.href='../${saleAuctions.id}'">
                             <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
                                     ${saleAuctions.auctionTitle}
                             </td>
