@@ -113,7 +113,7 @@
                 <h2 class="mypage" style="margin-bottom: 2em;">물건 제시</h2>
             </center>
             <div class="comment-area">
-                <form method="post" action="/api/purchase-auction-participation">
+                <form method="post" action="/api/purchase-auction-participation" enctype="multipart/form-data">
                     <input type="hidden" name="purchaseAuctionId" value="${purchaseAuction.id}">
                     <table style="text-align: center; border: solid 1px #c9c9c9;">
                         <tr style="background-color: #FFF;">

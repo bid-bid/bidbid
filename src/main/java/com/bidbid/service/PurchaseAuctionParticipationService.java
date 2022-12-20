@@ -14,6 +14,7 @@ import javax.transaction.Transactional;
 import java.security.Principal;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 @Service
 @RequiredArgsConstructor
@@ -29,7 +30,7 @@ public class PurchaseAuctionParticipationService {
         PurchaseAuctionParticipation purchaseAuctionParticipation = dto.toEntity();
         purchaseAuctionParticipation.setPurchaseAuction(purchaseAuctionService.findById(dto.getPurchaseAuctionId()));
         purchaseAuctionParticipation.setSeller(memberService.getLoginMember(principal));
-        if(multipartFile != null && !multipartFile.isEmpty()) {
+        if(!multipartFile.isEmpty()) {
             purchaseAuctionParticipation.setImage(imageService.save(multipartFile));
         }
         purchaseAuctionParticipationRepository.save(purchaseAuctionParticipation);
@@ -77,6 +78,16 @@ public class PurchaseAuctionParticipationService {
         return purchaseAuctionParticipationRepository
                 .findById(id)
                 .orElseThrow(EntityNotFoundException::new);
+    }
+
+    public boolean isSubmitted(Long purchaseId, Principal principal) {
+        AtomicBoolean isExist = new AtomicBoolean(false);
+        Member loginMember = memberService.getLoginMember(principal);
+        findAllByPurchaseAuctionId(purchaseId).stream().filter(i -> i.getSeller() == loginMember)
+                .findFirst()
+                .ifPresent(i -> isExist.set(true));
+
+        return isExist.get();
     }
 
     public void dissmiss(Long id) {

@@ -2,6 +2,7 @@ package com.bidbid.controller.api;
 
 import com.bidbid.dto.purchaseauction.PurchaseAuctionRequest;
 import com.bidbid.global.ProductCategory;
+import com.bidbid.service.PurchaseAuctionParticipationService;
 import com.bidbid.service.PurchaseAuctionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ import java.security.Principal;
 public class PurchaseAuctionController {
 
     private final PurchaseAuctionService purchaseAuctionService;
+    private final PurchaseAuctionParticipationService purchaseAuctionParticipationService;
 
     @PostMapping
     public String create(PurchaseAuctionRequest dto, Principal principal) {
@@ -58,8 +60,16 @@ public class PurchaseAuctionController {
 
 
     @GetMapping("{id}")
-    public String getById(@PathVariable Long id, Model model) {
+    public String getById(@PathVariable Long id, Model model, Principal principal) {
         model.addAttribute("purchaseAuction", purchaseAuctionService.findById(id));
+        if(purchaseAuctionService.isBuyer(id, principal)) {
+
+        }else if(purchaseAuctionParticipationService.isSubmitted(id, principal)) {
+            //PurchaseAuctionParticipation purchaseAuctionParticipation = PurchaseAuctionParticipationService.findByPurchaseAuctionIdAndLoginMember(id, principal);
+
+        }else {
+
+        }
 
         return "purchase-auction/purchase-auction-info";
     }

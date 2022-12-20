@@ -60,8 +60,10 @@ public class PurchaseAuctionService {
         return purchaseAuctionRepository.findAll(Sort.by(Sort.Direction.DESC, "deadline"));
     }
 
-    public void setBestPick(Long auctionId, Long participationId) {
-        PurchaseAuction purchaseAuction = findById(auctionId);
+    public boolean isBuyer(Long id, Principal principal) {
+        Member loginMember = memberService.getLoginMember(principal);
+        PurchaseAuction purchaseAuction = findById(id);
+        return purchaseAuction.getBuyer() == loginMember;
     }
 
     public List<PurchaseAuction> findByBestPick(Principal principal) {
