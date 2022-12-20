@@ -22,8 +22,6 @@ import java.security.Principal;
 public class MemberController {
 
     private final MemberService memberService;
-    private final PurchaseAuctionService purchaseAuctionService;
-    private final SaleAuctionService saleAuctionService;
 
     @GetMapping
     public String getLoginMember(Principal principal, Model model) {

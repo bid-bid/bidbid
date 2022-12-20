@@ -23,7 +23,7 @@ public class PurchaseAuctionParticipateController {
     public String create(PurchaseAuctionParticipationRequest dto, MultipartFile multipartFile, Principal principal) {
         purchaseAuctionParticipationService.save(dto, multipartFile, principal);
 
-        return "redirect:/apu/purchase-auction/" + dto.getPurchaseAuctionId();
+        return "redirect:/api/purchase-auction/" + dto.getPurchaseAuctionId();
     }
 
     @GetMapping("{purchaseId}")

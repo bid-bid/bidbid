@@ -81,26 +81,26 @@
                 </td>
                 </tr>
                 <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
-                    <c:if test="${not empty purchaseAuctionParticipation}">
+                    <c:if test="${not empty purchaseAuction.bestPick}">
                         <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                                ${purchaseAuctionParticipation.seller.name}
+                                ${purchaseAuction.bestPick.seller.name}
                         </td>
                         <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                            <c:if test="${purchaseAuctionParticipation.image}">
-                                <img style="width:100%" src=${purchaseAuctionParticipation.image} alt=""/>
+                            <c:if test="${purchaseAuction.bestPick.image}">
+                                <img style="width:100%" src=${purchaseAuction.bestPick.image} alt=""/>
                             </c:if>
                         </td>
                         <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                                ${purchaseAuctionParticipation.price}
+                                ${purchaseAuction.bestPick.price}
                         </td>
                         <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                                ${purchaseAuctionParticipation.purchaseAuction.deadline}
+                                ${purchaseAuction.bestPick.purchaseAuction.deadline.toString().substring(0, 16).replace("T", " ")}
                         </td>
                         <td style="width:15%; border-bottom: solid 1px #c9c9c9; font-weight: 900; vertical-align: middle;">
-                                ${purchaseAuctionParticipation.decisionState.toKorean}
+                                ${purchaseAuction.bestPick.decisionState.toString()}
                         </td>
                         <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                            <c:if test="${purchaseAuctionParticipation.decisionState.toKorean eq '반려'}">
+                            <c:if test="${purchaseAuction.bestPick.decisionState.toString() eq '반려'}">
                                 <input type="button" onClick="location.href='/comment-update'" style="padding:1em; letter-spacing: 0em; line-height: 0em;" value="수정">
                             </c:if>
                         </td>
@@ -117,21 +117,26 @@
                     <input type="hidden" name="purchaseAuctionId" value="${purchaseAuction.id}">
                     <table style="text-align: center; border: solid 1px #c9c9c9;">
                         <tr style="background-color: #FFF;">
-                            <td class="comment-inner" style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                                [${purchaseAuction.buyer.name}]
+                            <td class="comment-inner" colspan="4">
+                                <textarea name="description" id="description" placeholder="상세 설명"></textarea>
                             </td>
-                            <td style="width:30%; color: #000; text-align:left">
-                                <label id="upload-picture" class="button icon fa-upload" for="product-picture" style="letter-spacing:0; overflow: visible; margin:0">
-                                    사진
-                                </label>
-                                <input type="file" id="product-picture" style="display:none" onchange="onFileUpload(this)" accept="image/*">
-                                <div id="file-name" style="display: inline-block; margin-left: 0.5em;"></div>
-                            </td>
-                            <td style="width:40%; color: #000;">
-                                <input type="text" name="desired-bid" id="desired-bid" value="" placeholder="판매 희망가" onfocusout="validateBid()"/>
+                        </tr>
+                        <tr>
+                            <td style="width:50%; color: #000;">
+                                <input type="text" name="price" id="desired-bid" value="" placeholder="판매 희망가" onfocusout="validateBid()"/>
                                 <div id="bid_alert" class="bid-alert">필수 정보입니다.</div>
                             </td>
-                            <td style="width:10%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            <td style="width:10%; color: #000; text-align:right">
+                                <label id="upload-picture" class="button icon fa-upload" for="image" style="letter-spacing:0; overflow: visible;">
+                                    사진
+                                </label>
+                                <input type="file" id="image" name="multipartFile" style="display:none" onchange="onFileUpload(this)" accept="image/*">
+                                <div id="file-name"></div>
+                            </td>
+                            <td style="width:10%; color: #000;">
+                                <input type="reset" onclick="resetForm()" class="btn-primary pull" value="초기화">
+                            </td>
+                            <td style="width:10%; color: #000;">
                                 <input type="submit" class="btn-primary pull" value="등록">
                             </td>
                         </tr>
@@ -176,6 +181,10 @@
     margin: 5px 0;
     display: none;
 }
+th, td {
+    padding:30px;
+}
+
 </style>
 
 <script>
@@ -212,5 +221,15 @@
             document.getElementById("file-name").appendChild(div);
         }
     }
+
+    function resetForm() {
+        $('form').each(function () {
+            this.reset();
+        })
+        if(document.getElementById("uploaded-file") != null){
+            document.getElementById("uploaded-file").remove();
+        }
+    }
+
 </script>
 </html>

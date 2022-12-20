@@ -79,7 +79,7 @@
                                 <td>${saleAuction.seller.name}</td>
                                 <td>${saleAuction.bestBuyer.name}</td>
                                 <td>${saleAuction.price}</td>
-                                <td>${saleAuction.deadline.toString().substring(0,16)}</td>
+                                <td>${saleAuction.deadline.toString().substring(0,16).replace("T", " ")}</td>
                             </tr>
                         </c:forEach>
                         </tbody>

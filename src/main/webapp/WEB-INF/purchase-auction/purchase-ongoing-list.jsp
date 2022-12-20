@@ -69,8 +69,8 @@
                         </thead>
                         <tbody>
                         <c:forEach var="purchaseAuctions" items="${purchaseAuctions}" >
-                            <tr>
-                                <td><a href="http://localhost:8080/api/purchase-auction/${purchaseAuctions.id}">${purchaseAuctions.auctionTitle}</a></td>
+                            <tr style="cursor: pointer" onclick="location.href='purchase-auction/${purchaseAuctions.id}'">
+                                <td>${purchaseAuctions.auctionTitle}</td>
                                 <td>${purchaseAuctions.productName}</td>
                                 <td>${purchaseAuctions.productCategory.toKorean}</td>
                                 <td>${purchaseAuctions.description}</td>

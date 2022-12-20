@@ -29,7 +29,7 @@ public class PurchaseAuctionParticipationService {
         PurchaseAuctionParticipation purchaseAuctionParticipation = dto.toEntity();
         purchaseAuctionParticipation.setPurchaseAuction(purchaseAuctionService.findById(dto.getPurchaseAuctionId()));
         purchaseAuctionParticipation.setSeller(memberService.getLoginMember(principal));
-        if(!multipartFile.isEmpty()) {
+        if(multipartFile != null && !multipartFile.isEmpty()) {
             purchaseAuctionParticipation.setImage(imageService.save(multipartFile));
         }
         purchaseAuctionParticipationRepository.save(purchaseAuctionParticipation);
