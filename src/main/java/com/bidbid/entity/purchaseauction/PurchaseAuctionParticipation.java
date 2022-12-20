@@ -33,6 +33,7 @@ public class PurchaseAuctionParticipation {
     private PurchaseAuction purchaseAuction;
 
     @Enumerated(EnumType.STRING)
+    @Getter
     DecisionState decisionState = DecisionState.UNIDENTIFIED;
 
     @Builder
