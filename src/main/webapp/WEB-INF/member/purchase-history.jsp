@@ -41,7 +41,7 @@
                 </thead>
                 <tbody>
                     <c:forEach var="purchaseAuctions" items="${purchaseAuctions}">
-                        <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
+                        <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;" onclick="location.href='../${purchaseAuctions.id}'">
                             <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
                                     ${purchaseAuctions.auctionTitle}
                             </td>
@@ -76,7 +76,7 @@
                 </thead>
                 <tbody>
                     <c:forEach var="purchaseAuctionParticipation" items="${purchaseAuctionParticipation}">
-                        <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
+                        <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;" onclick="location.href='../${purchaseAuctionParticipation.purchaseAuction.id}'">
                             <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
                                 ${purchaseAuctionParticipation.purchaseAuction.auctionTitle}
                             </td>
