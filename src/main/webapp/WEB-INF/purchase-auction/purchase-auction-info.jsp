@@ -47,7 +47,9 @@
                                         설명 : ${purchaseAuction.description} <br><br>
 
                                         <!-- 확인 버튼 누르면 -> 미확인 상태 X --!>
-                                        <input type="submit" class="btn-primary pull" style="padding: 0 10em 0 10em; width:100%" value="확인">
+                                        <form action="/api/purchase-auction-participation/${purchaseAuction.id}/best-pick" method="post">
+                                            <input type="submit" class="btn-primary pull" style="padding: 0 10em 0 10em; width:100%" value="확인">
+                                        </form>
                                     </span>
                                 </td>
                             </tr>

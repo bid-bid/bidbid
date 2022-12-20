@@ -49,6 +49,10 @@ public class PurchaseAuctionParticipationService {
         purchaseAuctionParticipation.bestPick();
 
         PurchaseAuction purchaseAuction = purchaseAuctionParticipation.getPurchaseAuction();
+        if(purchaseAuction.getBestPick() == null) {
+            purchaseAuction.setBestPick(purchaseAuctionParticipation);
+            return;
+        }
         purchaseAuction.getBestPick().dismiss();
         purchaseAuction.setBestPick(purchaseAuctionParticipation);
     }
