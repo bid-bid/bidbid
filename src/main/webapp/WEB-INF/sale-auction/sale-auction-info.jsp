@@ -22,63 +22,69 @@
         <div class="inner">
             <hr>
             <center>
-                <h2 class="mypage" style="font-size: 32px; letter-spacing:0;">${saleAuction.auctionTitle}</h2>
+                <h2 class="mypage" style="margin-bottom:50px; font-size: 40px; letter-spacing:0;">${saleAuction.auctionTitle}</h2>
             </center>
-            <section class="tiles" style="margin-top: 0; margin-left:auto; margin-right:auto">
-                <div style="width: calc(10%);"></div>
-                <div class="user_area">
+
+
+                <div style="text-align: center">
                     <img style="border: 1px solid #c9c9c9; width:100%" src="${saleAuction.image}" alt=""/>
                 </div>
-                <div style="width: calc(40%); padding:1em;">
-                    <table style="margin-top:3em;">
-                        <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
-                            <td style="border-bottom: solid 1px #c9c9c9; color: #000; font-weight: 600;">
-                                ${saleAuction.auctionTitle}
+
+                    <table style="margin-top:3em; border:1px solid#000">
+                        <tr style="border-top: solid 1px #000; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            <td style=" color: #000; font-weight: 600;">
+                                상품명
                             </td>
-                        </tr>
-                        <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
-                            <td style="border-bottom: solid 1px #c9c9c9; color: #000;">
+                            <th >
                                 ${saleAuction.productName}
-
-
-
-                            </td>
+                            </th>
                         </tr>
-                        <tr style="background-color: #FFF; color: #000;">
-                            <td>
+
+                        <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            <td style=" color: #000; font-weight: 600;">
+                                가격
+                            </td>
+                            <th >
                                 ${saleAuction.price}
-                            </td>
+                            </th>
                         </tr>
-                        <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
-                            <td style="font-size:16px">
-                                ${saleAuction.productCategory.toKorean}&nbsp&nbsp ${saleAuction.deadline}
+
+                        <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            <td style=" color: #000; font-weight: 600;">
+                                카테고리
                             </td>
+                            <th >
+                                ${saleAuction.productCategory.toKorean}
+                            </th>
                         </tr>
+
+                        <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            <td style=" color: #000; font-weight: 600;">
+                                마감기한
+                            </td>
+                            <th>
+                                ${saleAuction.deadline.toString().substring(0,16)}
+                            </th>
+                        </tr>
+
+
+                        <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #000; color: #000;">
+                            <td style=" color: #000; font-weight: 600;">
+                                상품 설명
+                            </td>
+                            <th >
+                                ${saleAuction.description}
+                            </th>
+                        </tr>
+
                     </table>
-                </div>
-            </section>
-            <section class="tiles" style="margin-top: 0; margin-bottom: 2em; margin-left:auto; margin-right:auto">
-                <div style="width: calc(15%);"></div>
-                <div style="width: calc(70%); color:#000; font-size: 24px">
-                    ${saleAuction.description}
-                </div>
-            </section>
+
+
+
 
             <center>
-                <h2 class="mypage" style="margin-bottom:1em; color:red;">최고가 입찰자</h2>
-                <table style="width:60%; border: solid 1px #FFF; font-weight: 600;">
-                    <tr align="center" style="color: #000; background-color: #FFF; border-bottom: solid 1px #FFF;">
-                        <td style="width:20%; color: #000; text-align:center;">
-                            ${saleAuction.bestBuyer.name}
-                        </td>
-                        <td style="width:20%; color: #000; text-align:center;">
-                            ${saleAuction.bestBuyer.price}
-                        </td>
-                        <td style="width:30%; color: #000; text-align:center;">
-                            경매 한 시간
-                        </td>
-                    </tr>
-                </table>
+                <h2 class="mypage" style="margin-bottom:1em; color:red;">최고 입찰가 : ${saleAuction.price}</h2>
+
             </center>
             <hr>
 
@@ -86,19 +92,16 @@
                 <h2 class="mypage" style="margin-bottom: 2em;">가격 제시</h2>
             </center>
             <div class="comment-area">
-                <form method="post" action="">
+                <form method="post" action="/api/sale-auction/${saleAuction.id}/renewal-bid">
                     <table style="text-align: center; border: solid 1px #c9c9c9;">
                         <tr style="background-color: #FFF;">
-                            <td class="comment-inner" style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                                <!-- 유저ID --!>
-                                memeber.id
-                            </td>
+
                             <td style="width:50%; color: #000;">
                                 <!-- 가격 부분 --!>
-                                <input type="text" name="price" id="desired-bid" value="" placeholder="희망가" onfocusout="validateBid()"/>
+                                <input type="text" name="point" id="desired-bid" value="" placeholder="희망가" onfocusout="validateBid()"/>
                                 <div id="bid_alert" class="bid-alert">필수 정보입니다.</div>
                             </td>
-                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;  vertical-align:middle;">
                                 <input type="submit" class="btn-primary pull" value="등록">
                             </td>
                         </tr>
@@ -165,6 +168,13 @@
 
             return false;
         }
+        if(bid<${saleAuction.price}){
+            alertEl.innerHTML = '가격을 다시 입력해주세요';
+            alertEl.style.display = 'block';
+            return false;
+        }
+
+
 
         alertEl.style.display = 'none';
     }

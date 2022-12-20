@@ -18,7 +18,9 @@
 
         <div id="form">
             <div class="inner">
-                <form method="post" action="/api/sale-auction">
+
+                <form method="get" action="/api/sale-auction?filter=category">
+                    <input type="hidden" name="filter" value="category">
                     <section>
                         <h2>진행중 구매권 입찰</h2>
                         <button type="button" onclick="location.href='/sale-form' ">구매권 등록</button>
@@ -26,8 +28,8 @@
                             <div class="row uniform">
                                 <div>
                                     <div class="select-wrapper">
-                                        <select name="category" aria-invalid="demo-category">
-                                            <option value=""> 카테고리</option>
+                                        <select name="category" aria-invalid="demo-category" onclick="hasSearchValue()">
+                                            <option value="NONE"> 카테고리</option>
                                             <option value="CLOTHING">패션</option>
                                             <option value="ACCESSORIES">패션잡화</option>
                                             <option value="FOOD">식품 - 건강</option>
@@ -44,7 +46,7 @@
                                     </div>
                                 </div>
                                 <div class="6u 12u$(xsmall)">
-                                    <input type="text" name="auctionTitle" id="auction-title" value=""
+                                    <input type="text" name="product-name" id="product-name" onkeyup="hasSearchValue()" value=""
                                            placeholder="검색어 입력"/>
                                 </div>
                                 <div>
@@ -98,4 +100,14 @@
     </div>
 </div>
 </body>
+<script>
+    function hasSearchValue() {
+        if ($('select[name=category]').val() === "NONE" && $('#product-name').val().trim() === "") {
+            $('#search-submit').attr("disabled", true);
+        } else {
+            $('#search-submit').attr("disabled", false);
+        }
+    }
+
+</script>
 </html>

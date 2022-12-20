@@ -38,7 +38,7 @@ public class SaleAuctionController {
     public String getAllByMember(Principal principal, Model model) {
         model.addAttribute("saleAuctions", saleAuctionService.findAllBySeller(principal));
 
-        return "sale-auction/sale-auction-info";
+        return "sale-auction/sale-ongoing-list";
     }
 
     @GetMapping(params = "filter=category")
@@ -52,7 +52,7 @@ public class SaleAuctionController {
             model.addAttribute("saleAuctions", saleAuctionService.findAllByCategoryAndProductName(category, productName));
         }
 
-        return "sale-auction/sale-auction-info";
+        return "sale-auction/sale-ongoing-list";
     }
 
 
