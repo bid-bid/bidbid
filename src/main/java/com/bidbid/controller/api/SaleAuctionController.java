@@ -65,7 +65,7 @@ public class SaleAuctionController {
     }
 
     @PostMapping("{id}/renewal-bid")
-    public String renewalBid(@RequestBody RenewalBidRequest dto, @PathVariable Long id, Principal principal) {
+    public String renewalBid(RenewalBidRequest dto, @PathVariable Long id, Principal principal) {
         saleAuctionService.renewalBid(id, dto, principal);
         return "redirect:/api/sale-auction/" + id;
     }
