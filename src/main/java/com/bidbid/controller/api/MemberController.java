@@ -30,8 +30,6 @@ public class MemberController {
         Member loginMember = memberService.getLoginMember(principal.getName());
         model.addAttribute("name", loginMember.getName());
         model.addAttribute("point", loginMember.getPoint());
-        model.addAttribute("purchaseAuctions", purchaseAuctionService.findByBuyer(principal));
-        model.addAttribute("saleAuctions", saleAuctionService.findAllBySeller(principal));
         return "member/my-info";
     }
 

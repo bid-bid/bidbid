@@ -60,7 +60,7 @@
             </table>
         </div>
         <center>
-            <input type="button" onClick="location.href='/user'" style="padding:1em; letter-spacing: 0em; line-height: 0em;" value="돌아가기">
+            <input type="button" onClick="location.href='/api/members'" style="padding:1em; letter-spacing: 0em; line-height: 0em;" value="돌아가기">
         </center>
     </div>
 

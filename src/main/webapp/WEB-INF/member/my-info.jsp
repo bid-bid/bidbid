@@ -46,22 +46,38 @@
             </section>
         </div>
 
-        <h2 align="center" style = "margin-top:30px">- 참여한 경매 내역 -</h2>
+        <h2 align="center" style = "margin-top:30px">- 입찰 내역 -</h2>
 
            <div class="inner" style="border: 1px solid #c9c9c9; margin-bottom:30px; width: calc(60%);">
             <h3 align="center" style = "margin-top:40px">
-                <a class= "charge" href="/sale-history">
+                <a class= "charge" href="/api/sale-auction/history/bid">
                     >살래요
                 </a>
             </h3>
 
             <h3 align="center" style = "margin-top:40px">
-                <a class= "charge" href="/purchase-history">
+                <a class= "charge" href="/api/purchase-auction/history/bid">
                     >팔래요
                 </a>
             </h3>
             
         </div>
+
+        <h2 align="center" style = "margin-top:30px">- 게시 내역 -</h2>
+
+        <div class="inner" style="border: 1px solid #c9c9c9; margin-bottom:30px; width: calc(60%);">
+            <h3 align="center" style = "margin-top:40px">
+                <a class= "charge" href="/api/sale-auction/history/post">
+                    >살래요
+                </a>
+            </h3>
+
+            <h3 align="center" style = "margin-top:40px">
+                <a class= "charge" href="/api/purchase-auction/history/post">
+                    >팔래요
+                </a>
+            </h3>
+
     </div>
 
     <!--page_footer영역-->

@@ -15,7 +15,9 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.security.Principal;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -69,5 +71,11 @@ public class SaleAuctionService {
         return saleAuctionRepository.findAllByProductCategoryAndProductNameContaining(category, productName);
     }
 
+    public List<SaleAuction> findByBestBuyer(Principal principal) {
+        Member member = memberService.getLoginMember(principal);
+        return saleAuctionRepository.findAllByBestBuyer(member).stream()
+                .filter(saleAuction -> saleAuction.getDeadline().isAfter(LocalDateTime.now()))
+                .collect(Collectors.toList());
+    }
 
 }

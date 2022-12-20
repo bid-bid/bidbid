@@ -69,4 +69,17 @@ public class SaleAuctionController {
         saleAuctionService.renewalBid(id, dto, principal);
         return "redirect:/api/sale-auction/" + id;
     }
+
+    @GetMapping("/history/bid")
+    public String getHistory(Principal principal, Model model) {
+        model.addAttribute("saleAuctions", saleAuctionService.findByBestBuyer(principal));
+        return "member/sale-history";
+    }
+
+    @GetMapping("/history/post")
+    public String getPost(Principal principal, Model model) {
+        model.addAttribute("saleAuctions", saleAuctionService.findAllBySeller(principal));
+        return "member/sale-history";
+    }
+
 }

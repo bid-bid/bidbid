@@ -71,5 +71,17 @@ public class PurchaseAuctionController {
         throw new UnsupportedOperationException();
     }
 
+    @GetMapping("/history/bid")
+    public String getHistory(Principal principal, Model model) {
+        model.addAttribute("purchaseAuctions", purchaseAuctionService.findByBestPick(principal));
+        return "member/purchase-history";
+    }
+
+    @GetMapping("/history/post")
+    public String getPost(Principal principal, Model model) {
+        model.addAttribute("purchaseAuctions", purchaseAuctionService.findByBuyer(principal));
+        model.addAttribute("purchaseAuctionParticipation", purchaseAuctionService.findReturnedSuggest(principal));
+        return "member/purchase-history";
+    }
 
 }

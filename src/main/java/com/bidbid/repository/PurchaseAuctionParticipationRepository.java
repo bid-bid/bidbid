@@ -13,4 +13,5 @@ import java.util.Optional;
 public interface PurchaseAuctionParticipationRepository extends JpaRepository<PurchaseAuctionParticipation, Long> {
     Optional<PurchaseAuctionParticipation> findByPurchaseAuctionAndSeller(PurchaseAuction purchaseAuction, Member seller);
     List<PurchaseAuctionParticipation> findAllByPurchaseAuction(PurchaseAuction purchaseAuction);
+    List<PurchaseAuctionParticipation> findAllBySeller(Member member);
 }

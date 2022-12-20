@@ -75,13 +75,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="purchaseAuctions" items="${purchaseAuctions}">
+                    <c:forEach var="purchaseAuctionParticipation" items="${purchaseAuctionParticipation}">
                         <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
                             <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                                    반려
+                                ${purchaseAuctionParticipation.purchaseAuction.auctionTitle}
                             </td>
                             <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                                    반려
+                                ${purchaseAuctionParticipation.purchaseAuction.productName}
                             </td>
                             <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: red;">
                                     반려
@@ -92,7 +92,7 @@
             </table>
         </div>
         <center>
-            <input type="button" onClick="location.href='/user'" style="padding:1em; letter-spacing: 0em; line-height: 0em;" value="돌아가기">
+            <input type="button" onClick="location.href='/api/members'" style="padding:1em; letter-spacing: 0em; line-height: 0em;" value="돌아가기">
         </center>
     </div>
 
