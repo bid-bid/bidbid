@@ -22,7 +22,7 @@
             <h1 class="mypage" style="letter-spacing:0;">${purchaseAuction.purchaseAuction.auctionTitle}</h1>
             <h3 style="letter-spacing:0; margin: 0;">&nbsp ${purchaseAuction.purchaseAuction.buyer.name}</h3>
 
-            &nbsp 판매권입찰 ㆍ ${purchaseAuction.purchaseAuction.productCategory.toKorean} ㆍ ${fn:substring(purchaseAuction.deadline,0,10)} ${fn:substring(purchaseAuction.deadline,11,16)}
+            &nbsp 판매권입찰 ㆍ ${purchaseAuction.productCategory.toKorean} ㆍ ${purchaseAuction.deadline.toString().substring(0,10)} ${purchaseAuction.deadline.toString().substring(11,16)}
             <hr style="margin-top:1em">
 
             <!-- 설명 --!>

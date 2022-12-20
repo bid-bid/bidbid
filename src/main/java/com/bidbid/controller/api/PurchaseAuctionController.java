@@ -64,9 +64,9 @@ public class PurchaseAuctionController {
     public String getById(@PathVariable Long id, Model model, Principal principal) {
         model.addAttribute("purchaseAuction", purchaseAuctionService.findById(id));
         String viewName = "";
-        if(purchaseAuctionService.findById(id).getBestPick() == null) {
-//            model.addAttribute("purchaseAuction", purchaseAuctionParticipationService.findAllByPurchaseAuctionId(id));
-            viewName = "purchase-auction/purchase-auction-info-register";
+        if(purchaseAuctionService.isBuyer(id, principal)) {
+            model.addAttribute("purchaseAuction", purchaseAuctionParticipationService.findAllByPurchaseAuctionId(id));
+            viewName = "purchase-auction/purchase-auction-info";
         }else if(purchaseAuctionParticipationService.isSubmitted(id, principal)) {
             PurchaseAuctionParticipation purchaseAuctionParticipation = purchaseAuctionParticipationService.findByPurchaseAuctionIdAndLoginMember(id, principal);
             model.addAttribute("purchaseAuction", purchaseAuctionParticipation);
