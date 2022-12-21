@@ -138,7 +138,7 @@
         }
 
         // 비밀번호 확인 길이 검증
-        if (cPassword.length < 5) {
+        if (cPassword.length < 1) {
             cAlertEl.innerHTML = '비밀번호는 5글자 이상 입력해주세요.';
             cAlertEl.style.display = 'block';
 
