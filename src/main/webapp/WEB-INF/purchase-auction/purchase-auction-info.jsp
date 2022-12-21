@@ -18,7 +18,7 @@
 
     <div id="main" style="padding: 0em 0 2em 0;">
         <div class="inner">
-            <!-- 제목 / 판매권입찰, 카테고리, 등록시간 --!>
+            <!-- 제목 / 판매권입찰, 카테고리, 등록시간 -->
             <h1 class="mypage" style="letter-spacing:0;">${purchaseAuction.auctionTitle}</h1>
             <h3 style="letter-spacing:0; margin: 0;">&nbsp ${purchaseAuction.buyer.name}</h3>
 
@@ -46,77 +46,23 @@
                                         제시 가격 : ${pap.price} <br>
                                         설명 : ${pap.description} <br><br>
 
-                                        <!-- 확인 버튼 누르면 -> 미확인 상태 X -->
+                                        <!--  
                                         <form action="/api/purchase-auction-participation/${pap.id}/best-pick" method="post">
                                             <input type="submit" class="btn-primary pull" style="padding: 0 10em 0 10em; width:100%" value="확인">
-                                        </form>
+                                        </form>-->
+                                        <ul class="btnsBox">
+                                            <li><button class="btnbox" style="padding: 0 5em 0 5em " onclick="change_btn(event)">승인</button></li>
+                                            <li><button class="btnbox" style="padding: 0 5em 0 5em " onclick="change_btn(event)">반려</button></li>
+                                        </ul>
+
                                     </span>
                                 </td>
                             </tr>
                         </table>
                     </td>
-                    </c:forEach>
+
                 </tr>
             </table>
-
-            <hr>
-            <center>
-                <h2 class="mypage" style="margin-bottom:3em;">-입찰 예정 물품-</h2>
-            </center>
-
-            <c:if test="${purchaseAuction.bestPick}">
-                <table>
-                    <tr align="center" style="background-color: #f6f6f6; border-bottom: solid 1px #c9c9c9; color: #000;">
-                    <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        입찰자
-                    </td>
-                    <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        물건
-                    </td>
-                    <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        가격
-                    </td>
-                    <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        등록시간
-                    </td>
-                    <td style="width:10%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        상태
-                    </td>
-                    <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                    </td>
-                    </tr>
-                    <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                                ${purchaseAuction.bestPick.seller.name}
-                        </td>
-                        <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                            <c:if test="${purchaseAuction.bestPick.image}">
-                                <img style="width:100%" src=${purchaseAuction.bestPick.image} alt=""/>
-                            </c:if>
-                        </td>
-                        <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                                ${purchaseAuction.bestPick.price}
-                        </td>
-                        <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                                ${purchaseAuction.deadline}
-                        </td>
-                        <td style="width:15%; border-bottom: solid 1px #c9c9c9; font-weight: 900; vertical-align: middle;">
-                                ${purchaseAuction.bestPick.decisionState.toKorean}
-                        </td>
-                        <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                            <c:if test="${purchaseAuction.bestPick.decisionState.toKorean eq '반려'}">
-                                <input type="button" onClick="location.href='/comment-update'" style="padding:1em; letter-spacing: 0em; line-height: 0em;" value="수정">
-                            </c:if>
-                        </td>
-                    </tr>
-                </table>
-            </c:if>
-
-            <c:if test="${empty purchaseAuction.bestPick}">
-                <center>
-                    <h3 class="mypage" style="margin-bottom:1em;">입찰 예정 물품 없어요</h3>
-                </center>
-            </c:if>
         </div>
     </div>
 
@@ -151,6 +97,29 @@
     padding-left:0.8em;
     display: none;
 }
+
+.btnsBox {
+	font-size: 0;
+}
+.btnsBox li {
+	display: inline-block;
+	margin-left: -1px;
+}
+.btnsBox li:first-child {
+	margin-left: 0;
+}
+.btnbox {
+	width: 100%;
+	height: 100%;
+	font-size: 12px;
+	color: #F36F21;
+	border: 1px solid #F47820;
+	background-color: #fff;
+}
+.btnbox:hover, .btnbox.active {
+	background: #FFE0C9;
+}
+
 </style>
 
 <script>
@@ -192,6 +161,19 @@
           document.querySelector("div#image_container").appendChild(img);
         };
         reader.readAsDataURL(event.target.files[0]);
+      }
+
+      function change_btn(e) {
+      	var btns = document.querySelectorAll(".btnbox");
+      	btns.forEach(function(btn, i) {
+      		if(e.currentTarget == btn) {
+      			btn.classList.add("active");
+      		}
+      		else {
+      			btn.classList.remove("active");
+      		}
+      	});
+      	console.log( e.currentTarget );
       }
 </script>
 </html>
