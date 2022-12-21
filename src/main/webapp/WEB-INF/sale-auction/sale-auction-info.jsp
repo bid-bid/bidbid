@@ -102,7 +102,7 @@
                                 <div id="bid_alert" class="bid-alert">필수 정보입니다.</div>
                             </td>
                             <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;  vertical-align:middle;">
-                                <input type="submit" class="btn-primary pull" value="등록">
+                                <input type="submit" id="btn-primary-pull" value="등록">
                             </td>
                         </tr>
                     </table>
@@ -153,28 +153,29 @@
     function validateBid() {
         var bid = document.getElementById('desired-bid').value.trim();
         var alertEl = document.getElementById('bid_alert');
-
+        var button=document.getElementById('btn-primary-pull');
         // 입력 여부 검증
         if (bid.length == 0) {
             alertEl.innerHTML = '필수 정보입니다.';
             alertEl.style.display = 'block';
 
+            button.disabled=true;
             return false;
         }
         // 숫자만 가능
         if (!/^[0-9]*$/.test(bid)) {
             alertEl.innerHTML = '숫자만 입력해주세요';
             alertEl.style.display = 'block';
-
+            button.disabled=true;
             return false;
         }
         if(bid<${saleAuction.price}){
             alertEl.innerHTML = '가격을 다시 입력해주세요';
             alertEl.style.display = 'block';
+            button.disabled=true;
             return false;
         }
-
-
+        button.disabled=false;
 
         alertEl.style.display = 'none';
     }
