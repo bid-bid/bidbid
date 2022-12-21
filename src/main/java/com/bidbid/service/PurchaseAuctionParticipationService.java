@@ -82,7 +82,7 @@ public class PurchaseAuctionParticipationService {
                 .orElseThrow(EntityNotFoundException::new);
     }
 
-    private PurchaseAuctionParticipation getOne(Long id) {
+    public PurchaseAuctionParticipation getOne(Long id) {
         return purchaseAuctionParticipationRepository
                 .findById(id)
                 .orElseThrow(EntityNotFoundException::new);
