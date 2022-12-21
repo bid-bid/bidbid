@@ -31,56 +31,42 @@
             </div>
 
             <hr>
-            <center>
-                <h2 class="mypage" style="margin-bottom:1em;">미확인 물품</h2>
-            </center>
-            <table>
-                <tr align="center" style="background-color: #f6f6f6; border-bottom: solid 1px #c9c9c9; color: #000;">
-                <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                    입찰자
-                </td>
-                <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                    물건
-                </td>
-                <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                    가격
-                </td>
-                <td style="width:10%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                    설명
-                </td>
-                <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                    상태
-                </td>
-                </tr>
-                <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
-                    <c:forEach var="pap" items="${purchaseAuctionParticipation}">
-                        <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                                ${pap.seller.name}
+            <h2 class="mypage" style="font-size: 30px; letter-spacing:0; margin-bottom:1.2em;">판매권 등록</h2>
+            <form method="post" action="/api/purchase-auction-participation" enctype="multipart/form-data">
+                <input type="hidden" name="purchaseAuctionId" value="${purchaseAuction.id}"/>
+                <table style="margin:1em 0 0 0; ">
+                    <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
+                       <td style="color: #000; text-align:left">
+                            <label id="upload-picture" class="button icon fa-upload" for="product-picture" style="letter-spacing:0; overflow: visible; margin:0">
+                                사진
+                            </label>
+                            <input type="file" name="multipartFile" id="product-picture" style="display:none" onchange="setThumbnail(event, this)" accept="image/*">
+                            <div id="file-name" style="display: inline-block; margin-left: 0.5em;"></div>
+                            <div id="image_container" style="text-align: center;"></div>
                         </td>
-                        <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                            <img style="width:100%" src=${pap.image} alt=""/>
+                    </tr>
+                    <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
+                        <td style="color: #000; padding: 0.75em 0em;">
+                            <input type="text" name="price" id="desired-bid" style="padding-left:0.5em" value="" placeholder="판매 희망가" onfocusout="validateBid()"/>
+                            <div id="bid_alert" class="bid-alert">필수 정보입니다.</div>
                         </td>
-                        <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                                ${pap.price}
+                    </tr>
+                    <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
+                        <td style="color: #000; padding: 0.75em 0em;">
+                            <textarea name="description" id="description-bid" style="padding-left:0.5em" placeholder="상세 설명"></textarea>
                         </td>
-                        <td style="width:15%; border-bottom: solid 1px #c9c9c9; font-weight: 900; vertical-align: middle;">
-                                ${pap.description}
+                    </tr>
+                    <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
+                        <td style="border-bottom: solid 1px #FFF; color: #000;">
+                            <center>
+                                <input type="submit" class="btn-primary pull" style="padding: 0 10em 0 10em;" value="등록">
+                            </center>
                         </td>
-                        <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                            <ul class="btnsBox">
-                                <form action="/api/purchase-auction-participation/${pap.id}/best-pick" method="post">
-                                    <li><button class="btnbox" onclick="change_btn(event)">승인</button></li>
-                                </form>
-                                <form action="/api/purchase-auction-participation/${pap.id}/dismiss" method="post">
-                                <li><button class="btnbox" onclick="change_btn(event)">반려</button></li>
-                                </form>
-                            </ul>
-                        </td>
-                    </c:forEach>
-                </tr>
-            </table>
-            <hr>
+                    </tr>
+                </table>
+            </form>
 
+            <hr>
             <center>
                 <h2 class="mypage" style="margin-bottom:1em; color:red">입찰 예정 물품</h2>
                     <img style="width:70%;margin-bottom:1em;" src=${purchaseAuction.bestPick.image} alt=""/>
