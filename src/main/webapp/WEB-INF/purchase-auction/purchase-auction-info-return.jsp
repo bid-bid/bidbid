@@ -38,7 +38,12 @@
                     <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #FFF; background-color: #FFF; color: #000;">
                        <td colspan="3" style="width:30%; color: #000; text-align:left; border: solid 1px #c9c9c9;">
                             <center>
-                              <img style="width:70%;" src="${purchaseAuctionParticipation.image}" alt=""/>
+                                <c:if test="${not empty purchaseAuctionParticipation.image}">
+                                    <img style="width:70%;" src="${purchaseAuctionParticipation.image}" alt=""/>
+                                </c:if>
+                                <c:if test="${empty purchaseAuctionParticipation.image}">
+                                    <h3 class="mypage" style="margin-bottom:1em;">사진 미업로드</h3>
+                                </c:if>
                             </center>
                         </td>
                     </tr>
@@ -70,7 +75,12 @@
             <c:if test="${not empty purchaseAuction.bestPick}">
                 <center>
                     <h2 class="mypage" style="margin-bottom:1em; color:red">입찰 예정 물품</h2>
-                    <img style="width:70%;margin-bottom:1em;" src=${purchaseAuction.bestPick.image} alt=""/>
+                    <c:if test="${not empty purchaseAuction.bestPick.image}">
+                        <img style="width:70%;margin-bottom:1em;" src=${purchaseAuction.bestPick.image} alt=""/>
+                    </c:if>
+                    <c:if test="${not empty purchaseAuction.bestPick.image}">
+                        <h3 class="mypage" style="margin-bottom:1em;">사진 미업로드</h3>
+                    </c:if>
                     <h3 style="letter-spacing: 0.1em;">가격 : ${purchaseAuction.bestPick.price}</h3>
                 </center>
             </c:if>

@@ -86,7 +86,6 @@ public class SaleAuctionService {
     public List<SaleAuction> findByBestBuyer(Principal principal) {
         Member member = memberService.getLoginMember(principal);
         return saleAuctionRepository.findAllByBestBuyer(member).stream()
-                .filter(saleAuction -> saleAuction.getDeadline().isAfter(LocalDateTime.now()))
                 .collect(Collectors.toList());
     }
 

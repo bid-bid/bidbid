@@ -100,7 +100,7 @@ public class PurchaseAuctionController {
 
     @GetMapping("/history/post")
     public String getPost(Principal principal, Model model) {
-        model.addAttribute("purchaseAuctions", purchaseAuctionService.findByBuyer(principal));
+        model.addAttribute("purchaseAuctions", purchaseAuctionService.findByBuyerWithNoFilter(principal));
         model.addAttribute("purchaseAuctionParticipation", purchaseAuctionService.findReturnedSuggestByBuyer(principal));
         return "member/purchase-history";
     }

@@ -86,7 +86,6 @@ public class PurchaseAuctionService {
         List<PurchaseAuction> purchaseAuctionList = new ArrayList<>();
         purchaseAuctionParticipationRepository.findAllBySeller(member).stream()
                 .map(purchaseAuctionRepository::findAllByBestPick)
-                .filter(list -> list.stream().filter(purchaseAuction -> purchaseAuction.getDeadline().isAfter(LocalDateTime.now())).isParallel())
                 .forEach(list -> list.stream().forEach(purchaseAuctionList::add));
         return purchaseAuctionList;
     }
@@ -108,6 +107,11 @@ public class PurchaseAuctionService {
         purchaseAuctionRepository.findAllByBuyer(member).stream()
                 .forEach(purchaseAuction -> purchaseAuctionParticipationRepository.findAllByPurchaseAuction(purchaseAuction).stream().forEach(purchaseAuctionParticipationList::add));
         return purchaseAuctionParticipationList;
+    }
+
+    public List<PurchaseAuction> findByBuyerWithNoFilter(Principal principal) {
+        Member loginMember = memberService.getLoginMember(principal);
+        return purchaseAuctionRepository.findAllByBuyer(loginMember);
     }
 
 }

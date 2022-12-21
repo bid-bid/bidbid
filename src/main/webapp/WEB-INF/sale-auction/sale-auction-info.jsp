@@ -26,10 +26,17 @@
                 <h2 class="mypage" style="margin-bottom:50px; font-size: 40px; letter-spacing:0;">${saleAuction.auctionTitle}</h2>
             </center>
 
+                <c:if test="${not empty saleAuction.image}">
+                    <div style="text-align: center">
+                        <img style="border: 1px solid #c9c9c9; width:100%" src="${saleAuction.image}" alt=""/>
+                    </div>
+                </c:if>
+                <c:if test="${empty saleAuction.image}">
+                    <center>
+                        <h3 class="mypage" style="margin-bottom:1em;">사진 미업로드</h3>
+                    </center>
+                </c:if>
 
-                <div style="text-align: center">
-                    <img style="border: 1px solid #c9c9c9; width:100%" src="${saleAuction.image}" alt=""/>
-                </div>
 
                     <table style="margin-top:3em; border:1px solid#000">
                         <tr style="border-top: solid 1px #000; border-bottom: solid 1px #c9c9c9; color: #000;">
@@ -73,11 +80,16 @@
 
 
 
-
-            <center>
-                <h2 class="mypage" style="margin-bottom:1em; color:red;">최고 입찰가 : ${saleAuction.price}</h2>
-
-            </center>
+            <c:if test="${not empty saleAuction.bestBuyer}">
+                <center>
+                    <h2 class="mypage" style="margin-bottom:1em; color:red;">최고 입찰가 : ${saleAuction.price}</h2>
+                </center>
+            </c:if>
+            <c:if test="${empty saleAuction.bestBuyer}">
+                <center>
+                    <h2 class="mypage" style="margin-bottom:1em; color:red;">시작가 : ${saleAuction.price}</h2>
+                </center>
+            </c:if>
             <hr>
 
             <sec:authentication property="principal" var="prc"/>

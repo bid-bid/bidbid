@@ -41,7 +41,12 @@
                     <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #FFF; background-color: #FFF; color: #000;">
                         <td colspan="3" style="width:30%; color: #000; text-align:left; border: solid 1px #c9c9c9;">
                             <span class="image main" style="margin: 0 0 0em 0">
-                                <img style="height:400px" src="${purchaseAuctionParticipation.image}" alt=""/>
+                                <c:if test="${not empty purchaseAuctionParticipation.image}">
+                                    <img style="height:400px" src="${purchaseAuctionParticipation.image}" alt=""/>
+                                </c:if>
+                                <c:if test="${empty purchaseAuctionParticipation.image}">
+                                    <h3 class="mypage" style="margin-bottom:1em;">사진 미업로드</h3>
+                                </c:if>
                             </span>
                         </td>
                     </tr>
