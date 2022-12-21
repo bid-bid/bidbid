@@ -46,13 +46,13 @@
                                         제시 가격 : ${pap.price} <br>
                                         설명 : ${pap.description} <br><br>
 
-                                        <!--  
-                                        <form action="/api/purchase-auction-participation/${pap.id}/best-pick" method="post">
-                                            <input type="submit" class="btn-primary pull" style="padding: 0 10em 0 10em; width:100%" value="확인">
-                                        </form>-->
                                         <ul class="btnsBox">
-                                            <li><button class="btnbox" style="padding: 0 5em 0 5em " onclick="change_btn(event)">승인</button></li>
-                                            <li><button class="btnbox" style="padding: 0 5em 0 5em " onclick="change_btn(event)">반려</button></li>
+                                            <form action="/api/purchase-auction-participation/${pap.id}/best-pick" method="post">
+                                                <li><button class="btnbox" style="padding: 0 5em 0 5em " onclick="change_btn(event)">승인</button></li>
+                                            </form>
+                                            <form action="/api/purchase-auction-participation/${pap.id}/dismiss" method="post">
+                                                <li><button class="btnbox" style="padding: 0 5em 0 5em " onclick="change_btn(event)">반려</button></li>
+                                            </form>
                                         </ul>
 
                                     </span>
