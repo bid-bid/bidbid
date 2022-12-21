@@ -26,17 +26,17 @@
                     class="title">bidbid</span>
             </a>
             <a href="/login" class="logo" style="float: right;">
-                <sec:authorize access="!isAuthenticated()">
+                <sec:authorize access="isAnonymous()">
                     <span class="title">login</span>
                 </sec:authorize>
             </a>
             <a href="/logout" class="logo" style="float: right;">
-                <sec:authorize access="isAuthenticated()">
+                <sec:authorize access="!isAnonymous()">
                     <span class="title">logout</span>
                 </sec:authorize>
             </a>
             <a href="/api/members" class="logo" style="float: right;">
-                <sec:authorize access="isAuthenticated()">
+                <sec:authorize access="!isAnonymous()">
                     <span class="title">my page&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </sec:authorize>
             </a>
