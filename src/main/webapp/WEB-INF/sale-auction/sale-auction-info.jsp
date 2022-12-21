@@ -82,6 +82,7 @@
 
             <sec:authentication property="principal" var="prc"/>
             <c:if test="${prc.username ne saleAuction.seller.email}">
+                <c:if test="${prc.username ne saleAuction.bestBuyer.email}">
                 <center>
                     <h2 class="mypage" style="margin-bottom: 2em;">가격 제시</h2>
                 </center>
@@ -96,12 +97,16 @@
                                     <div id="bid_alert" class="bid-alert">필수 정보입니다.</div>
                                 </td>
                                 <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;  vertical-align:middle;">
-                                    <input type="submit" class="btn-primary pull" value="등록">
+
+
+                                    <input type="submit" id="btn-primary-pull" value="등록">
+
                                 </td>
                             </tr>
                         </table>
                     </form>
                 </div>
+                </c:if>
             </c:if>
 
         </div>
@@ -153,7 +158,6 @@
         if (bid.length == 0) {
             alertEl.innerHTML = '필수 정보입니다.';
             alertEl.style.display = 'block';
-
             button.disabled=true;
             return false;
         }
