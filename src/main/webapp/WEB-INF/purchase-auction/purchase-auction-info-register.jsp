@@ -8,7 +8,7 @@
     <title>bidbid</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="shortcut icon" type="image⁄x-icon" href="../resources/images/bidLogo.ico">
+    <link rel="shortcut icon" type="image⁄x-icon" href="/resources/images/bidLogo.ico">
 </head>
 <body>
 <!-- Wrapper -->
@@ -18,28 +18,29 @@
 
     <div id="main" style="padding: 0em 0 2em 0;">
         <div class="inner">
-            <!-- 제목 / 판매권입찰, 카테고리, 등록시간 --!>
+            <!-- 제목 / 판매권입찰, 카테고리, 등록시간 -->
             <h1 class="mypage" style="letter-spacing:0;">${purchaseAuction.auctionTitle}</h1>
             <h3 style="letter-spacing:0; margin: 0;">&nbsp ${purchaseAuction.buyer.name}</h3>
 
-            &nbsp 판매권입찰 ㆍ ${purchaseAuction.productCategory.toKorean} ㆍ ${fn:substring(purchaseAuction.deadline,0,10)} ${fn:substring(purchaseAuction.deadline,11,16)}
+            &nbsp 판매권입찰 ㆍ ${purchaseAuction.productCategory.toKorean} ㆍ ${purchaseAuction.deadline.toString().substring(0,10)} ${purchaseAuction.deadline.toString().substring(11,16)}
             <hr style="margin-top:1em">
 
-            <!-- 설명 --!>
+            <!-- 설명 -->
             <div style="padding:0.5em">
                 ${purchaseAuction.description}
             </div>
             <hr>
 
             <h2 class="mypage" style="font-size: 30px; letter-spacing:0; margin-bottom:1.2em;">판매권 등록</h2>
-            <form method="post" action="/api/purchase-auction-participation">
+            <form method="post" action="/api/purchase-auction-participation" enctype="multipart/form-data">
+                <input type="hidden" name="purchaseAuctionId" value="${purchaseAuction.id}"/>
                 <table style="margin:1em 0 0 0; ">
                     <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
                        <td style="color: #000; text-align:left">
                             <label id="upload-picture" class="button icon fa-upload" for="product-picture" style="letter-spacing:0; overflow: visible; margin:0">
                                 사진
                             </label>
-                            <input type="file" id="product-picture" style="display:none" onchange="setThumbnail(event, this)" accept="image/*">
+                            <input type="file" name="multipartFile" id="product-picture" style="display:none" onchange="setThumbnail(event, this)" accept="image/*">
                             <div id="file-name" style="display: inline-block; margin-left: 0.5em;"></div>
                             <div id="image_container" style="text-align: center;"></div>
                         </td>
@@ -51,13 +52,13 @@
                     </tr>
                     <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
                         <td style="color: #000; padding: 0.75em 0em;">
-                            <input type="text" name="desired-bid" id="desired-bid" style="padding-left:0.5em" value="" placeholder="판매 희망가" onfocusout="validateBid()"/>
+                            <input type="text" name="price" id="desired-bid" style="padding-left:0.5em" value="" placeholder="판매 희망가" onfocusout="validateBid()"/>
                             <div id="bid_alert" class="bid-alert">필수 정보입니다.</div>
                         </td>
                     </tr>
                     <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
                         <td style="color: #000; padding: 0.75em 0em;">
-                            <textarea name="description-bid" id="description-bid" style="padding-left:0.5em" placeholder="상세 설명"></textarea>
+                            <textarea name="description" id="description-bid" style="padding-left:0.5em" placeholder="상세 설명"></textarea>
                         </td>
                     </tr>
                     <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">

@@ -22,7 +22,7 @@
             <h1 class="mypage" style="letter-spacing:0;">${purchaseAuction.auctionTitle}</h1>
             <h3 style="letter-spacing:0; margin: 0;">&nbsp ${purchaseAuction.buyer.name}</h3>
 
-            &nbsp 판매권입찰 ㆍ ${purchaseAuction.productCategory.toKorean} ㆍ ${fn:substring(purchaseAuction.deadline,0,10)} ${fn:substring(purchaseAuction.deadline,11,16)}
+            &nbsp 판매권입찰 ㆍ ${purchaseAuction.productCategory.toKorean} ㆍ ${purchaseAuction.deadline.toString().substring(0,10)} ${purchaseAuction.deadline.toString().substring(11,16)}
             <hr style="margin-top:1em">
 
             <!-- 설명 --!>
@@ -31,13 +31,14 @@
             </div>
             <hr>
 
-            <h2 class="mypage" style="font-size: 30px; letter-spacing:0; margin-bottom:1.2em;">${purchaseAuctionParticipation.purchaseAuctionId}님의 입찰 현황</h2>
-            <form method="post" action="/api/purchase-auction-participation">
+            <h2 class="mypage" style="font-size: 30px; letter-spacing:0; margin-bottom:1.2em;">${purchaseAuctionParticipation.buyer.name}님의 입찰 현황</h2>
+            <form method="post" action="/api/purchase-auction-participation" enctype="multipart/form-data">
+                <input type="hidden" name="purchaseAuctionId" value="${purchaseAuction.id}"/>
                 <table style="margin:1em 0 0 0; ">
                     <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #FFF; background-color: #FFF; color: #000;">
                        <td colspan="3" style="width:30%; color: #000; text-align:left; border: solid 1px #c9c9c9;">
                             <span class="image main" style="margin: 0 0 0em 0">
-                                <img style="height:400px" src="/resources/images/banner.png" alt=""/>
+                                <img style="height:400px" src="${purchaseAuctionParticipation.image}" alt=""/>
                             </span>
                         </td>
                     </tr>

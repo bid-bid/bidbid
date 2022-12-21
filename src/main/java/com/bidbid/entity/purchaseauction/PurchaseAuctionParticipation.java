@@ -16,6 +16,7 @@ public class PurchaseAuctionParticipation {
 
 
     @Setter
+    @Getter
     private String image;
 
     private String description;
@@ -33,6 +34,7 @@ public class PurchaseAuctionParticipation {
     private PurchaseAuction purchaseAuction;
 
     @Enumerated(EnumType.STRING)
+    @Getter
     DecisionState decisionState = DecisionState.UNIDENTIFIED;
 
     @Builder

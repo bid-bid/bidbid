@@ -1,6 +1,7 @@
 package com.bidbid.controller.api;
 
 import com.bidbid.dto.purchaseauction.PurchaseAuctionRequest;
+import com.bidbid.entity.purchaseauction.PurchaseAuctionParticipation;
 import com.bidbid.global.ProductCategory;
 import com.bidbid.service.PurchaseAuctionParticipationService;
 import com.bidbid.service.PurchaseAuctionService;
@@ -62,16 +63,24 @@ public class PurchaseAuctionController {
     @GetMapping("{id}")
     public String getById(@PathVariable Long id, Model model, Principal principal) {
         model.addAttribute("purchaseAuction", purchaseAuctionService.findById(id));
+        String viewName = "";
         if(purchaseAuctionService.isBuyer(id, principal)) {
-
+            model.addAttribute("purchaseAuctionParticipation", purchaseAuctionParticipationService.findAllByPurchaseAuctionId(id));
+            viewName = "purchase-auction/purchase-auction-info";
         }else if(purchaseAuctionParticipationService.isSubmitted(id, principal)) {
-            //PurchaseAuctionParticipation purchaseAuctionParticipation = PurchaseAuctionParticipationService.findByPurchaseAuctionIdAndLoginMember(id, principal);
-
+            PurchaseAuctionParticipation purchaseAuctionParticipation = purchaseAuctionParticipationService.findByPurchaseAuctionIdAndLoginMember(id, principal);
+            model.addAttribute("purchaseAuctionParticipation", purchaseAuctionParticipation);
+            switch (purchaseAuctionParticipation.getDecisionState()) {
+                case SELECTION -> viewName =  "purchase-auction/purchase-auction-info-approve";
+                case DISMISSAL -> viewName =  "purchase-auction/purchase-auction-info-return";
+                case UNIDENTIFIED -> viewName =  "purchase-auction/purchase-auction-info-unconfirm";
+            }
+            return viewName;
         }else {
-
+            viewName = "purchase-auction/purchase-auction-info-register";
         }
 
-        return "purchase-auction/purchase-auction-info";
+        return viewName;
     }
 
 

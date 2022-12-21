@@ -55,8 +55,8 @@
         <ul>
             <li><a href="/">메인화면갈래요</a></li>
             <li><a href="/category">구경할래요</a></li>
-            <li><a href="/item-info">살래요</a></li>
-            <li><a href="/item-info">팔래요</a></li>
+            <li><a href="/api/sale-auction">살래요</a></li>
+            <li><a href="/api/purchase-auction">팔래요</a></li>
         </ul>
     </nav>
 </div>

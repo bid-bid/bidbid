@@ -6,7 +6,7 @@
     <title>bidbid</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="shortcut icon" type="image⁄x-icon" href="./resources/images/bid.ico">
+    <link rel="shortcut icon" type="image⁄x-icon" href="/resources/images/bidLogo.ico">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
             <div class="inner">
                 <center>
                     <h1 style="margin: 0 0 0 0; font-size: 4em;">
-                        <img style="width: 5%; margin: 0 10px 0 0;" src="./resources/images/Error/404.png" alt="" />404
+                        <img style="width: 5%; margin: 0 10px 0 0;" src="/resources/images/Error/404.png" alt="" />404
                     </h1>
                     <h2 style="color:red">PAGE NOT FOUND</h2>
 

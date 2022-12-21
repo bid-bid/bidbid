@@ -17,9 +17,12 @@
     <footer id="footer">
         <div class="inner">
             <section>
-                <h2>Follow</h2>
+                <h2>Contact</h2>
                 <ul class="icons">
-                    <li><a href="#" class="icon style2 fa-github"><span class="label">GitHub</span></a></li>
+                    <li><a href="https://github.com/phjppo0918" class="icon style2 fa-github"><span class="label">GitHub</span></a>&nbsp; phjppo0918</li>
+                    <li><a href="https://github.com/ohksj77" class="icon style2 fa-github"><span class="label">GitHub</span></a>&nbsp; ohksj77</li>
+                    <li><a href="https://github.com/PARK-Su-yeon" class="icon style2 fa-github"><span class="label">GitHub</span></a>&nbsp; PARK-Su-yeon</li>
+                    <li><a href="https://github.com/gmksf99" class="icon style2 fa-github"><span class="label">GitHub</span></a>&nbsp; gmksf99</li>
                 </ul>
             </section>
             <ul class="copyright">

@@ -2,6 +2,7 @@ package com.bidbid.service;
 
 import com.bidbid.dto.purchaseauction.PurchaseAuctionParticipationRequest;
 import com.bidbid.entity.Member;
+import com.bidbid.entity.purchaseauction.DecisionState;
 import com.bidbid.entity.purchaseauction.PurchaseAuction;
 import com.bidbid.entity.purchaseauction.PurchaseAuctionParticipation;
 import com.bidbid.repository.PurchaseAuctionParticipationRepository;
@@ -15,6 +16,7 @@ import java.security.Principal;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -47,6 +49,10 @@ public class PurchaseAuctionParticipationService {
         purchaseAuctionParticipation.bestPick();
 
         PurchaseAuction purchaseAuction = purchaseAuctionParticipation.getPurchaseAuction();
+        if(purchaseAuction.getBestPick() == null) {
+            purchaseAuction.setBestPick(purchaseAuctionParticipation);
+            return;
+        }
         purchaseAuction.getBestPick().dismiss();
         purchaseAuction.setBestPick(purchaseAuctionParticipation);
     }
@@ -62,7 +68,9 @@ public class PurchaseAuctionParticipationService {
 
     public List<PurchaseAuctionParticipation> findAllByPurchaseAuctionId(Long purchaseAuctionId) {
         PurchaseAuction purchaseAuction = purchaseAuctionService.findById(purchaseAuctionId);
-        return purchaseAuctionParticipationRepository.findAllByPurchaseAuction(purchaseAuction);
+        return purchaseAuctionParticipationRepository.findAllByPurchaseAuction(purchaseAuction).stream()
+                .filter(p -> p.getDecisionState() == DecisionState.UNIDENTIFIED)
+                .collect(Collectors.toList());
     }
 
     public PurchaseAuctionParticipation findByPurchaseAuctionIdAndLoginMember(Long purchaseAuctionId, Principal principal) {
