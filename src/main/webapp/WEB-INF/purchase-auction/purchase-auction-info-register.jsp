@@ -18,14 +18,14 @@
 
     <div id="main" style="padding: 0em 0 2em 0;">
         <div class="inner">
-            <!-- 제목 / 판매권입찰, 카테고리, 등록시간 --!>
+            <!-- 제목 / 판매권입찰, 카테고리, 등록시간 -->
             <h1 class="mypage" style="letter-spacing:0;">${purchaseAuction.auctionTitle}</h1>
             <h3 style="letter-spacing:0; margin: 0;">&nbsp ${purchaseAuction.buyer.name}</h3>
 
             &nbsp 판매권입찰 ㆍ ${purchaseAuction.productCategory.toKorean} ㆍ ${purchaseAuction.deadline.toString().substring(0,10)} ${purchaseAuction.deadline.toString().substring(11,16)}
             <hr style="margin-top:1em">
 
-            <!-- 설명 --!>
+            <!-- 설명 -->
             <div style="padding:0.5em">
                 ${purchaseAuction.description}
             </div>
