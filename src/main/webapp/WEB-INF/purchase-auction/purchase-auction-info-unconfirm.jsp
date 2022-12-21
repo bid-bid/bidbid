@@ -62,11 +62,18 @@
                 </table>
 
                 <hr>
+            <c:if test="${not empty purchaseAuction.bestPick}">
                 <center>
                     <h2 class="mypage" style="margin-bottom:1em; color:red">입찰 예정 물품</h2>
-                        <img style="width:70%;margin-bottom:1em;" src=${purchaseAuction.bestPick.image} alt=""/>
-                        <h3 style="letter-spacing: 0.1em;">가격 : ${purchaseAuction.bestPick.price}</h3>
+                    <img style="width:70%;margin-bottom:1em;" src=${purchaseAuction.bestPick.image} alt=""/>
+                    <h3 style="letter-spacing: 0.1em;">가격 : ${purchaseAuction.bestPick.price}</h3>
                 </center>
+            </c:if>
+            <c:if test="${empty purchaseAuction.bestPick}">
+                <center>
+                    <h3 class="mypage" style="margin-bottom:1em;">입찰 예정 물품 없어요</h3>
+                </center>
+            </c:if>
             </form>
 
         </div>
