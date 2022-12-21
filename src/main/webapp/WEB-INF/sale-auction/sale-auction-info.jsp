@@ -55,7 +55,7 @@
                                 마감기한
                             </td>
                             <th>
-                                ${saleAuction.deadline.toString().substring(0,16)}
+                                ${saleAuction.deadline.toString().substring(0,16).replace("T", " ")}
                             </th>
                         </tr>
 
@@ -108,7 +108,14 @@
                 </div>
                 </c:if>
             </c:if>
-
+            <%--판매 확정 -> 게시자만 볼 수 있는 버튼 (API 연결 필요)--%>
+<%--            <c:if test="${prc.username eq saleAuction.seller.email}">--%>
+<%--                <form method="post" action="">--%>
+<%--                    <center>--%>
+<%--                        <input type="submit" class="special" value="판매 확정">--%>
+<%--                    </center>--%>
+<%--                </form>--%>
+<%--            </c:if>--%>
         </div>
     </div>
 
