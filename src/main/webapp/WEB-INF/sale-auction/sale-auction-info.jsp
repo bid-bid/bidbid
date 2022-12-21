@@ -43,15 +43,6 @@
 
                         <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
                             <td style=" color: #000; font-weight: 600;">
-                                가격
-                            </td>
-                            <th >
-                                ${saleAuction.price}
-                            </th>
-                        </tr>
-
-                        <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
-                            <td style=" color: #000; font-weight: 600;">
                                 카테고리
                             </td>
                             <th >
