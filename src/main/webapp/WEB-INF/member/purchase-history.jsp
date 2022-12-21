@@ -64,6 +64,9 @@
                 <thead>
                     <tr align="center" style="background-color: #f6f6f6; border-bottom: solid 1px #c9c9c9; color: #000;">
                         <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            이름
+                        </td>
+                        <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
                             제목
                         </td>
                         <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
@@ -77,6 +80,9 @@
                 <tbody>
                     <c:forEach var="purchaseAuctionParticipation" items="${purchaseAuctionParticipation}">
                         <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;" onclick="location.href='../${purchaseAuctionParticipation.purchaseAuction.id}'">
+                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                                ${purchaseAuctionParticipation.seller.name}
+                            </td>
                             <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
                                 ${purchaseAuctionParticipation.purchaseAuction.auctionTitle}
                             </td>

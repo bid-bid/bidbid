@@ -102,4 +102,12 @@ public class PurchaseAuctionService {
                 .collect(Collectors.toList());
     }
 
+    public List<PurchaseAuctionParticipation> findReturnedSuggestByBuyer(Principal principal) {
+        Member member = memberService.getLoginMember(principal);
+        List<PurchaseAuctionParticipation> purchaseAuctionParticipationList = new ArrayList<>();
+        purchaseAuctionRepository.findAllByBuyer(member).stream()
+                .forEach(purchaseAuction -> purchaseAuctionParticipationRepository.findAllByPurchaseAuction(purchaseAuction).stream().forEach(purchaseAuctionParticipationList::add));
+        return purchaseAuctionParticipationList;
+    }
+
 }

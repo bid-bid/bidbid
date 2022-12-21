@@ -93,13 +93,14 @@ public class PurchaseAuctionController {
     @GetMapping("/history/bid")
     public String getHistory(Principal principal, Model model) {
         model.addAttribute("purchaseAuctions", purchaseAuctionService.findByBestPick(principal));
+        model.addAttribute("purchaseAuctionParticipation", purchaseAuctionService.findReturnedSuggest(principal));
         return "member/purchase-history";
     }
 
     @GetMapping("/history/post")
     public String getPost(Principal principal, Model model) {
         model.addAttribute("purchaseAuctions", purchaseAuctionService.findByBuyer(principal));
-        model.addAttribute("purchaseAuctionParticipation", purchaseAuctionService.findReturnedSuggest(principal));
+        model.addAttribute("purchaseAuctionParticipation", purchaseAuctionService.findReturnedSuggestByBuyer(principal));
         return "member/purchase-history";
     }
 
