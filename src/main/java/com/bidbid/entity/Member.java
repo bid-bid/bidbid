@@ -42,9 +42,9 @@ public class Member {
     }
 
     public void usePoint(Integer point) {
-        if(this.point < point) {
-            throw new IllegalArgumentException("사용 포인트 초과");
-        }
+//        if(this.point < point) {
+//            throw new IllegalArgumentException("사용 포인트 초과");
+//        }
         this.point -= point;
     }
 }

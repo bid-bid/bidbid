@@ -3,6 +3,7 @@ package com.bidbid.entity.saleauction;
 import com.bidbid.entity.Member;
 import com.bidbid.global.BaseTime;
 import com.bidbid.global.ProductCategory;
+import com.bidbid.global.exception.NoMoneyException;
 import lombok.*;
 
 import javax.persistence.*;
@@ -62,9 +63,9 @@ public class SaleAuction {
     }
 
     public void renewalBid(Member buyer, Integer price) {
-//        if(this.price > price) {
-//            throw new NoMoneyException("price must be greater than now");
-//        }
+        if(this.price > price) {
+            throw new NoMoneyException("price must be greater than now");
+        }
         this.price = price;
         buyer.usePoint(price);
         this.bestBuyer = buyer;
