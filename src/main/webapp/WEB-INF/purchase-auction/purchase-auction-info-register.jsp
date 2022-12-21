@@ -71,7 +71,7 @@
                                 <form action="/api/purchase-auction-participation/${pap.id}/best-pick" method="post">
                                     <li><button class="btnbox" onclick="change_btn(event)">승인</button></li>
                                 </form>
-                                <form action="/api/purchase-auction-participation/${pap.id}/best-pick" method="post">
+                                <form action="/api/purchase-auction-participation/${pap.id}/dismiss" method="post">
                                 <li><button class="btnbox" onclick="change_btn(event)">반려</button></li>
                                 </form>
                             </ul>
