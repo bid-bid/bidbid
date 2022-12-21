@@ -15,7 +15,6 @@ import javax.transaction.Transactional;
 import java.security.Principal;
 import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 
 @Service
@@ -64,8 +63,13 @@ public class PurchaseAuctionParticipationService {
     public List<PurchaseAuctionParticipation> findAllByPurchaseAuctionId(Long purchaseAuctionId) {
         PurchaseAuction purchaseAuction = purchaseAuctionService.findById(purchaseAuctionId);
         return purchaseAuctionParticipationRepository.findAllByPurchaseAuction(purchaseAuction).stream()
-                .filter(p -> p.getDecisionState() == DecisionState.UNIDENTIFIED)
+                .filter(p -> p.getDecisionState().equals(DecisionState.UNIDENTIFIED))
                 .collect(Collectors.toList());
+    }
+
+    public List<PurchaseAuctionParticipation> findAllByPurchaseAuctionIdFilterNone(Long purchaseAuctionId) {
+        PurchaseAuction purchaseAuction = purchaseAuctionService.findById(purchaseAuctionId);
+        return purchaseAuctionParticipationRepository.findAllByPurchaseAuction(purchaseAuction);
     }
 
     public PurchaseAuctionParticipation findByPurchaseAuctionIdAndLoginMember(Long purchaseAuctionId, Principal principal) {
@@ -84,13 +88,15 @@ public class PurchaseAuctionParticipationService {
     }
 
     public boolean isSubmitted(Long purchaseId, Principal principal) {
-        AtomicBoolean isExist = new AtomicBoolean(false);
         Member loginMember = memberService.getLoginMember(principal);
-        findAllByPurchaseAuctionId(purchaseId).stream().filter(i -> i.getSeller() == loginMember)
-                .findFirst()
-                .ifPresent(i -> isExist.set(true));
 
-        return isExist.get();
+        List<PurchaseAuctionParticipation> list = findAllByPurchaseAuctionIdFilterNone(purchaseId);
+        for(PurchaseAuctionParticipation p : list) {
+            if(p.getSeller().equals(loginMember)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Transactional
