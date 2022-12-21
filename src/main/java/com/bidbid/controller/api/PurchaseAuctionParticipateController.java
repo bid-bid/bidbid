@@ -43,14 +43,14 @@ public class PurchaseAuctionParticipateController {
     public String dismiss(@PathVariable Long id) {
         purchaseAuctionParticipationService.dissmiss(id);
 
-        return "redirect:/api/purchase-auction" + purchaseAuctionParticipationService.getOne(id).getPurchaseAuction().getId();
+        return "redirect:/api/purchase-auction/" + purchaseAuctionParticipationService.getOne(id).getPurchaseAuction().getId();
     }
 
     @PostMapping("{id}/best-pick")
     public String bestPick(@PathVariable Long id) {
         purchaseAuctionParticipationService.bestPick(id);
 
-        return "redirect:/api/purchase-auction" + purchaseAuctionParticipationService.getOne(id).getPurchaseAuction().getId();
+        return "redirect:/api/purchase-auction/" + purchaseAuctionParticipationService.getOne(id).getPurchaseAuction().getId();
     }
     //
 }
