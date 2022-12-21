@@ -37,9 +37,9 @@
                 <table style="margin:1em 0 0 0; ">
                     <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #FFF; background-color: #FFF; color: #000;">
                        <td colspan="3" style="width:30%; color: #000; text-align:left; border: solid 1px #c9c9c9;">
-                            <span class="image main" style="margin: 0 0 0em 0">
-                                <img style="height:400px" src="${purchaseAuctionParticipation.image}" alt=""/>
-                            </span>
+                            <center>
+                              <img style="width:70%;" src="${purchaseAuctionParticipation.image}" alt=""/>
+                            </center>
                         </td>
                     </tr>
                     <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
@@ -68,62 +68,10 @@
 
             <hr>
             <center>
-                <h2 class="mypage" style="margin-bottom:1em;">입찰 예정 물품</h2>
+                <h2 class="mypage" style="margin-bottom:1em; color:red">입찰 예정 물품</h2>
+                    <img style="width:70%;margin-bottom:1em;" src=${purchaseAuction.bestPick.image} alt=""/>
+                    <h3 style="letter-spacing: 0.1em;">가격 : ${purchaseAuction.bestPick.price}</h3>
             </center>
-
-            <c:if test="${purchaseAuction.bestPick}">
-                <table>
-                    <tr align="center" style="background-color: #f6f6f6; border-bottom: solid 1px #c9c9c9; color: #000;">
-                    <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        입찰자
-                    </td>
-                    <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        물건
-                    </td>
-                    <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        가격
-                    </td>
-                    <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        등록시간
-                    </td>
-                    <td style="width:10%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        상태
-                    </td>
-                    <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                    </td>
-                    </tr>
-                    <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
-                        <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                                ${purchaseAuction.bestPick.seller.name}
-                        </td>
-                        <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                            <c:if test="${purchaseAuction.bestPick.image}">
-                                <img style="width:100%" src=${purchaseAuction.bestPick.image} alt=""/>
-                            </c:if>
-                        </td>
-                        <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                                ${purchaseAuction.bestPick.price}
-                        </td>
-                        <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                                ${purchaseAuction.deadline}
-                        </td>
-                        <td style="width:15%; border-bottom: solid 1px #c9c9c9; font-weight: 900; vertical-align: middle;">
-                                ${purchaseAuction.bestPick.decisionState.toKorean}
-                        </td>
-                        <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                            <c:if test="${purchaseAuction.bestPick.decisionState.toKorean eq '반려'}">
-                                <input type="button" onClick="location.href='/comment-update'" style="padding:1em; letter-spacing: 0em; line-height: 0em;" value="수정">
-                            </c:if>
-                        </td>
-                    </tr>
-                </table>
-            </c:if>
-
-            <c:if test="${empty purchaseAuction.bestPick}">
-                <center>
-                    <h3 class="mypage" style="margin-bottom:1em;">입찰 예정 물품 없어요</h3>
-                </center>
-            </c:if>
         </div>
     </div>
 
