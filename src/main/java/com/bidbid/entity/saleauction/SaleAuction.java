@@ -62,9 +62,9 @@ public class SaleAuction {
     }
 
     public void renewalBid(Member buyer, Integer price) {
-        if(this.price > price) {
-            throw new IllegalArgumentException("price must be greater than now");
-        }
+//        if(this.price > price) {
+//            throw new NoMoneyException("price must be greater than now");
+//        }
         this.price = price;
         buyer.usePoint(price);
         this.bestBuyer = buyer;
