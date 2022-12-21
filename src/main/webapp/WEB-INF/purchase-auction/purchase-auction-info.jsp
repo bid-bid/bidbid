@@ -52,8 +52,8 @@
                     상태
                 </td>
                 </tr>
-                <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
-                    <c:forEach var="pap" items="${purchaseAuctionParticipation}">
+		<c:forEach var="pap" items="${purchaseAuctionParticipation}">
+                    <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
                         <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
                                 ${pap.seller.name}
                         </td>
@@ -76,8 +76,8 @@
                                 </form>
                             </ul>
                         </td>
-                    </c:forEach>
-                </tr>
+                    </tr>
+		</c:forEach>	
             </table>
             <hr>
 
