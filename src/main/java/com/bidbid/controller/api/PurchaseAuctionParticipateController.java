@@ -41,7 +41,7 @@ public class PurchaseAuctionParticipateController {
 
     @PostMapping("{id}/dismiss")
     public String dismiss(@PathVariable Long id) {
-        purchaseAuctionParticipationService.dissmiss(id);
+        purchaseAuctionParticipationService.dismiss(id);
 
         return "redirect:/api/purchase-auction/" + purchaseAuctionParticipationService.getOne(id).getPurchaseAuction().getId();
     }

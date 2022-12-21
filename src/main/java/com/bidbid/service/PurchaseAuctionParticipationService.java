@@ -57,11 +57,6 @@ public class PurchaseAuctionParticipationService {
         purchaseAuction.setBestPick(purchaseAuctionParticipation);
     }
 
-    @Transactional
-    public void setDismiss(Long id) {
-        getOne(id).dismiss();
-    }
-
     public boolean isSeller(Long id, Principal principal) {
         return Objects.equals(getOne(id).getSeller().getName(), principal.getName());
     }
@@ -98,6 +93,8 @@ public class PurchaseAuctionParticipationService {
         return isExist.get();
     }
 
-    public void dissmiss(Long id) {
+    @Transactional
+    public void dismiss(Long id) {
+        getOne(id).dismiss();
     }
 }
