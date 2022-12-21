@@ -27,7 +27,7 @@
                                            placeholder="경매 제목"/>
                                 </div>
                                 <div class="6u 12u$(xsmall)">
-                                    <input type="text" name="productName" id="product-name" value=""
+                                    <input type="text" name="productName" id="productName" value="" onkeyup="revalue()"
                                            placeholder="희망 상품"/>
                                 </div>
                                 <div class="12u$">
@@ -54,8 +54,8 @@
                                 </div>
                                 <div class="12u$">
                                     <ul class="actions">
-                                        <li><input type="submit" value="등록" class="special"/></li>
-                                        <li><input type="reset" value="초기화" onclick="resetForm"/></li>
+                                        <li><input type="submit" id="submit-button" value="등록" disabled="true" class="special"/></li>
+                                        <li><input type="reset" value="초기화" onclick="resetForm()" /></li>
                                     </ul>
                                 </div>
                             </div>
@@ -78,5 +78,18 @@
         })
         return '';
     }
+
+
+    function revalue() {
+        if ($('#productName').val().trim() != "") {
+
+            $('#submit-button').attr("disabled", false);
+        } else {
+            $('#submit-button').attr("disabled", true);
+        }
+    }
+
+
+
 </script>
 </html>

@@ -27,7 +27,7 @@
                                            placeholder="경매 제목"/>
                                 </div>
                                 <div class="6u 12u$(xsmall)">
-                                    <input type="text" name="productName" id="product-name" value=""
+                                    <input type="text" name="productName" id="productName" value="" onkeyup="revalue()"
                                            placeholder="판매 상품"/>
                                 </div>
                                 <div class="12u$">
@@ -53,7 +53,7 @@
                                     </div>
                                 </div>
                                 <div id="desired-amount">
-                                    <input type="text" name="startPrice" id="amount" value=""
+                                    <input type="text" name="startPrice" id="startPrice" value="" onkeyup="revalue()"
                                            onkeydown="filterNumber(this, event)" placeholder=" 시작가 (원)"/>
                                 </div>
                                 <div class="12u 12u$(xsmall)">
@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="12u$">
                                     <ul class="actions">
-                                        <li><input type="submit" value="등록" class="special"/></li>
+                                        <li><input type="submit" id="submit-button" value="등록" disabled="true" class="special"/></li>
                                         <li><input type="reset" value="초기화" onclick="resetForm()"/></li>
                                     </ul>
                                 </div>
@@ -116,5 +116,13 @@
         return false;
     }
 
+    function revalue() {
+        if (($('#startPrice').val().trim() != "")&&($('#productName').val().trim() != "")) {
+
+            $('#submit-button').attr("disabled", false);
+        } else {
+            $('#submit-button').attr("disabled", true);
+        }
+    }
 </script>
 </html>
