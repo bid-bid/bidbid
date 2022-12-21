@@ -65,19 +65,19 @@ public class PurchaseAuctionController {
         model.addAttribute("purchaseAuction", purchaseAuctionService.findById(id));
         String viewName = "";
         if(purchaseAuctionService.isBuyer(id, principal)) {
-            model.addAttribute("purchaseAuction", purchaseAuctionParticipationService.findAllByPurchaseAuctionId(id));
+            model.addAttribute("purchaseAuctionParticipation", purchaseAuctionParticipationService.findAllByPurchaseAuctionId(id));
             viewName = "purchase-auction/purchase-auction-info";
         }else if(purchaseAuctionParticipationService.isSubmitted(id, principal)) {
             PurchaseAuctionParticipation purchaseAuctionParticipation = purchaseAuctionParticipationService.findByPurchaseAuctionIdAndLoginMember(id, principal);
-            model.addAttribute("purchaseAuction", purchaseAuctionParticipation);
+            model.addAttribute("purchaseAuctionParticipation", purchaseAuctionParticipation);
             switch (purchaseAuctionParticipation.getDecisionState()) {
                 case SELECTION -> viewName =  "purchase-auction/purchase-auction-info-approve";
                 case DISMISSAL -> viewName =  "purchase-auction/purchase-auction-info-return";
-                case UNIDENTIFIED -> viewName =  "purchase-auction/purchase-auction-info-unregister";
+                case UNIDENTIFIED -> viewName =  "purchase-auction/purchase-auction-info-unconfirm";
             }
             return viewName;
         }else {
-            viewName = "purchase-auction/purchase-auction-info-unregister";
+            viewName = "purchase-auction/purchase-auction-info-register";
         }
 
         return viewName;

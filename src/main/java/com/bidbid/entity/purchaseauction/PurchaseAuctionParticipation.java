@@ -16,6 +16,7 @@ public class PurchaseAuctionParticipation {
 
 
     @Setter
+    @Getter
     private String image;
 
     private String description;

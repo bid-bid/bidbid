@@ -19,26 +19,26 @@
     <div id="main" style="padding: 0em 0 2em 0;">
         <div class="inner">
             <!-- 제목 / 판매권입찰, 카테고리, 등록시간 --!>
-            <h1 class="mypage" style="letter-spacing:0;">${purchaseAuction.purchaseAuction.auctionTitle}</h1>
-            <h3 style="letter-spacing:0; margin: 0;">&nbsp ${purchaseAuction.purchaseAuction.buyer.name}</h3>
+            <h1 class="mypage" style="letter-spacing:0;">${purchaseAuction.auctionTitle}</h1>
+            <h3 style="letter-spacing:0; margin: 0;">&nbsp ${purchaseAuction.buyer.name}</h3>
 
             &nbsp 판매권입찰 ㆍ ${purchaseAuction.productCategory.toKorean} ㆍ ${purchaseAuction.deadline.toString().substring(0,10)} ${purchaseAuction.deadline.toString().substring(11,16)}
             <hr style="margin-top:1em">
 
             <!-- 설명 --!>
             <div style="padding:0.5em">
-                ${purchaseAuction.purchaseAuction.description}
+                ${purchaseAuction.description}
             </div>
             <hr>
 
-            <h2 class="mypage" style="font-size: 30px; letter-spacing:0; margin-bottom:1.2em;">${purchaseAuction.purchaseAuction.buyer.name}님의 입찰 현황</h2>
+            <h2 class="mypage" style="font-size: 30px; letter-spacing:0; margin-bottom:1.2em;">${purchaseAuctionParticipation.seller.name}님의 입찰 현황</h2>
             <form method="post" action="/api/purchase-auction-participation" enctype="multipart/form-data">
-                <input type="hidden" name="purchaseAuctionId" value="${purchaseAuction.purchaseAuction.id}"/>
+                <input type="hidden" name="purchaseAuctionId" value="${purchaseAuction.id}"/>
                 <table style="margin:1em 0 0 0; ">
                     <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #FFF; background-color: #FFF; color: #000;">
                        <td colspan="3" style="width:30%; color: #000; text-align:left; border: solid 1px #c9c9c9;">
                             <span class="image main" style="margin: 0 0 0em 0">
-                                <img style="height:400px" src="/resources/images/banner.png" alt=""/>
+                                <img style="height:400px" src="${purchaseAuctionParticipation.image} alt=""/>
                             </span>
                         </td>
                     </tr>
@@ -49,7 +49,7 @@
                     </tr>
                     <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000; background-color: #FFF;">
                         <td style="color: #000; width:60%;">
-                            제시 가격 : ${purchaseAuction.price}
+                            제시 가격 : ${purchaseAuctionParticipation.price}
                         </td>
                         <td style="border-bottom: solid 1px #FFF; font-weight: 900; color: #000; width:15%; text-align:right;">
                            결과 :
@@ -60,7 +60,7 @@
                     </tr>
                     <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF;">
                         <td colspan="3" style="width:40%; color: #000;">
-                            ${purchaseAuction.description}
+                            ${purchaseAuctionParticipation.description}
                         </td>
                     </tr>
                 </table>
@@ -71,7 +71,7 @@
                 <h2 class="mypage" style="margin-bottom:1em;">입찰 예정 물품</h2>
             </center>
 
-            <c:if test="${purchaseAuction.purchaseAuction.bestPick}">
+            <c:if test="${purchaseAuction.bestPick}">
                 <table>
                     <tr align="center" style="background-color: #f6f6f6; border-bottom: solid 1px #c9c9c9; color: #000;">
                     <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000;">
@@ -94,24 +94,24 @@
                     </tr>
                     <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;">
                         <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                                ${purchaseAuction.purchaseAuction.bestPick.seller.name}
+                                ${purchaseAuction.bestPick.seller.name}
                         </td>
                         <td style="width:20%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                            <c:if test="${purchaseAuction.purchaseAuction.bestPick.image}">
-                                <img style="width:100%" src=${purchaseAuction.purchaseAuction.bestPick.image} alt=""/>
+                            <c:if test="${purchaseAuction.bestPick.image}">
+                                <img style="width:100%" src=${purchaseAuction.bestPick.image} alt=""/>
                             </c:if>
                         </td>
                         <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                                ${purchaseAuction.purchaseAuction.bestPick.price}
+                                ${purchaseAuction.bestPick.price}
                         </td>
                         <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                                ${purchaseAuction.purchaseAuction.deadline}
+                                ${purchaseAuction.deadline}
                         </td>
                         <td style="width:15%; border-bottom: solid 1px #c9c9c9; font-weight: 900; vertical-align: middle;">
-                                ${purchaseAuction.purchaseAuction.bestPick.decisionState.toKorean}
+                                ${purchaseAuction.bestPick.decisionState.toKorean}
                         </td>
                         <td style="width:15%; border-bottom: solid 1px #c9c9c9; color: #000; vertical-align: middle;">
-                            <c:if test="${purchaseAuction.purchaseAuction.bestPick.decisionState.toKorean eq '반려'}">
+                            <c:if test="${purchaseAuction.bestPick.decisionState.toKorean eq '반려'}">
                                 <input type="button" onClick="location.href='/comment-update'" style="padding:1em; letter-spacing: 0em; line-height: 0em;" value="수정">
                             </c:if>
                         </td>
@@ -119,7 +119,7 @@
                 </table>
             </c:if>
 
-            <c:if test="${empty purchaseAuction.purchaseAuction.bestPick}">
+            <c:if test="${empty purchaseAuction.bestPick}">
                 <center>
                     <h3 class="mypage" style="margin-bottom:1em;">입찰 예정 물품 없어요</h3>
                 </center>

@@ -31,14 +31,14 @@
             </div>
             <hr>
 
-            <h2 class="mypage" style="font-size: 30px; letter-spacing:0; margin-bottom:1.2em;">${purchaseAuction.purchaseAuction.buyer.name}님의 입찰 현황</h2>
+            <h2 class="mypage" style="font-size: 30px; letter-spacing:0; margin-bottom:1.2em;">${purchaseAuctionParticipation.purchaseAuctionParticipation.seller.name}님의 입찰 현황</h2>
             <form method="post" action="/api/purchase-auction-participation" enctype="multipart/form-data"">
                 <input type="hidden" name="purchaseAuctionId" value="${purchaseAuction.purchaseAuction.id}"/>
                 <table style="margin:1em 0 0 0; ">
                     <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #FFF; background-color: #FFF; color: #000;">
                        <td colspan="3" style="width:30%; color: #000; text-align:left; border: solid 1px #c9c9c9;">
                             <span class="image main" style="margin: 0 0 0em 0">
-                                <img style="height:400px" src="/resources/images/banner.png" alt=""/>
+                                <img style="height:400px" src="${purchaseAuctionParticipation.purchaseAuctionParticipation.image}" alt=""/>
                             </span>
                         </td>
                     </tr>
@@ -49,7 +49,7 @@
                     </tr>
                     <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000; background-color: #FFF;">
                         <td style="color: #000; width:60%;">
-                            제시 가격 : ${purchaseAuction.price}
+                            제시 가격 : ${purchaseAuctionParticipation.price}
                         </td>
                         <td style="border-bottom: solid 1px #FFF; font-weight: 900; color: #000; width:15%; text-align:right;">
                            결과 :
@@ -60,7 +60,7 @@
                     </tr>
                     <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
                         <td colspan="3" style="width:40%; color: #000;">
-                            ${purchaseAuction.description}
+                            ${purchaseAuctionParticipation.description}
                         </td>
                     </tr>
                 </table>
