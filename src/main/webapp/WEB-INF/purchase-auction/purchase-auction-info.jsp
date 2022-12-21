@@ -60,6 +60,7 @@
                             </tr>
                         </table>
                     </td>
+                    </c:forEach>
 
                 </tr>
             </table>
