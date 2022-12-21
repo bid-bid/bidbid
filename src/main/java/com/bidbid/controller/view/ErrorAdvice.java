@@ -1,5 +1,7 @@
 package com.bidbid.controller.view;
 
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -23,4 +25,15 @@ public class ErrorAdvice {
     public String error(RuntimeException e) {
         return "error/page500";
     }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    public String cantLogin(BadCredentialsException e) {
+        return "auth/login-form";
+    }
+
+    @ExceptionHandler(InternalAuthenticationServiceException.class)
+    public String invalidLogin(InternalAuthenticationServiceException e) {
+        return "auth/login-form";
+    }
+
 }
