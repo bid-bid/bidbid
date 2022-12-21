@@ -41,23 +41,38 @@ public class PurchaseAuctionService {
     public List<PurchaseAuction> findByBuyer(Principal principal) {
         Member loginMember = memberService.getLoginMember(principal);
 
-        return purchaseAuctionRepository.findAllByBuyer(loginMember);
+        return purchaseAuctionRepository.findAllByBuyer(loginMember)
+                .stream()
+                .filter(i -> i.getDeadline().isAfter(LocalDateTime.now()))
+                .collect(Collectors.toList());
     }
 
     public List<PurchaseAuction> findAllByCategory(ProductCategory category) {
-        return purchaseAuctionRepository.findAllByProductCategory(category);
+        return purchaseAuctionRepository.findAllByProductCategory(category)
+                .stream()
+                .filter(i -> i.getDeadline().isAfter(LocalDateTime.now()))
+                .collect(Collectors.toList());
     }
 
     public List<PurchaseAuction> findAllByCategoryAndProductName(ProductCategory category, String productName) {
-        return purchaseAuctionRepository.findAllByProductCategoryAndProductNameContaining(category, productName);
+        return purchaseAuctionRepository.findAllByProductCategoryAndProductNameContaining(category, productName)
+                .stream()
+                .filter(i -> i.getDeadline().isAfter(LocalDateTime.now()))
+                .collect(Collectors.toList());
     }
 
     public List<PurchaseAuction> findAllByProductName(String productName) {
-        return purchaseAuctionRepository.findAllByProductNameContaining(productName);
+        return purchaseAuctionRepository.findAllByProductNameContaining(productName)
+                .stream()
+                .filter(i -> i.getDeadline().isAfter(LocalDateTime.now()))
+                .collect(Collectors.toList());
     }
 
     public List<PurchaseAuction> findAll() {
-        return purchaseAuctionRepository.findAll(Sort.by(Sort.Direction.DESC, "deadline"));
+        return purchaseAuctionRepository.findAll(Sort.by(Sort.Direction.DESC, "deadline"))
+                .stream()
+                .filter(i -> i.getDeadline().isAfter(LocalDateTime.now()))
+                .collect(Collectors.toList());
     }
 
     public boolean isBuyer(Long id, Principal principal) {

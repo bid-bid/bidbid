@@ -44,11 +44,17 @@ public class SaleAuctionService {
     }
 
     public List<SaleAuction> findAll() {
-        return saleAuctionRepository.findAll(Sort.by(Sort.Direction.DESC, "deadline"));
+        return saleAuctionRepository.findAll(Sort.by(Sort.Direction.DESC, "deadline"))
+                .stream()
+                .filter(i -> i.getDeadline().isAfter(LocalDateTime.now()))
+                .collect(Collectors.toList());
     }
 
     public List<SaleAuction> findAllByCategory(ProductCategory category) {
-        return saleAuctionRepository.findAllByProductCategory(category);
+        return saleAuctionRepository.findAllByProductCategory(category)
+                .stream()
+                .filter(i -> i.getDeadline().isAfter(LocalDateTime.now()))
+                .collect(Collectors.toList());
     }
 
     public List<SaleAuction> findAllBySeller(Principal principal) {
@@ -64,11 +70,17 @@ public class SaleAuctionService {
     }
 
     public List<SaleAuction> findAllByProductName(String productName) {
-        return saleAuctionRepository.findAllByProductNameContaining(productName);
+        return saleAuctionRepository.findAllByProductNameContaining(productName)
+                .stream()
+                .filter(i -> i.getDeadline().isAfter(LocalDateTime.now()))
+                .collect(Collectors.toList());
     }
 
     public List<SaleAuction> findAllByCategoryAndProductName(ProductCategory category, String productName) {
-        return saleAuctionRepository.findAllByProductCategoryAndProductNameContaining(category, productName);
+        return saleAuctionRepository.findAllByProductCategoryAndProductNameContaining(category, productName)
+                .stream()
+                .filter(i -> i.getDeadline().isAfter(LocalDateTime.now()))
+                .collect(Collectors.toList());
     }
 
     public List<SaleAuction> findByBestBuyer(Principal principal) {
