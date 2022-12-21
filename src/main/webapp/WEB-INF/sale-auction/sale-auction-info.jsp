@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <html>
 <head>
@@ -88,26 +89,29 @@
             </center>
             <hr>
 
-            <center>
-                <h2 class="mypage" style="margin-bottom: 2em;">가격 제시</h2>
-            </center>
-            <div class="comment-area">
-                <form method="post" action="/api/sale-auction/${saleAuction.id}/renewal-bid">
-                    <table style="text-align: center; border: solid 1px #c9c9c9;">
-                        <tr style="background-color: #FFF;">
+            <sec:authentication property="principal" var="prc"/>
+            <c:if test="${prc.username ne saleAuction.seller.email}">
+                <center>
+                    <h2 class="mypage" style="margin-bottom: 2em;">가격 제시</h2>
+                </center>
+                <div class="comment-area">
+                    <form method="post" action="/api/sale-auction/${saleAuction.id}/renewal-bid">
+                        <table style="text-align: center; border: solid 1px #c9c9c9;">
+                            <tr style="background-color: #FFF;">
 
-                            <td style="width:50%; color: #000;">
-                                <!-- 가격 부분 --!>
-                                <input type="text" name="point" id="desired-bid" value="" placeholder="희망가" onfocusout="validateBid()"/>
-                                <div id="bid_alert" class="bid-alert">필수 정보입니다.</div>
-                            </td>
-                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;  vertical-align:middle;">
-                                <input type="submit" id="btn-primary-pull" value="등록">
-                            </td>
-                        </tr>
-                    </table>
-                </form>
-            </div>
+                                <td style="width:50%; color: #000;">
+                                    <!-- 가격 부분 --!>
+                                    <input type="text" name="point" id="desired-bid" value="" placeholder="희망가" onfocusout="validateBid()"/>
+                                    <div id="bid_alert" class="bid-alert">필수 정보입니다.</div>
+                                </td>
+                                <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;  vertical-align:middle;">
+                                    <input type="submit" class="btn-primary pull" value="등록">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </c:if>
 
         </div>
     </div>
