@@ -10,6 +10,7 @@ import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 public class Member {
     @Id
     @GeneratedValue

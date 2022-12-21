@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <html>
 <head>
@@ -22,7 +22,8 @@
             <h1 class="mypage" style="letter-spacing:0;">${purchaseAuction.auctionTitle}</h1>
             <h3 style="letter-spacing:0; margin: 0;">&nbsp ${purchaseAuction.buyer.name}</h3>
 
-            &nbsp 판매권입찰 ㆍ ${purchaseAuction.productCategory.toKorean} ㆍ ${purchaseAuction.deadline.toString().substring(0,10)} ${purchaseAuction.deadline.toString().substring(11,16)}
+            &nbsp 판매권입찰 ㆍ ${purchaseAuction.productCategory.toKorean}
+            ㆍ ${purchaseAuction.deadline.toString().substring(0,10)} ${purchaseAuction.deadline.toString().substring(11,16)}
             <hr style="margin-top:1em">
 
             <!-- 설명 -->
@@ -142,39 +143,41 @@
     function validateBid() {
         var bid = document.getElementById('desired-bid').value.trim();
         var alertEl = document.getElementById('bid_alert');
-          // 입력 여부 검증
+        // 입력 여부 검증
         if (bid.length == 0) {
             alertEl.innerHTML = '필수 정보입니다.';
             alertEl.style.display = 'block';
             return false;
         }
-          // 숫자만 가능
+        // 숫자만 가능
         if (!/^[0-9]*$/.test(bid)) {
             alertEl.innerHTML = '숫자만 입력해주세요';
             alertEl.style.display = 'block';
             return false;
-            }
+        }
         alertEl.style.display = 'none';
     }
-     //썸네일
+
+    //썸네일
     function setThumbnail(event, file) {
-        if(file){if(document.getElementById("uploaded-file") != null){
+        if (file) {
+            if (document.getElementById("uploaded-file") != null) {
                 document.getElementById("uploaded-file").remove();
             }
-                let div = document.createElement('div');
-                div.id = "uploaded-file"
-                let text = document.createTextNode(file.files[0].name);
-                div.appendChild(text);
-                document.getElementById("file-name").appendChild(div);
-            }
+            let div = document.createElement('div');
+            div.id = "uploaded-file"
+            let text = document.createTextNode(file.files[0].name);
+            div.appendChild(text);
+            document.getElementById("file-name").appendChild(div);
+        }
 
         var reader = new FileReader();
 
-        reader.onload = function(event) {
-          var img = document.createElement("img");
-          img.setAttribute("src", event.target.result);
-          img.setAttribute("style", "width:570px");
-          document.querySelector("div#image_container").appendChild(img);
+        reader.onload = function (event) {
+            var img = document.createElement("img");
+            img.setAttribute("src", event.target.result);
+            img.setAttribute("style", "width:570px");
+            document.querySelector("div#image_container").appendChild(img);
         };
         reader.readAsDataURL(event.target.files[0]);
       }

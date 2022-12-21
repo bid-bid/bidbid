@@ -64,13 +64,16 @@
                 <thead>
                     <tr align="center" style="background-color: #f6f6f6; border-bottom: solid 1px #c9c9c9; color: #000;">
                         <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                            구매 희망자
+                        </td>
+                        <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
                             제목
                         </td>
                         <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
                             희망상품
                         </td>
                         <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
-                            낙찰가
+                            승인 여부
                         </td>
                     </tr>
                 </thead>
@@ -78,13 +81,16 @@
                     <c:forEach var="purchaseAuctionParticipation" items="${purchaseAuctionParticipation}">
                         <tr align="center" style="background-color: #FFF; border-bottom: solid 1px #c9c9c9; color: #000;" onclick="location.href='../${purchaseAuctionParticipation.purchaseAuction.id}'">
                             <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
+                                ${purchaseAuctionParticipation.seller.name}
+                            </td>
+                            <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
                                 ${purchaseAuctionParticipation.purchaseAuction.auctionTitle}
                             </td>
                             <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: #000;">
                                 ${purchaseAuctionParticipation.purchaseAuction.productName}
                             </td>
                             <td style="width:25%; border-bottom: solid 1px #c9c9c9; color: red;">
-                                    반려
+                                ${purchaseAuctionParticipation.decisionState}
                             </td>
                         </tr>
                     </c:forEach>

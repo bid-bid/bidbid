@@ -8,6 +8,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -21,18 +22,26 @@ public class SecurityConfig {
     private final AuthFailureHandler authFailureHandler;
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        return http.authorizeRequests()
-                //not needs login
-                .anyRequest().permitAll()
-                // .antMatchers("/**").permitAll()
-                //.antMatchers("**").permitAll()
-                //has role "admin"
-                //.antMatchers("/admin/**").hasRole("ADMIN")
-                //needs login
-                //.anyRequest().authenticated()
-                .and()
+    public WebSecurityCustomizer configure() {
+        return (web) -> web.ignoring().mvcMatchers(
+                "/resources/**"
+        );
+    }
 
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        return http
+                .authorizeRequests()
+                //not needs login
+                .antMatchers("/").permitAll()
+                .antMatchers("/login").permitAll()
+                .antMatchers("item-info").permitAll()
+                .antMatchers("/signup").permitAll()
+                .antMatchers("/auth/login-form").permitAll()
+                .antMatchers("/api/auth/login").permitAll()
+                .antMatchers("/**").authenticated()
+                .and()
                 .formLogin().disable()
                 .csrf().disable()
                 .userDetailsService(userDetailsService)
