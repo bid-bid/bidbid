@@ -15,9 +15,6 @@ public class PurchaseAuctionParticipation {
     @GeneratedValue
     private Long id;
 
-
-    @Setter
-    @Getter
     private String image;
 
     private String description;
