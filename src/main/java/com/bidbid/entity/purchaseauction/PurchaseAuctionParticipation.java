@@ -7,6 +7,7 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
+@Setter
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class PurchaseAuctionParticipation {

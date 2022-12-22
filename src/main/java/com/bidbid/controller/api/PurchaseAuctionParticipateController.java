@@ -1,6 +1,7 @@
 package com.bidbid.controller.api;
 
 import com.bidbid.dto.purchaseauction.PurchaseAuctionParticipationRequest;
+import com.bidbid.dto.purchaseauction.UpdatePapRequest;
 import com.bidbid.service.PurchaseAuctionParticipationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -37,6 +38,13 @@ public class PurchaseAuctionParticipateController {
         }
 
         return "";
+    }
+
+    @PostMapping("{id}/update")
+    public String update(@PathVariable Long id, UpdatePapRequest dto , Model model, MultipartFile image) {
+        purchaseAuctionParticipationService.update(id, dto, image);
+
+        return "redirect:/api/purchase-auction";
     }
 
     @PostMapping("{id}/dismiss")

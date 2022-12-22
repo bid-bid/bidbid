@@ -1,6 +1,7 @@
 package com.bidbid.service;
 
 import com.bidbid.dto.purchaseauction.PurchaseAuctionParticipationRequest;
+import com.bidbid.dto.purchaseauction.UpdatePapRequest;
 import com.bidbid.entity.Member;
 import com.bidbid.entity.purchaseauction.DecisionState;
 import com.bidbid.entity.purchaseauction.PurchaseAuction;
@@ -102,5 +103,14 @@ public class PurchaseAuctionParticipationService {
     @Transactional
     public void dismiss(Long id) {
         getOne(id).dismiss();
+    }
+
+    @Transactional
+    public void update(Long id, UpdatePapRequest dto, MultipartFile image) {
+        PurchaseAuctionParticipation pap = getOne(id);
+        pap.setImage(imageService.save(image));
+        pap.setPrice(dto.getPrice());
+        pap.setDescription(dto.getDescription());
+        pap.setDecisionState(DecisionState.UNIDENTIFIED);
     }
 }
