@@ -37,14 +37,20 @@
                 <table style="margin:1em 0 0 0; ">
                     <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #FFF; background-color: #FFF; color: #000;">
                        <td colspan="3" style="width:30%; color: #000; text-align:left; border: solid 1px #c9c9c9;">
-                            <center>
-                                <c:if test="${not empty purchaseAuctionParticipation.image}">
-                                    <img style="width:70%;" src="${purchaseAuctionParticipation.image}" alt=""/>
-                                </c:if>
-                                <c:if test="${empty purchaseAuctionParticipation.image}">
-                                    <h3 class="mypage" style="margin-bottom:1em;">사진 미업로드</h3>
-                                </c:if>
-                            </center>
+                            <label id="upload-picture" class="button icon fa-upload" for="product-picture" style="letter-spacing:0; overflow: visible; margin:0">
+                               사진
+                           </label>
+                           <input type="file" name="product-picture" id="product-picture" style="display:none" accept="image/*">
+                           <div id="file-name" style="display: inline-block; margin-left: 0.5em;"></div>
+
+                           <c:if test="${not empty purchaseAuctionParticipation.image}">
+                               <div id="image_container" style="text-align: center;">
+                                    <img style="width: 500px;" id="preview-image" src="${purchaseAuctionParticipation.image}">
+                               </div>
+                           </c:if>
+                           <c:if test="${empty purchaseAuctionParticipation.image}">
+                               <h3 class="mypage" style="margin-bottom:1em;">사진 미업로드</h3>
+                           </c:if>
                         </td>
                     </tr>
                     <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
@@ -52,9 +58,10 @@
 
                         </td>
                     </tr>
-                    <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #c9c9c9; color: #000; background-color: #FFF;">
+                    <tr style="border-top: solid 1px #FFF; border-bottom: solid 1px #FFF; color: #000; background-color: #FFF;">
                         <td style="color: #000; width:60%;">
-                            제시 가격 : ${purchaseAuctionParticipation.price}
+                            <input type="text" name="price" id="desired-bid" style="padding-left:0.5em" value="${purchaseAuctionParticipation.price}" placeholder="판매 희망가" onfocusout="validateBid()"/>
+                            <div id="bid_alert" class="bid-alert">필수 정보입니다.</div>
                         </td>
                         <td style="border-bottom: solid 1px #FFF; font-weight: 900; color: #000; width:15%; text-align:right;">
                            결과 :
@@ -64,8 +71,15 @@
                         </td>
                     </tr>
                     <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
+                        <td style="color: #000; padding-left:0.5em;">
+                            <textarea name="description" id="description-bid" style="padding-left:0.75em;" placeholder="상세 설명">${purchaseAuctionParticipation.description}</textarea>
+                        </td>
+                    </tr>
+                    <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
                         <td colspan="3" style="width:40%; color: #000;">
-                            ${purchaseAuctionParticipation.description}
+                            <center>
+                                <input type="submit" class="btn-primary pull" style="padding: 0 10em 0 10em;" value="수정">
+                            </center>
                         </td>
                     </tr>
                 </table>
@@ -142,17 +156,19 @@
             }
         alertEl.style.display = 'none';
     }
-    function onFileUpload(file) {
-        console.log(file.files[0].name)
-        if(file){if(document.getElementById("uploaded-file") != null){
-            document.getElementById("uploaded-file").remove();
-        }
-            let div = document.createElement('div');
-            div.id = "uploaded-file"
-            let text = document.createTextNode(file.files[0].name);
-            div.appendChild(text);
-            document.getElementById("file-name").appendChild(div);
+    function readImage(input) {
+        if(input.files && input.files[0]) {
+            const reader = new FileReader()
+            reader.onload = e => {
+                const previewImage = document.getElementById("preview-image")
+                previewImage.src = e.target.result
+            }
+            reader.readAsDataURL(input.files[0])
         }
     }
+    const inputImage = document.getElementById("product-picture")
+    inputImage.addEventListener("change", e => {
+        readImage(e.target)
+    })
 </script>
 </html>
