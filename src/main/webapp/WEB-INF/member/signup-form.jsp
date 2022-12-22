@@ -61,7 +61,7 @@
                     <tr style="background-color: #FFF;border: 0;">
                         <td>
                             <div class="button-area">
-                                <input type="submit" value="join"></input>
+                                <input type="submit" id="sbtn" disabled value="join"></input>
                             </div>
                         </td>
                     </tr>
@@ -74,6 +74,7 @@
 </body>
 
 <script type="text/javascript">
+    const button = document.getElementById('sbtn');
 
     function validateId() {
         var userEmail = document.getElementById('userEmail').value.trim();
@@ -83,7 +84,7 @@
         if (userEmail.length == 0) {
             alertEl.innerHTML = '필수 정보입니다.';
             alertEl.style.display = 'block';
-
+            button.disabled = true;
             return false;
         }
 
@@ -92,10 +93,9 @@
         if (!/^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(userEmail)) {
             alertEl.innerHTML = '유효하지 않은 이메일 주소입니다.';
             alertEl.style.display = 'block';
-
+            button.disabled = true;
             return false;
         }
-
         alertEl.style.display = 'none';
     }
 
@@ -109,7 +109,7 @@
         if (password.length == 0) {
             alertEl.innerHTML = '필수 정보입니다.';
             alertEl.style.display = 'block';
-
+            button.disabled = true;
             return false;
         }
 
@@ -117,7 +117,7 @@
         if (password.length < 1) {
             alertEl.innerHTML = '비밀번호는 1글자 이상 입력해주세요.';
             alertEl.style.display = 'block';
-
+            button.disabled = true;
             return false;
         }
 
@@ -125,7 +125,7 @@
         if (!/^[A-Za-z0-9]*$/.test(password)) {
             alertEl.innerHTML = '비밀번호는 영문 대문자,소문자, 숫자만 입력 가능합니다.';
             alertEl.style.display = 'block';
-
+            button.disabled = true;
             return false;
         }
 
@@ -133,7 +133,7 @@
         if (cPassword.length == 0) {
             cAlertEl.innerHTML = '필수 정보입니다.';
             cAlertEl.style.display = 'block';
-
+            button.disabled = true;
             return false;
         }
 
@@ -141,7 +141,7 @@
         if (cPassword.length < 1) {
             cAlertEl.innerHTML = '비밀번호는 5글자 이상 입력해주세요.';
             cAlertEl.style.display = 'block';
-
+            button.disabled = true;
             return false;
         }
 
@@ -149,7 +149,7 @@
         if (!/^[A-Za-z0-9]*$/.test(cPassword)) {
             cAlertEl.innerHTML = '비밀번호는 영문 대문자,소문자, 숫자만 입력 가능합니다.';
             cAlertEl.style.display = 'block';
-
+            button.disabled = true;
             return false;
         }
 
@@ -157,12 +157,13 @@
         if (password != cPassword) {
             cAlertEl.innerHTML = '비밀번호가 일치하지 않습니다.';
             cAlertEl.style.display = 'block';
-
+            button.disabled = true;
             return false;
         }
 
         alertEl.style.display = 'none';
         cAlertEl.style.display = 'none';
+        button.disabled = false;
     }
 
     function validateName() {
@@ -173,27 +174,11 @@
         if (name.length == 0) {
             alertEl.innerHTML = '필수 정보입니다.';
             alertEl.style.display = 'block';
-
+            button.disabled = true;
             return false;
         }
-
         alertEl.style.display = 'none';
     }
-
-
-    /*function validJoin() {
-       var password = document.getElementById('pwd').value.trim();
-       var cPassword = document.getElementById('pwdChk').value.trim();
-       var userId = document.getElementById('userId').value.trim();
-
-       if(password != 0 && cPassword != 0 && userId != 0 && pl != 0 && ph != 0 && birthYear != 0 && birthDay != 0){
-
-       }
-       else{
-          alert("빈 칸을 모두 채워주세요.");
-       }
-    }
-    */
 </script>
 </html>
 
