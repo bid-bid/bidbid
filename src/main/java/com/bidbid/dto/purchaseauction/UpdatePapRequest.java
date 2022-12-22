@@ -12,9 +12,4 @@ import lombok.Setter;
 public class UpdatePapRequest {
     private Integer price;
     private String description;
-
-    public UpdatePapRequest(Integer price, String description) {
-        this.price = price;
-        this.description = description;
-    }
 }
