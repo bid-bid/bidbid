@@ -60,7 +60,7 @@
                     <tr style="background-color: #FFF; color: #000; border-bottom: solid 1px #FFF; ">
                         <td style="border-bottom: solid 1px #FFF; color: #000;">
                             <center>
-                                <input type="submit" class="btn-primary pull" style="padding: 0 10em 0 10em;" value="등록">
+                                <input type="submit" id="sbtn" class="btn-primary pull" style="padding: 0 10em 0 10em;" disabled value="등록">
                             </center>
                         </td>
                     </tr>
@@ -147,23 +147,26 @@
 
 <script>
     function validateBid() {
+        const button = document.getElementById('sbtn');
         var bid = document.getElementById('desired-bid').value.trim();
         var alertEl = document.getElementById('bid_alert');
         // 입력 여부 검증
         if (bid.length == 0) {
             alertEl.innerHTML = '필수 정보입니다.';
             alertEl.style.display = 'block';
+            button.disabled = true;
             return false;
         }
         // 숫자만 가능
         if (!/^[0-9]*$/.test(bid)) {
             alertEl.innerHTML = '숫자만 입력해주세요';
             alertEl.style.display = 'block';
+            button.disabled = true;
             return false;
         }
         alertEl.style.display = 'none';
+        button.disabled = false;
     }
-
     //썸네일
     function setThumbnail(event, file) {
         if (file) {
