@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  spring:
+    image: phjppo0918/bidbid
+    environment: 
+      - 
+    ports:
+      - "80:8080"
+    restart: always

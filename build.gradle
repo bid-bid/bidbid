@@ -11,7 +11,7 @@ sourceCompatibility = '17'
 
 jib {
     from {
-        image = "openjdk:17-jre-slim"
+        image = "openjdk:17-alpine"
     }
     to {
         image = "phjppo0918/bidbid"
